@@ -28,37 +28,40 @@
             z-index: 3
         }
    }
-   .filter-modal {
-    position: absolute;
-    z-index: 2;
-    background-color:$clr1;
-    border: 1px solid #B0B0B0;
-    border-radius: 8px;
-    padding: 10px;
-    // top:1000;
-    // left:100;
-    width: 200px;
-    height: 200px;
-    justify-content: space-between;
-    // background-color: papayawhip;
+
+   .input-container {
+       border: 1px solid black;
+       border-radius: 2px;
+       margin-bottom: 10px;
+       
+       input {
+           border: none;
+           outline: none;
+           padding: 10px;
+           width: 100px;
+           
+       }
+   }
+   
+    .filter-modal {
+        position: absolute;
+        z-index: 2;
+        background-color:$clr1;
+        border: 1px solid #B0B0B0;
+        border-radius: 8px;
+        padding: 10px;
+        justify-content: space-between;
+        margin-top: 8px;
+        .btn-container {
+        display: flex;
+        justify-content: space-between;
+        }
+        .price-filter-container {
+            justify-content: space-evenly;
+        }
+
+        ::placeholder {
+            font-size: 12px;
+        }
+    }
 }
-.filter-modal-overlay {
-    position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-//   z-index: 0;
-} 
-}
-
-
-
-
-
-
-

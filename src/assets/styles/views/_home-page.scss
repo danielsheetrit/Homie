@@ -1,0 +1,69 @@
+.stay-home {
+
+    > h2 {
+        margin-block-start: rem(75px);
+    }
+
+    h2 {
+        padding-bottom: rem(16px);
+        font-family: Roboto-medium;
+        color: $clr3;
+    }
+
+    .home-hero {
+        position: relative;
+        background: url(../../img/vintage.jpg) no-repeat;
+        background-position: center bottom;
+        background-size: cover;
+        height: 85vh;
+        flex-direction: column;
+        color: $clr1;
+
+        h1 {
+            font-size: 3rem;
+            margin-inline-start: rem(50px);
+        }
+
+        h2 {
+            color: $clr1;
+            margin-inline-start: rem(50px);
+            font-size: 4rem;
+        }
+    }
+    
+    .best-loc {
+        flex-direction: column;
+        margin-block-end: rem(75px);
+
+        .stay-list {
+            width: 100%;
+        }
+    }
+
+    .become-host {
+        height: rem(360px);
+        background-color: $clr3;
+        margin-block-end: rem(75px);
+    }
+}
+.mini-header {
+    header {
+        background-color: $clr1;
+        nav {
+            >a {
+                color: $clr5;
+            }
+            ul a{
+                color: $clr3;
+            }
+        }
+    }
+    .stay-search {
+        form {
+            visibility: hidden;
+        }
+        .search-bar.hidden {
+            display: flex;
+        }
+    }
+}

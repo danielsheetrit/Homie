@@ -1,0 +1,33 @@
+.stay-preview {
+    width: 244px;
+    margin-bottom: 6px;
+    // height: 264;
+    // .stay-image-container {
+    //     width: 200px;
+    //     height: 200px;
+    // }
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-start;
+    // align-items: center;
+    a > * {
+        margin-bottom: 5px;
+     }
+    
+    .stay-image-container {
+        margin-bottom: 8px;
+        // border-radius: 8px;
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+            // overflow: hidden;
+            object-fit: cover
+        }
+    }
+
+    .price {
+        font-weight: bold;
+    }
+
+}

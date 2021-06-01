@@ -1,0 +1,103 @@
+.review-modal-overlay {
+    background-color: rgb(255, 255, 255);
+    width: rem(530px);
+    height: rem(350px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: rem(8px);
+    box-shadow: 0 0 rem(5px) #00000070;
+    padding: rem(15px);
+}
+
+.review-modal {
+
+    .review-writer-modal {
+        margin: 1rem rem(8px); 
+    }
+
+    .review-writer-modal-details {
+        margin-left: rem(12px);
+        & :first-child {
+            font-family: Roboto-medium;
+            padding-bottom: rem(4px);
+            color: $clr3;
+        }
+    }
+
+    .add-review-btn {
+        border-radius: rem(8px);
+        padding: rem(10px) rem(42px);
+        border: 1px solid $clr3;
+        margin-top: 1rem; 
+        font-family: Roboto-medium;
+        color: $clr3;
+        font-size: 1rem;
+        position: absolute;
+        bottom: rem(20px);
+        right: 18px;
+        transition: 0.3s;
+        
+        &:hover {
+            background-color: rgb(240, 240, 240);
+            transition: 0.3s;
+        }
+    }
+
+    .exit-modal-btn {
+        color: $clr2;
+        background-color: $clr7;
+        border-radius: rem(8px);
+        width: rem(42px);
+        height: rem(42px);
+        position: absolute;
+        top: rem(8px);
+        right: rem(8px);
+
+        &:hover {
+            color: $clr6;
+        }
+    }
+
+    > * {
+        margin-left: rem(8px);
+    }
+
+    h2 {
+        font-family: Roboto-medium;
+        color: $clr3;
+        margin-top: rem(4px);
+        margin-bottom: rem(32px);
+    }
+
+    textarea {
+        font-family: Roboto-regular;
+        margin-top: rem(4px);
+        width: rem(300px);
+        height: rem(100px);
+        outline: none;
+        background-color: $clr7;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        padding: 8px;
+        resize: none;
+    }
+
+    fieldset {
+        margin: .5rem 0;
+        label {
+            color: $clr5;
+            &:hover {
+                color: $clr5;
+            }
+        }
+        .rating-box-label {
+            color: $clr2;
+            &:hover {
+                color: $clr2;
+            }
+        }
+    }
+}

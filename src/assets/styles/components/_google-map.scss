@@ -1,0 +1,21 @@
+.google-map-container {
+    padding: rem(48px) 0;
+    border-bottom: 1px solid $clr7;
+
+    h2 {
+        font-family: Roboto-medium;
+        color: $clr3;
+        padding-bottom: rem(24px);
+    }
+
+    span {
+        font-family: Roboto-light;
+    }
+}
+
+.map-container {
+    margin-top: 1rem;
+    width: 70vw;
+    height: 500px;
+    position: relative;
+}

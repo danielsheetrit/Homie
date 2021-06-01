@@ -1,0 +1,26 @@
+.DateRangePickerInput {
+    background: transparent !important;
+    margin: 0;
+    padding: 0;
+    .DateRangePickerInput_1{
+        max-width: 200px !important;
+        max-height: 20px !important;
+    }
+    .DateInput_input__small {
+        padding: 0;
+        &.DateInput_input__small_2{
+            font-size: 13px;
+        }
+        
+    }
+    > div {
+        background: transparent;
+    }
+    .DateRangePickerInput_arrow_1 {
+        visibility: hidden;
+    }
+}
+
+// .DateInput_input.DateInput_input_1.DateInput_input__small{
+// font-size: 15px ;
+// }

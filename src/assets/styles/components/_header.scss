@@ -1,0 +1,27 @@
+header {
+    padding: 1rem;
+    position: fixed;
+    background-color: transparent;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    a {
+        color: $clr1;
+        &:visited {
+            color: $clr1;
+        }
+    }
+    .app-header {
+        position: relative;
+        max-width: 1024px;
+        justify-content: space-between;
+        width: 100%;
+        .nav-link {
+            & *:not(:last-child){
+                margin-inline-end: 1rem;
+            }
+        }
+    }
+}
+

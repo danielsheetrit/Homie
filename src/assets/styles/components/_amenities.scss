@@ -1,0 +1,38 @@
+.amenities-container {
+    padding: rem(48px) 0;
+    color: $clr3;
+
+    .missing {
+        color: $clr6;
+        svg {
+            color: $clr7;
+        }
+    }
+
+    .first {
+        margin-right: rem(100px);
+    }
+
+    .amenity-container {
+        padding-bottom: rem(16px);
+        
+    }
+
+    h2 {
+        font-size: rem(22px);
+        font-family: Roboto-medium;
+        padding-bottom: rem(24px);
+    }
+
+    span {
+        font-family: Roboto-light;
+        font-size: 14px;
+    }
+
+    svg {
+        color: $clr2;
+        margin-right: rem(16px);
+        max-width: rem(26px);
+        max-height: rem(26px);
+    }
+}

@@ -1,0 +1,64 @@
+.stay-filter-2 {
+    font-family: 'Roboto-Medium';
+    
+    .filter-header {
+        font-size: rem(32px);
+        height: rem(36px);
+        margin-bottom: 30px;
+        margin-top: 100px;
+        color: $clr3
+    }
+    .btn-group {
+        // background-color: red;
+        position: relative;
+        margin-bottom: 30px;
+            button {
+            padding: 8px 16px;
+            font-size: rem(14px);
+            margin: 4px 8px 4px 0px;
+            border: 1px solid $clr6;
+            border-radius: 30px;        
+
+        &:hover {
+        border-color: $clr2;
+        }
+        
+        }
+        button {
+            z-index: 3
+        }
+   }
+   .filter-modal {
+    position: absolute;
+    z-index: 2;
+    background-color:$clr1;
+    border: 1px solid #B0B0B0;
+    border-radius: 8px;
+    padding: 10px;
+    // top:1000;
+    // left:100;
+    width: 200px;
+    height: 200px;
+    justify-content: space-between;
+    // background-color: papayawhip;
+}
+.filter-modal-overlay {
+    position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+//   z-index: 0;
+} 
+}
+
+
+
+
+
+
+

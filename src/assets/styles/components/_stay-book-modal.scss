@@ -1,0 +1,75 @@
+.stay-book-modal {
+    position: sticky;
+    top: 100px;
+    width: 350px;
+    height: 250px;
+    margin-bottom: rem(48px);
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
+    border: 1px solid #d3d3d3;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px $clr6;
+    padding: 24px;
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        span.price {
+            font-family: 'Roboto-Bold';
+            // font-weight: 900;
+            font-size: rem(22px);
+            // color:red
+        }
+
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        .form-select {
+            border: 1px solid $clr2;
+            border-radius: 12px;
+
+        }
+
+        input {
+            font-size: rem(14px);
+            border: none;
+            outline: none;
+            text-align: center;
+            width: 20px;
+            padding: 5px 10px;
+        }
+        
+        input:last-of-type {
+            width: 100%;
+        }
+        .DateInput_input  {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    }
+
+    form > * {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .DateRangePicker {
+        width: 100%;
+        border-bottom: 1px solid black;
+        margin-bottom: 10px;
+
+        .DateRangePickerInput {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .DateRangePickerInput_arrow  {
+            background-color: red;
+        }
+        
+    }
+}

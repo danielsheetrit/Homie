@@ -1,6 +1,8 @@
 import { Component } from 'react'
+import { connect } from 'react-redux'
+import { getUsers, onLogout, onSignup, onLogin } from '../store/actions/user.actions'
 
-export class LoginSignup extends Component {
+class _LoginSignup extends Component {
     state = {
         isSignup: '',
         userInfo: {
@@ -17,6 +19,7 @@ export class LoginSignup extends Component {
     componentDidMount() {
         const isSignup = this.props.match.path === '/login' ? 'login' : 'signup'
         this.setState({ isSignup })
+        this.props.getUsers()
     }
 
     handleChange = ({ target }) => {
@@ -33,9 +36,10 @@ export class LoginSignup extends Component {
     onSubmitUser = ev => {
         ev.preventDefault()
         const { isSignup, userInfo, credentials } = this.state
-        const { onLogin, onSignup } = this.props
+        const { onSignup, onLogin } = this.props
+        console.log(userInfo)
         isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
-        this.props.history.push('/toy')
+        this.props.history.push('/') 
     }
 
     render() {
@@ -70,7 +74,24 @@ export class LoginSignup extends Component {
                         </form>
                     </section>
                 }
+                {}
             </>
         )
     }
 }
+
+function mapStateToProps(state) {
+    const { users } = state.userModule
+    return {
+        users
+    }
+}
+
+const mapDispatchToProps = {
+    getUsers,
+    onLogout,
+    onSignup,
+    onLogin
+}
+
+export const LoginSignup = connect(mapStateToProps, mapDispatchToProps)(_LoginSignup)

@@ -1601,16 +1601,7 @@ async function save(stay) {
     }
 }
 
-<<<<<<< HEAD
-async function remove(stayId) {
-    // const toy = await axios.delete(`${BASE_URL}/${toyId}`)
-    // return toy.data
-    return await asyncStorage.remove(KEY, stayId)
-}
-
-=======
 async function remove(id) {
     return await httpService.delete(`stay/${id}`)
     // return await asyncStorage.remove(KEY, stayId)
 }
->>>>>>> d7b4a390b402ebf0c5c24f9328963adb19573e9d

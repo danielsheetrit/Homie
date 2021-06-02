@@ -22,7 +22,11 @@ export class _App extends Component {
       <div className="app main-container" >
         <AppHeader />
         <Switch>
-          {routes.map(route => <Route key={route.path} exact component={route.component} path={route.path} />)}
+          {routes.map(route =>
+            <Route
+              key={route.path}
+              exact component={route.component}
+              path={route.path} />)}
         </Switch>
         <Footer />
       </div>

@@ -4,26 +4,33 @@ import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
 import { StayList } from '../cmps/StayList.jsx'
 
-import { setSearchMode } from '../store/actions/app.actions'
-
 class _Home extends Component {
 
     componentDidMount() {
-        this.props.setSearchMode(true)
-        
         window.scrollTo(0, 0)
-        window.onscroll = () => {
-            if (window.pageYOffset >= 150) {
-                document.body.classList.add('mini-header')
-            } else {
-                document.body.classList.remove('mini-header')
-            }
-        }
+        document.body.classList.remove('mini-header')
+        document.body.classList.add('hide-mini-search')
+        this.handleScroll(true)
     }
 
     componentWillUnmount() {
-        this.props.setSearchMode(false)
-        window.onscroll = null;
+        this.handleScroll(false)
+    }
+
+    handleScroll = (isListen) => {
+        if (isListen) {
+            window.onscroll = () => {
+                if (window.pageYOffset >= 85) {
+                    document.body.classList.add('mini-header')
+                    document.body.classList.remove('hide-mini-search')
+                } else {
+                    document.body.classList.remove('mini-header')
+                    document.body.classList.add('hide-mini-search')
+                }
+            }
+        } else {
+            window.onscroll = null;
+        }
     }
 
     render() {
@@ -59,13 +66,11 @@ class _Home extends Component {
 function mapStateToProps(state) {
     return {
         stays: state.stayModule.stays,
-        isSearchMode: state.stayModule.isSearchMode
     }
 }
 
 const mapDispatchToProps = {
     getStays,
-    setSearchMode
 }
 
 export const Home = connect(mapStateToProps, mapDispatchToProps)(_Home)

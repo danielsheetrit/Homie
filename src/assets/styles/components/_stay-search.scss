@@ -1,68 +1,87 @@
 .stay-search {
-    flex-direction: column;
-    border-radius: 2rem;
-    cursor: pointer;
 
-    .search-bar {
-        border-radius: 2rem;
-        border: 1px solid grey;
-        width: 200px;
-        background-color: transparent;
-        padding: 0.5rem;
-        position: relative;
-        &.hidden {
-            display: none;
-        }
+    .search-mini {
+        width: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -23px);
+        font-size: rem(14px);
+        font-family: Roboto-medium;
+        background-color: $clr1;
+        color: $clr3;
+        padding: rem(15px);
+        border-radius: rem(999px);
+        border: 1px solid rgba(128, 128, 128, 0.3);
+        box-shadow: 0px 0px 5px #2222224a;
+        cursor: pointer;
+
         .svg-inline--fa.fa-w-16 {
-            color: #fdfdfd;
-            border-radius: 50%;
-            background-color: #d70466;
             position: absolute;
-            right: em(2px);
-            top: em(2px);
-            font-size: 1.8rem;
-            padding: em(3px);
+            top: rem(7.5px);
+            right: rem(7px);
+            font-size: rem(32px);
+            padding: em(5px);
+            border-radius: rem(999px);
+            background-color: $clr4;
+            color: #fdfdfd;
         }
     }
 
     form {
+        width: 638px;
         position: absolute;
-        // transform: translateY(60px);
-        // transition: transform 0.4;
-        
-        right: rem(193px);
-        top: rem(70px);
-        border: 1px solid gray;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, rem(40px));
+        border: 1px solid rgba(128, 128, 128, 0.3);
         cursor: pointer;
-        border-radius: 2rem;
+        border-radius: rem(999px);
         background-color: $clr1;
-        // &.hiden {
-        //     visibility: hidden;
-        // }
+        box-shadow: 0px 0px 5px #2222224a;
 
         label {
+            font-size: rem(14px);
+            font-family: Roboto-medium;
             color: $clr3;
         }
-        input,
-        label {
+
+        input {
             cursor: pointer;
             border: none;
             outline: none;
             background-color: inherit;
-            border-radius: 2rem;
+            border-radius: rem(999px);
+            font-family: Roboto-light;
         }
+
         button {
+            position: absolute;
             border-radius: 50%;
-            height: 40px;
+            padding: .9rem;
             margin: 0.2rem;
+            background-color: $clr4;
+            right: rem(4px);
+            top: rem(5.5px);
+
+            svg {
+                color: $clr1;
+                background-color: $clr4;
+                font-size: 1rem;
+            }
         }
+        
         .search-input {
-            border-radius: 2rem;
-            transition: ease-in-out 0.3s;
-            padding: 0.1rem 0 0.1rem 2rem;
+            border-radius: rem(999px);
+            padding: .7rem 1.5rem;
+            
             &:hover {
                 background-color: darken($clr1, 10%);
             }
         }
     }
+}
+
+.DayPickerKeyboardShortcuts_show {
+    display: none;
 }

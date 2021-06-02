@@ -34,3 +34,14 @@ export function onRemoveStay(stayId) {
         }
     }
 }
+
+export function onSetCurrentPage(page) {
+    return dispach => {
+        dispach({ type: 'SET_CURRENTPAGE', page })
+    }
+}
+export function onSetIsSearchMode(isSearchMode) {
+    return dispach => {
+        dispach({ type: 'SET_ISSEARCHMODE', isSearchMode })
+    }
+}

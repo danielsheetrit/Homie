@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { AvatarSymbol } from './AvatarSymbol.jsx'
 import { StayRate } from './StayRate.jsx'
 
@@ -37,7 +37,6 @@ export class Reviews extends Component {
     }
 
     openModal = () => {
-        
         this.setState({ modalIsOpen: true })
     }
 
@@ -90,7 +89,12 @@ export class Reviews extends Component {
                         </div>
                     </div>
                     <form>
-                        <Box className="flex column" component="fieldset" mb={3} borderColor="transparent">
+                        <Box
+                            className="flex column"
+                            component="fieldset"
+                            mb={3}
+                            borderColor="transparent"
+                        >
                             <label
                                 className="rating-box-label"
                                 htmlFor="review-rating">Rate the host:</label>
@@ -116,7 +120,6 @@ export class Reviews extends Component {
                             className="add-review-btn"
                         >Add</button>
                     </form>
-
                     <button className="exit-modal-btn" onClick={this.closeModal}>
                         <FontAwesomeIcon icon={faTimes} size="2x" />
                     </button>

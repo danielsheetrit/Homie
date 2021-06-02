@@ -1613,3 +1613,4 @@ async function remove(stayId) {
     // return toy.data
     return await asyncStorage.remove(KEY, stayId)
 }
+

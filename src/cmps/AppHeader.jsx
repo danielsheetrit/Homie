@@ -4,9 +4,9 @@ import { StaySearch } from './StaySearch'
 export function AppHeader() {
 
     return (
-        <header className={`flex justify-center full`}>
-            <nav className="app-header flex ">
-                <NavLink to="/"><h1 className="logo">AirDoD</h1></NavLink>
+        <header className="flex">
+            <nav className="nav-header">
+                <NavLink to="/"><h1 className="logo">Homie</h1></NavLink>
                 <StaySearch />
                 <ul className="nav-link clean-list flex">
                     <li ><NavLink to="/login">login</NavLink></li>

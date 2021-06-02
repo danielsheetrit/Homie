@@ -1,0 +1,29 @@
+.mini-header {
+    header {
+        box-shadow: 0px 0px 5px #2222224a;
+        transition: all 0.1s ease-out;
+        background-color: $clr1;
+
+        nav {
+            > a {
+                color: $clr4;
+            }
+            ul a {
+                color: $clr3;
+            }
+        }
+    }
+    .stay-search {
+        form {
+            transform: scale(0);
+            visibility: hidden;
+        }
+    }
+}
+
+.hide-mini-search {
+    .search-mini {
+        opacity: 0;
+        pointer-events: none;
+    }
+}

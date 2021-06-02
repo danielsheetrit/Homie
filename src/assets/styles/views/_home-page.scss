@@ -12,8 +12,9 @@
 
     .home-hero {
         position: relative;
-        background: url(../../img/vintage.jpg) no-repeat;
-        background-position: center bottom;
+        background: url(../../img/sunset.jpg) no-repeat;
+        background-position: center;
+        background-attachment: fixed;
         background-size: cover;
         height: 85vh;
         flex-direction: column;
@@ -44,26 +45,5 @@
         height: rem(360px);
         background-color: $clr3;
         margin-block-end: rem(75px);
-    }
-}
-.mini-header {
-    header {
-        background-color: $clr1;
-        nav {
-            >a {
-                color: $clr5;
-            }
-            ul a{
-                color: $clr3;
-            }
-        }
-    }
-    .stay-search {
-        form {
-            visibility: hidden;
-        }
-        .search-bar.hidden {
-            display: flex;
-        }
     }
 }

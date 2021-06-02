@@ -1,33 +1,38 @@
 .stay-preview {
     width: 244px;
     margin-bottom: 6px;
-    // height: 264;
-    // .stay-image-container {
-    //     width: 200px;
-    //     height: 200px;
-    // }
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: flex-start;
-    // align-items: center;
+
     a > * {
         margin-bottom: 5px;
-     }
-    
+    }
+
     .stay-image-container {
         margin-bottom: 8px;
-        // border-radius: 8px;
 
         img {
             width: 100%;
             border-radius: 8px;
-            // overflow: hidden;
-            object-fit: cover
+            object-fit: cover;
         }
     }
 
-    .price {
-        font-weight: bold;
+    p:first-of-type {
+        font-size: rem(14px);
+        font-family: Roboto-medium;
     }
 
+    p.long-txt {
+        margin-bottom: rem(8px);
+        color: $clr2;
+        font-family: Roboto-light;
+    }
+
+    p:last-of-type {
+        font-size: rem(14px);
+        color: $clr3;
+        span {
+            font-size: 1rem;
+            font-family: Roboto-bold;
+        }
+    }
 }

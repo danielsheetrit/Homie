@@ -22,6 +22,8 @@ export class StayDetails extends Component {
     componentDidMount() {
         this.setStayDetails()
         window.scrollTo(0, 0)
+        document.body.classList.add('mini-header')
+        document.body.classList.remove('hide-mini-search')
     }
 
     async setStayDetails() {

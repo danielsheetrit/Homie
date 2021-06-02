@@ -45,3 +45,16 @@ export function onSetIsSearchMode(isSearchMode) {
         dispach({ type: 'SET_ISSEARCHMODE', isSearchMode })
     }
 }
+
+export function getFilter(filterBy) {
+    console.log('actionnnnnnnnnn', filterBy)
+    return async dispatch => {
+        try {
+            dispatch({ type: 'SET_FILTER', filterBy })
+
+        } catch (err) {
+            console.log('StaysActions: err in getFilter', err)
+        }
+    }
+}
+

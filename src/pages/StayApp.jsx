@@ -8,8 +8,6 @@ export class _StayApp extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
-        document.body.classList.add('mini-header')
-        document.body.classList.remove('hide-mini-search')
     }
 
     onSetFilter = (filterBy) => {
@@ -19,7 +17,6 @@ export class _StayApp extends Component {
     render() {
         const { stays } = this.props
         if (!stays) return <h1>reloading</h1>
-
 
         return (
             <section className="stay-app">

@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
@@ -39,15 +39,29 @@ class _StaySearch extends Component {
     }
 
     handleSearchMini = () => {
-        document.body.classList.remove('mini-header')
-        document.body.classList.add('hide-mini-search')
+        document.body.classList.add('header-onclick-mode')
+        document.addEventListener('mouseup', this.closeHeaderOnclickMode);
+    }
+
+    closeHeaderOnclickMode = ev => {
+        const node = this.props.node
+        if (node.current.contains(ev.target)) {
+            return
+        } else {
+            document.body.classList.remove('header-onclick-mode')
+            document.removeEventListener('mouseup', this.closeHeaderOnclickMode);
+        }
     }
 
     render() {
 
+        console.log(this.props.node);
+
         return (
             <section className="stay-search flex align-center">
-                <div onClick={this.handleSearchMini} className="search-mini">
+                <div className="search-mini"
+                    onClick={this.handleSearchMini}
+                >
                     Start your search
                     <FontAwesomeIcon icon={faSearch} />
                 </div>

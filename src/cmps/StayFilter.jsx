@@ -2,15 +2,16 @@
 import React, { Component } from 'react'
 import { Checkbox } from '@material-ui/core';
 import { RangeSlider } from './RangeSlider.jsx';
+import { connect } from 'react-redux'
+import { getFilter } from '../store/actions/stay.actions'
 
 
-export class StayFilter extends Component {
+class _StayFilter extends Component {
     state = {
         node: React.createRef(),
         currentBtnId: null,
         filterBy: {
-            minPrice: 0,
-            maxPrice: 300,
+            types: []
         },
         data: [{ id: 0, name: "Price" }, { id: 1, name: "Type of place" }, { id: 2, name: "Amenities", }, { id: 3, name: "Stay Rules" }]
     }
@@ -30,20 +31,28 @@ export class StayFilter extends Component {
 
     closeModal = (ev) => {
         if (!this.node.contains(ev.target) || this.node === ev.target) {
-            console.log('closeModal');
             this.setState({ currentBtnId: null })
         }
     }
 
     handleChange = ({ target }) => {
         let { name, value, type } = target
+        console.log('type', type, 'name', name, 'value')
         value = type === 'number' ? +value : value
-
         const { filterBy } = this.state
-        this.setState({ filterBy: { ...filterBy, [name]: value } }, () => {
-            const { filterBy } = this.state
-            this.props.onSetFilter(filterBy)
-        })
+        if (type === 'checkbox') {
+            this.setState({ filterBy: { ...filterBy, types: [...filterBy.types, name] } }, () => {
+                this.props.getFilter(filterBy)
+                console.log('this.props.filterBy', this.props.filterBy)
+            })
+
+        } else {
+
+            this.setState({ filterBy: { ...filterBy, [name]: value } }, () => {
+                // this.props.onSetFilter(filterBy)
+                this.props.getFilter(filterBy)
+            })
+        }
     }
 
     render() {
@@ -72,10 +81,27 @@ export class StayFilter extends Component {
         );
     }
 }
+
+
+function mapStateToProps(state) {
+    return {
+        filterBy: state.stayModule.filterBy
+    }
+}
+
+const mapDispatchToProps = {
+    getFilter,
+}
+
+export const StayFilter = connect(mapStateToProps, mapDispatchToProps)(_StayFilter)
+
+
+
+
 const Modal = ({ name, id, toggleModal, closeModal, handleChange, minPrice, maxPrice }) => (
     <>
         <div onClick={(ev) => { closeModal(ev) }}></div>
-        <div className="filter-modal flex column" onClick={(ev) => { ev.stopPropagation(); console.log('stopprop') }}>
+        <div className="filter-modal flex column" onClick={(ev) => { ev.stopPropagation() }}>
             {name === 'Price' && <PriceFilter handleChange={handleChange} minPrice={minPrice} maxPrice={maxPrice} />}
             {name === 'Type of place' && <TypeFilter handleChange={handleChange} />}
             {name === 'Amenities' && <AmenitiesFilter handleChange={handleChange} />}
@@ -115,7 +141,9 @@ const TypeFilter = ({ handleChange }) => {
                 return <label key={idx} htmlFor={type}><Checkbox
                     // color="secondary"
                     color="default"
+                    name={type}
                     id={type}
+                    onChange={handleChange}
                     inputProps={{ 'aria-label': 'checkbox with default color' }}
                 />{labelValues[idx]}</label>
             })}
@@ -149,10 +177,6 @@ const AmenitiesFilter = ({ handleChange }) => {
     ]
     const firstAmenitiesDiv = amenities.slice(0, 5)
     const secondAmenitiesDiv = amenities.slice(5, 10)
-    console.log('firstAmenitiesDiv', firstAmenitiesDiv)
-    console.log('secondAmenitiesDiv', secondAmenitiesDiv)
-    console.log('amenities', amenities)
-    // const secondAmenitiesDiv = firstAmenitiesDiv
     return (
         <form className="flex">
             <div className="flex column">
@@ -160,13 +184,14 @@ const AmenitiesFilter = ({ handleChange }) => {
                     return <label key={idx} htmlFor={type}><Checkbox
                         color="default"
                         id={type}
+                        name={type}
+                        onChange={handleChange}
                         inputProps={{ 'aria-label': 'checkbox with default color' }}
                     />{labelValues[idx]}</label>
                 })}
             </div>
             <div className="flex column">
                 {secondAmenitiesDiv.map((type, idx) => {
-                    console.log(type)
                     return <label key={idx} htmlFor={type}><Checkbox
                         color="default"
                         id={type}
@@ -187,6 +212,8 @@ const RulesFilter = ({ handleChange }) => {
                 return <label key={idx} htmlFor={type}><Checkbox
                     color="default"
                     id={type}
+                    name={type}
+                    onChange={handleChange}
                     inputProps={{ 'aria-label': 'checkbox with default color' }}
                 />{labelValues[idx]}</label>
             })}

@@ -20,7 +20,6 @@ export class _StayApp extends Component {
         const { stays } = this.props
         if (!stays) return <h1>reloading</h1>
 
-
         return (
             <section className="stay-app">
                 <StayFilter onSetFilter={this.onSetFilter} />

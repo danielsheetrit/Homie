@@ -13,7 +13,7 @@ import { getStays } from './store/actions/stay.actions.js'
 export class _App extends Component {
 
   componentDidMount() {
-    this.props.getStays()
+    this.props.getStays(this.props.filterBy)
   }
 
   render() {
@@ -34,8 +34,15 @@ export class _App extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  getStays,
+function mapStateToProps(state) {
+  return {
+    filterBy: state.stayModule.filterBy
+  }
 }
 
-export const App = connect(null, mapDispatchToProps)(_App)
+const mapDispatchToProps = {
+  getStays,
+
+}
+
+export const App = connect(mapStateToProps, mapDispatchToProps)(_App)

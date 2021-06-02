@@ -1,7 +1,10 @@
 const initialState = {
     stays: [],
     currentPage: '',
-    isSearchMode: true
+    isSearchMode: true,
+    filterBy: {
+        x: 24
+    }
 }
 
 export function stayReducer(state = initialState, action) {
@@ -15,9 +18,11 @@ export function stayReducer(state = initialState, action) {
         case 'REMOVE_STAY':
             return { ...state, stays: state.stays.filter(stay => stay._id !== action.stayId) }
         case 'SET_CURRENTPAGE':
-            return {...state, currentPage: action.page }
+            return { ...state, currentPage: action.page }
         case 'SET_ISSEARCHMODE':
-            return {...state, isSearchMode: action.isSearchMode }
+            return { ...state, isSearchMode: action.isSearchMode }
+        case 'SET_FILTER':
+            return { ...state, filterBy: { ...state.filterBy, ...action.filterBy } }
         default:
             return state
     }

@@ -1581,6 +1581,7 @@ export const stayService = {
 // asyncStorage._save(KEY, gStays)
 
 async function query(filterBy) {
+    console.log('FRONT', filterBy)
     return await httpService.get('stay/', filterBy)
     // const res = await asyncStorage.query(KEY, filterBy)
     // return res

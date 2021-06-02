@@ -5,15 +5,16 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -23px);
+        transform: translate(-50%, -24px);
+        // transition: all 0.150s ease-out;
         font-size: rem(14px);
         font-family: Roboto-medium;
         background-color: $clr1;
         color: $clr3;
         padding: rem(15px);
         border-radius: rem(999px);
-        border: 1px solid rgba(128, 128, 128, 0.3);
-        box-shadow: 0px 0px 5px #2222224a;
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        box-shadow: 0px 0px 5px #22222227;
         cursor: pointer;
 
         .svg-inline--fa.fa-w-16 {
@@ -29,17 +30,21 @@
     }
 
     form {
-        display: none;
-        width: 638px;
+        width: rem(638px);
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, rem(40px));
+        margin-top: rem(75px);
         border: 1px solid rgba(128, 128, 128, 0.3);
         cursor: pointer;
         border-radius: rem(999px);
         background-color: $clr1;
         box-shadow: 0px 0px 5px #2222224a;
+
+        transform: translate(-50%, -145%) scale(0.5);
+        transition: transform 0.2s, opacity 0.2s;
+        opacity: 0;
+        pointer-events: none;
 
         label {
             font-size: rem(14px);
@@ -59,7 +64,7 @@
         button {
             position: absolute;
             border-radius: 50%;
-            padding: .9rem;
+            padding: 0.9rem;
             margin: 0.2rem;
             background-color: $clr4;
             right: rem(4px);
@@ -71,11 +76,11 @@
                 font-size: 1rem;
             }
         }
-        
+
         .search-input {
             border-radius: rem(999px);
-            padding: .7rem 1.5rem;
-            
+            padding: 0.7rem 1.5rem;
+
             &:hover {
                 background-color: darken($clr1, 10%);
             }

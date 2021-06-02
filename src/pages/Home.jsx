@@ -8,29 +8,20 @@ class _Home extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
-        document.body.classList.remove('mini-header')
-        document.body.classList.add('hide-mini-search')
-        this.handleScroll(true)
+        document.body.classList.add('header-home-mode-open')
+
+        window.onscroll = () => {
+            if (window.pageYOffset >= 85) {
+                document.body.classList.remove('header-home-mode-open')
+            } else {
+                document.body.classList.add('header-home-mode-open')
+                document.body.classList.remove('header-onclick-mode')
+            }
+        }
     }
 
     componentWillUnmount() {
-        this.handleScroll(false)
-    }
-
-    handleScroll = (isListen) => {
-        if (isListen) {
-            window.onscroll = () => {
-                if (window.pageYOffset >= 85) {
-                    document.body.classList.add('mini-header')
-                    document.body.classList.remove('hide-mini-search')
-                } else {
-                    document.body.classList.remove('mini-header')
-                    document.body.classList.add('hide-mini-search')
-                }
-            }
-        } else {
-            window.onscroll = null;
-        }
+        window.onscroll = null;
     }
 
     render() {

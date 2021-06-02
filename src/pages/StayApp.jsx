@@ -8,8 +8,6 @@ export class _StayApp extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
-        document.body.classList.add('mini-header')
-        document.body.classList.remove('hide-mini-search')
     }
 
     onSetFilter = (filterBy) => {

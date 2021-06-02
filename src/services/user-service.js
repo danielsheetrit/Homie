@@ -13,7 +13,6 @@ export const userService = {
 }
 
 async function getUsers() {
-    console.log('USER',httpService.get(`user`))
     return await httpService.get(`user`)
 }
 
@@ -37,6 +36,7 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
+    console.log('USER', userCred)
     const user = await httpService.post('auth/signup', userCred)
     return _saveLocalUser(user)
 }

@@ -1,6 +1,6 @@
 import { userService } from '../../services/user-service'
 
-export function loadUsers() {
+export function getUsers() {
   return async dispatch => {
     try {
       dispatch({ type: 'LOADING_START' })
@@ -14,7 +14,7 @@ export function loadUsers() {
   }
 }
 
-export function removeUser(userId) {
+export function onRemoveUser(userId) {
   return async dispatch => {
     try {
       await userService.remove(userId)
@@ -25,7 +25,7 @@ export function removeUser(userId) {
   }
 }
 
-export function login(userCreds) {
+export function onLogin(userCreds) {
   return async dispatch => {
     try {
       const user = await userService.login(userCreds)
@@ -36,7 +36,7 @@ export function login(userCreds) {
   }
 }
 
-export function signup(userCreds) {
+export function onSignup(userCreds) {
   return async dispatch => {
     try {
       const user = await userService.signup(userCreds)
@@ -47,7 +47,7 @@ export function signup(userCreds) {
   }
 }
 
-export function logout() {
+export function onLogout() {
   return async dispatch => {
     try {
       await userService.logout()

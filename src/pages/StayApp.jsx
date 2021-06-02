@@ -10,6 +10,10 @@ export class _StayApp extends Component {
         window.scrollTo(0, 0)
     }
 
+    onSetFilter = (filterBy) => {
+        this.props.getStays(filterBy)
+    }
+
     render() {
         const { stays } = this.props
         if (!stays) return <h1>reloading</h1>
@@ -17,7 +21,7 @@ export class _StayApp extends Component {
 
         return (
             <section className="stay-app">
-                <StayFilter />
+                <StayFilter onSetFilter={this.onSetFilter} />
                 <StayList stays={stays} />
             </section>
         )

@@ -1579,7 +1579,8 @@ const gStays = [
 asyncStorage._save(KEY, gStays)
 
 async function query(filterBy) {
-    
+    // const filter = {...filterBy}
+    console.log('filterBy', filterBy)
     // const toys = await axios.get(BASE_URL, { params: filterBy })
     // return toys.data
     const res = await asyncStorage.query(KEY, filterBy)
@@ -1612,89 +1613,3 @@ async function remove(stayId) {
     // return toy.data
     return await asyncStorage.remove(KEY, stayId)
 }
-
-
-
-// const x =  [{
-//     "name": "Nemo Guests House",
-//     "imgUrls": [
-//       "https://res.cloudinary.com/ariecloud/image/upload/v1606633001/houses/paris1_ikkczy.jpg",
-//       "https://res.cloudinary.com/ariecloud/image/upload/v1606633001/houses/paris5_xdlchl.jpg",
-//       "https://res.cloudinary.com/ariecloud/image/upload/v1606633002/houses/paris2_sejf2c.jpg",
-//       "https://res.cloudinary.com/ariecloud/image/upload/v1606633000/houses/paris3_k3d2mo.jpg",
-//       "https://res.cloudinary.com/ariecloud/image/upload/v1606633000/houses/paris4_qyxvjr.jpg"
-//     ],
-//     "price": 48,
-//     "type": "Apartment",
-//     "summary": "People from all backgrounds are welcome in my home. The double room is located on the 1st floor and situated in the middle of the private house with typical Dutch steep stairs, no elevator. The room has private bathroom ( shower & toilet ), small area to make tea/coffee or toast & small fridge. The house was build around XVIII Century and was reconstructed inside a few times.",
-//     "capacity": 4,
-//     "amenities": {
-//       "tv": true,
-//       "wifi": true,
-//       "kitchen": false,
-//       "accessibility": true,
-//       "airConditioner": true,
-//       "secured": true,
-//       "fastFood": false,
-//       "parking": true,
-//       "aidKit": true,
-//       "publicTransport": true
-//     },
-//     "host": {
-//       "_id": "51399391",
-//       "fullname": "Ekaterina",
-//       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
-//     },
-//     "loc": {
-//       "country": "Netherlands",
-//       "city": "Amsterdam",
-//       "countryCode": "NL",
-//       "address": "Amsterdam, Noord-Holland, Netherlands",
-//       "lat": -8.61308,
-//       "lng": 41.1413
-//     },
-//     "reviews": [
-//       {
-//         "id": "madeId101",
-//         "txt": "As televisões não funcionam... o sofá das fotos não está na casa, o que está na casa é pequeno. Não tem microondas, é um mini forno. O exaustor não existe. A casa está situada numa zona agradável e tranquila, sendo até uma casa bastante agradável e espaçosa. O grande problema está na limpeza, a casa apresenta sujidade acumulada.",
-//         "rate": 4,
-//         "by": {
-//           "_id": "u101",
-//           "fullname": "Vanessa",
-//           "imgUrl": "/img/img1.jpg"
-//         }
-//       },
-//       {
-//         "id": "madeId102",
-//         "txt": "Very clean",
-//         "rate": 5,
-//         "by": {
-//           "_id": "u102",
-//           "fullname": "user2",
-//           "imgUrl": "/img/img2.jpg"
-//         }
-//       },
-//       {
-//         "id": "madeId103",
-//         "txt": "O apartamento e excelente e super agradável ótimo local Acesso ótimo de estacionamento",
-//         "rate": 5,
-//         "by": {
-//           "_id": "u103",
-//           "fullname": "Carlos",
-//           "imgUrl": "/img/img3.jpg"
-//         }
-//       }
-//     ],
-//     "houseRules": {
-//       "isPets": true,
-//       "isSmoking": false
-//     },
-//     "likedByUserIds": [
-//       "u101",
-//       "u102"
-//     ]
-//   }]
-    
-// console.log(JSON.stringify(x))
-        
-        

@@ -36,7 +36,9 @@ export class StayFilter extends Component {
     }
 
     handleChange = ({ target }) => {
-        const { name, value } = target
+        let { name, value, type } = target
+        value = type === 'number' ? +value : value
+
         const { filterBy } = this.state
         this.setState({ filterBy: { ...filterBy, [name]: value } }, () => {
             const { filterBy } = this.state
@@ -45,6 +47,7 @@ export class StayFilter extends Component {
     }
 
     render() {
+        const { minPrice, maxPrice } = this.state
         return (
             <section className="stay-filter-2">
                 <h2 className="filter-header">Filter Header</h2>
@@ -58,7 +61,7 @@ export class StayFilter extends Component {
                                     </button>
                                     {
                                         this.state.currentBtnId === btn.id ? (
-                                            <Modal name={btn.name} id={btn.id} toggleModal={this.toggleModal} handleChange={this.handleChange} />
+                                            <Modal minPrice={minPrice} maxPrice={maxPrice} name={btn.name} id={btn.id} toggleModal={this.toggleModal} handleChange={this.handleChange} />
                                         ) : null}
                                 </div>
                             </>
@@ -69,11 +72,11 @@ export class StayFilter extends Component {
         );
     }
 }
-const Modal = ({ name, id, toggleModal, closeModal, handleChange }) => (
+const Modal = ({ name, id, toggleModal, closeModal, handleChange, minPrice, maxPrice }) => (
     <>
         <div onClick={(ev) => { closeModal(ev) }}></div>
         <div className="filter-modal flex column" onClick={(ev) => { ev.stopPropagation(); console.log('stopprop') }}>
-            {name === 'Price' && <PriceFilter handleChange={handleChange} />}
+            {name === 'Price' && <PriceFilter handleChange={handleChange} minPrice={minPrice} maxPrice={maxPrice} />}
             {name === 'Type of place' && <TypeFilter handleChange={handleChange} />}
             {name === 'Amenities' && <AmenitiesFilter handleChange={handleChange} />}
             {name === 'Stay Rules' && <RulesFilter handleChange={handleChange} />}
@@ -85,16 +88,16 @@ const Modal = ({ name, id, toggleModal, closeModal, handleChange }) => (
     </>
 )
 
-const PriceFilter = ({ handleChange }) => {
+const PriceFilter = ({ handleChange, minPrice, maxPrice }) => {
     return (
         <>
-            <RangeSlider />
+            <RangeSlider minPrice={minPrice} maxPrice={maxPrice} />
             <div className="price-filter-container flex">
                 <div className="input-container">
-                    <input type="text" name="" id="" placeholder="min price" />
+                    <input type="number" name="minPrice" value={minPrice} placeholder="min price" onChange={handleChange} />
                 </div>
                 <div className="input-container">
-                    <input type="text" name="" id="" placeholder="max price" />
+                    <input type="number" name="maxPrice" id="" value={maxPrice} placeholder="max price" onChange={handleChange} />
                 </div>
             </div>
         </>

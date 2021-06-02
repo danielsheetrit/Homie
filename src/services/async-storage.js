@@ -10,16 +10,16 @@ export const asyncStorage = {
 
 async function query(entityType, filterBy = {
     price: "", amenities: "",
-    guest: 0, city: null, startDate: '', endDate: ''
+    guest: 0, city: null, startDate: '', endDate: '', minPrice: -Infinity, maxPrice: Infinity
 }) {
     console.log('SERVICE', filterBy)
-    const { price, amenities, guest, city, startDate, endDate } = filterBy
+    const { price, amenities, guest, city, startDate, endDate, minPrice, maxPrice } = filterBy
     try {
         const entities = await JSON.parse(localStorage.getItem(entityType)) || []
         const filterd = entities.filter(entity => {
-            return entity.loc.city.includes(city) && entity.capacity >= guest
+            return entity.loc.city.includes(city) && entity.capacity >= guest && entity.price > minPrice && entity.price < maxPrice
         })
-        const newFilterdEnti = !filterd.length ? entities:filterd
+        const newFilterdEnti = !filterd.length ? entities : filterd
         return newFilterdEnti
     } catch (err) {
         console.log('failed to load', err)
@@ -73,5 +73,5 @@ async function remove(entityType, entityId) {
 
 function _save(entityType, entities) {
     localStorage.setItem(entityType, JSON.stringify(entities))
-    
+
 }

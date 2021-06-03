@@ -10,7 +10,7 @@ export const stayService = {
     remove,
 }
 
-const KEY = 'stay'
+// const KEY = 'stay'
 const gStays = [
     {
         _id: "10006546",
@@ -1579,14 +1579,10 @@ const gStays = [
     },
 ]
 
-asyncStorage._save(KEY, gStays)
+// asyncStorage._save(KEY, gStays)
 
 async function query(filterBy) {
-<<<<<<< HEAD
-    console.log('FRONT', filterBy)
-=======
-    console.log('service', filterBy)
->>>>>>> d0f76421b098c5da5a30cdb053379ddec63f7832
+    console.log('filterBy in stay-service', filterBy)
     return await httpService.get('stay/', filterBy)
     // const res = await asyncStorage.query(KEY, filterBy)
     // return res

@@ -3,6 +3,7 @@ import { stayService } from '../../services/stay-service'
 export function getStays(filterBy = { price: '', amenities: '' }) {
     return async dispatch => {
         try {
+            // console.log('getStays in front', getStays)
             const stays = await stayService.query(filterBy)
             dispatch({ type: 'SET_STAYS', stays })
 
@@ -11,6 +12,7 @@ export function getStays(filterBy = { price: '', amenities: '' }) {
         }
     }
 }
+
 
 export function onSaveStay(stay) {
     return async dispatch => {
@@ -47,11 +49,10 @@ export function onSetIsSearchMode(isSearchMode) {
 }
 
 export function getFilter(filterBy) {
-    console.log('actionnnnnnnnnn', filterBy)
     return async dispatch => {
         try {
             dispatch({ type: 'SET_FILTER', filterBy })
-
+            // console.log('actionnnnnnnnnn', filterBy)
         } catch (err) {
             console.log('StaysActions: err in getFilter', err)
         }

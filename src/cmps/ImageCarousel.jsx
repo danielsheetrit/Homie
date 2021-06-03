@@ -1,17 +1,9 @@
-import React from "react";
-
+import { Component } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-export class ImageCarousel extends React.Component {
-
-
-
-
-
-
-
+export class ImageCarousel extends Component {
 
     render() {
         const settings = {
@@ -21,7 +13,6 @@ export class ImageCarousel extends React.Component {
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
             // dotsClass: 'carousel-dots'
-
             // appendDots: dots => (
             //     <ul style={{ bottom: "5px", color: 'red' }}> {dots} </ul>
             // ),
@@ -72,22 +63,15 @@ function SamplePrevArrow(props) {
     );
 }
 
-function Dots(props) {
-    console.log('Dots props', props
-    );
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, right: "10px", color: 'red' }}
-            onClick={onClick}
-        />
-    );
-}
-
-// TODO: show arrows and dots only on hover
-// continue. put dots inside photo.
-
-// function slick-dots(){
-
+// function Dots(props) {
+//     console.log('Dots props', props
+//     );
+//     const { className, style, onClick } = props;
+//     return (
+//         <div
+//             className={className}
+//             style={{ ...style, right: "10px", color: 'red' }}
+//             onClick={onClick}
+//         />
+//     );
 // }

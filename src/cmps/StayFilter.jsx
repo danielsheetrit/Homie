@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Checkbox } from '@material-ui/core';
 import { RangeSlider } from './RangeSlider.jsx';
 import { connect } from 'react-redux'
-import { getFilter } from '../store/actions/stay.actions'
+import { getFilter, getStays } from '../store/actions/stay.actions'
 
 
 class _StayFilter extends Component {
@@ -11,7 +11,7 @@ class _StayFilter extends Component {
         node: React.createRef(),
         currentBtnId: null,
         filterBy: {
-            types: []
+
         },
         data: [{ id: 0, name: "Price" }, { id: 1, name: "Type of place" }, { id: 2, name: "Amenities", }, { id: 3, name: "Stay Rules" }]
     }
@@ -29,6 +29,19 @@ class _StayFilter extends Component {
         this.setState({ currentBtnId })
     }
 
+    onFilter = (ev, id) => {
+        ev.preventDefault()
+        const filterBy = this.props.filterBy
+        this.props.getStays(filterBy)
+        this.toggleModal(id)
+    }
+
+    getFilterHeader = () => {
+        if (!this.props.filterBy.loc) return 'Our Stays'
+        const city = this.props.filterBy.loc.city
+        return `Stays in ${city}`
+    }
+
     closeModal = (ev) => {
         if (!this.node.contains(ev.target) || this.node === ev.target) {
             this.setState({ currentBtnId: null })
@@ -37,17 +50,16 @@ class _StayFilter extends Component {
 
     handleChange = ({ target }) => {
         let { name, value, type } = target
-        console.log('type', type, 'name', name, 'value')
+        // console.log('type', type, 'name', name, 'value')
         value = type === 'number' ? +value : value
         const { filterBy } = this.state
-        if (type === 'checkbox') {
-            this.setState({ filterBy: { ...filterBy, types: [...filterBy.types, name] } }, () => {
+        const filterTypes = this.state.filterBy
+        if (type === 'checkbox' && !filterTypes.name) {
+            this.setState({ filterBy: { ...filterBy, name } }, () => {
                 this.props.getFilter(filterBy)
                 console.log('this.props.filterBy', this.props.filterBy)
             })
-
         } else {
-
             this.setState({ filterBy: { ...filterBy, [name]: value } }, () => {
                 // this.props.onSetFilter(filterBy)
                 this.props.getFilter(filterBy)
@@ -56,10 +68,11 @@ class _StayFilter extends Component {
     }
 
     render() {
+        const filterHeader = this.getFilterHeader();
         const { minPrice, maxPrice } = this.state
         return (
             <section className="stay-filter-2">
-                <h2 className="filter-header">Filter Header</h2>
+                <h2 className="filter-header">{filterHeader}</h2>
                 <div className="btn-group flex" ref={node => this.node = node}>
                     {this.state.data.map((btn, idx) => {
                         return (
@@ -70,7 +83,7 @@ class _StayFilter extends Component {
                                     </button>
                                     {
                                         this.state.currentBtnId === btn.id ? (
-                                            <Modal minPrice={minPrice} maxPrice={maxPrice} name={btn.name} id={btn.id} toggleModal={this.toggleModal} handleChange={this.handleChange} />
+                                            <Modal minPrice={minPrice} maxPrice={maxPrice} name={btn.name} id={btn.id} toggleModal={this.toggleModal} handleChange={this.handleChange} onFilter={this.onFilter} />
                                         ) : null}
                                 </div>
                             </>
@@ -91,6 +104,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     getFilter,
+    getStays
 }
 
 export const StayFilter = connect(mapStateToProps, mapDispatchToProps)(_StayFilter)
@@ -98,23 +112,24 @@ export const StayFilter = connect(mapStateToProps, mapDispatchToProps)(_StayFilt
 
 
 
-const Modal = ({ name, id, toggleModal, closeModal, handleChange, minPrice, maxPrice }) => (
+const Modal = ({ name, id, toggleModal, closeModal, handleChange, minPrice, maxPrice, onFilter }) => (
     <>
         <div onClick={(ev) => { closeModal(ev) }}></div>
         <div className="filter-modal flex column" onClick={(ev) => { ev.stopPropagation() }}>
-            {name === 'Price' && <PriceFilter handleChange={handleChange} minPrice={minPrice} maxPrice={maxPrice} />}
-            {name === 'Type of place' && <TypeFilter handleChange={handleChange} />}
-            {name === 'Amenities' && <AmenitiesFilter handleChange={handleChange} />}
-            {name === 'Stay Rules' && <RulesFilter handleChange={handleChange} />}
+            {name === 'Price' && <PriceFilter handleChange={handleChange} onFilter={onFilter} minPrice={minPrice} maxPrice={maxPrice} />}
+            {name === 'Type of place' && <TypeFilter handleChange={handleChange} onFilter={onFilter} />}
+            {name === 'Amenities' && <AmenitiesFilter handleChange={handleChange} onFilter={onFilter} />}
+            {name === 'Stay Rules' && <RulesFilter handleChange={handleChange} onFilter={onFilter} />}
             <div className="btn-container">
                 <button onClick={() => { toggleModal(id) }}>Clear</button>
-                <button onClick={() => { toggleModal(id) }}>Save</button>
+                {/* <button onClick={() => { toggleModal(id) }}>Save</button> */}
+                <button onClick={(ev) => { onFilter(ev, id) }}>Save</button>
             </div>
         </div>
     </>
 )
 
-const PriceFilter = ({ handleChange, minPrice, maxPrice }) => {
+const PriceFilter = ({ handleChange, minPrice, maxPrice, onFilter }) => {
     return (
         <>
             <RangeSlider minPrice={minPrice} maxPrice={maxPrice} />

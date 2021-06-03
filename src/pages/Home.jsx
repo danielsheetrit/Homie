@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { CityCard } from '../cmps/CityCard'
 import { connect } from 'react-redux'
-import { getStays } from '../store/actions/stay.actions'
+import { getStays, getFilter } from '../store/actions/stay.actions'
 import { StayList } from '../cmps/StayList.jsx'
 
 class _Home extends Component {
@@ -24,6 +24,12 @@ class _Home extends Component {
         window.onscroll = null;
     }
 
+    onSelectCity = (city) => {
+        const filterBy = { loc: { city } }
+        this.props.getFilter(filterBy)
+        this.props.getStays({ city })
+    }
+
     render() {
         const filterStays = this.props.stays.slice(0, 4)
         return (
@@ -31,14 +37,14 @@ class _Home extends Component {
                 <div className="home-hero flex justify-center full">
                     <h2>The best journey <br /> takes you home.</h2>
                 </div>
-                <h2>Explore new places</h2>
+                <h2>Popular locations</h2>
                 <div className="city-card-container">
-                    <CityCard title={'amsterdam'} imgUrl={'amsterdam_nqxozm'} />
-                    <CityCard title={'paris'} imgUrl={'paris_lljj5s'} />
-                    <CityCard title={'new-york'} imgUrl={'new-york_en6f3a'} />
-                    <CityCard title={'tokyo'} imgUrl={'tokyo_cl5jez'} />
-                    <CityCard title={'london'} imgUrl={'london_ddezqi'} />
-                    <CityCard title={'barcelona'} imgUrl={'barcelona_aq6xpb'} />
+                    <CityCard title={'amsterdam'} imgUrl={'amsterdam_nqxozm'} onSelectCity={() => { this.onSelectCity('Amsterdam') }} />
+                    <CityCard title={'paris'} imgUrl={'paris_lljj5s'} onSelectCity={() => { this.onSelectCity('Paris') }} />
+                    <CityCard title={'new-york'} imgUrl={'new-york_en6f3a'} onSelectCity={() => { this.onSelectCity('New York') }} />
+                    <CityCard title={'tokyo'} imgUrl={'tokyo_cl5jez'} onSelectCity={() => { this.onSelectCity('Tokyo') }} />
+                    <CityCard title={'london'} imgUrl={'london_ddezqi'} onSelectCity={() => { this.onSelectCity('London') }} />
+                    <CityCard title={'barcelona'} imgUrl={'barcelona_aq6xpb'} onSelectCity={() => { this.onSelectCity('Barcelona') }} />
                 </div>
                 <div className="best-loc justify-center flex">
                     <h2>Top rated homes</h2>
@@ -62,6 +68,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     getStays,
+    getFilter
 }
 
 export const Home = connect(mapStateToProps, mapDispatchToProps)(_Home)

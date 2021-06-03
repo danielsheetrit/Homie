@@ -3,11 +3,6 @@ const initialState = {
     currentPage: '',
     isSearchMode: true,
     filterBy: {
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> cbd63a25fa281fa3fe87d14f6f32bb3bfaabd152
     }
 }
 

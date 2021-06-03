@@ -14,6 +14,7 @@ Modal.setAppElement('#root')
 export class Reviews extends Component {
 
     state = {
+        curTime: new Date((Date.now() - 2629743.83) + Math.random() * 100).toLocaleDateString(),
         modalIsOpen: false,
         review: {
             rate: null,
@@ -41,12 +42,9 @@ export class Reviews extends Component {
     }
 
     render() {
-
         const { reviews, stay } = this.props
         const shortReviews = reviews.slice(0, 4)
-
         return (
-
             <div className="reviews-container">
                 <StayRate
                     stay={stay}
@@ -61,7 +59,7 @@ export class Reviews extends Component {
                                 </div>
                                 <div className="review-writer flex column">
                                     <span>{review.by.fullname}</span>
-                                    <span>15.02.21</span>
+                                    <span>{this.state.curTime}</span>
                                 </div>
                             </div>
                             <div>

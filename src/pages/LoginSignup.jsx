@@ -22,6 +22,11 @@ class _LoginSignup extends Component {
         this.props.getUsers()
     }
 
+    componentWillUnmount() {
+        document.body.classList.remove('header-home-mode-open')
+        document.body.classList.remove('header-onclick-mode')
+    }
+
     handleChange = ({ target }) => {
         const field = target.name
         const value = target.value

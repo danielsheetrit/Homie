@@ -18,8 +18,18 @@ header {
         transition: all 0.150s ease-out;
 
         h1 {
+            position: relative;
+            display: flex;
+            align-items: center;
             font-size: rem(32px);
             color: $clr4;
+            svg {
+                position: absolute;
+                top: -18px;
+                left: -45px;
+                max-width: rem(40px);
+            }
+
         }
 
         .nav-link {

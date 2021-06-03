@@ -22,6 +22,8 @@ class _Home extends Component {
 
     componentWillUnmount() {
         window.onscroll = null;
+        document.body.classList.remove('header-home-mode-open')
+        document.body.classList.remove('header-onclick-mode')
     }
 
     render() {

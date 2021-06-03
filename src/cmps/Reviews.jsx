@@ -14,7 +14,7 @@ Modal.setAppElement('#root')
 export class Reviews extends Component {
 
     state = {
-        curTime: new Date((Date.now() - 2629743.83) + Math.random() * 100).toLocaleDateString(),
+        node: React.createRef(),
         modalIsOpen: false,
         review: {
             rate: null,
@@ -30,18 +30,28 @@ export class Reviews extends Component {
 
     onAddReview = ev => {
         ev.preventDefault()
-        console.log(this.state.review);
+        // console.log(this.state.review);
     }
 
-    closeModal = () => {
-        this.setState({ modalIsOpen: false })
+    closeModal = ev => {
+        console.log('node', this.state.node);
+        console.log(ev.target);
+        // const node = this.state.node
+        // if (node.current.contains(ev.target)) {
+        //     return
+        // } else {
+        //     document.removeEventListener('mousedown', this.closeModal);
+        // }
+            this.setState({ modalIsOpen: false })
     }
 
     openModal = () => {
+        // document.addEventListener('mousedown', this.closeModal);
         this.setState({ modalIsOpen: true })
     }
 
     render() {
+    
         const { reviews, stay } = this.props
         const shortReviews = reviews.slice(0, 4)
         return (
@@ -73,9 +83,10 @@ export class Reviews extends Component {
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     // onAfterOpen={afterOpenModal}
-                    // onRequestClose={this.closeModal}
+                    onRequestClose={this.closeModal}
                     className="review-modal"
                     overlayClassName="review-modal-overlay"
+                    // ref={this.state.node}
                 >
                     <h2>Add review</h2>
                     <div className="review-writer-modal flex align-center">

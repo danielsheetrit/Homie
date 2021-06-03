@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
 
 import 'react-dates/initialize'
-import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/lib/css/_datepicker.css'
 import { DateRangePicker } from 'react-dates'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -54,8 +54,6 @@ class _StaySearch extends Component {
     }
 
     render() {
-
-        // console.log(this.props.node);
 
         return (
             <section className="stay-search flex align-center">

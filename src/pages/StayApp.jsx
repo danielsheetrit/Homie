@@ -10,6 +10,11 @@ export class _StayApp extends Component {
         window.scrollTo(0, 0)
     }
 
+    componentWillUnmount() {
+        document.body.classList.remove('header-home-mode-open')
+        document.body.classList.remove('header-onclick-mode')
+    }
+
     onSetFilter = (filterBy) => {
         this.props.getStays(filterBy)
     }

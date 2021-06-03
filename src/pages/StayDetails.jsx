@@ -26,6 +26,11 @@ export class StayDetails extends Component {
         document.body.classList.remove('hide-mini-search')
     }
 
+    componentWillUnmount() {
+        document.body.classList.remove('header-home-mode-open')
+        document.body.classList.remove('header-onclick-mode')
+    }
+
     async setStayDetails() {
         const { id } = this.props.match.params
         let stay = await stayService.getById(id)
@@ -116,7 +121,8 @@ export class StayDetails extends Component {
                             <Amenities amenities={amenities} />
                         </div>}
                     </div>
-                    <div className="staybook-modal-container ">
+
+                    <div className="staybook-modal-container">
                         <StayBookModal stay={stay} />
                     </div>
                 </section>

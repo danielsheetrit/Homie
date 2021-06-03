@@ -121,7 +121,8 @@ export class StayDetails extends Component {
                             <Amenities amenities={amenities} />
                         </div>}
                     </div>
-                    <div className="staybook-modal-container ">
+
+                    <div className="staybook-modal-container">
                         <StayBookModal stay={stay} />
                     </div>
                 </section>

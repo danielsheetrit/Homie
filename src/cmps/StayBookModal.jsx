@@ -1,21 +1,26 @@
-import { StayRate } from './StayRate.jsx'
-import { DateRangePicker } from 'react-dates'
 import { Component } from 'react'
+import { StayRate } from './StayRate.jsx'
 import { GradientBtn } from './GradientBtn.jsx'
 
-export class StayBookModal extends Component {
+import { DateRangePicker } from 'react-dates'
+import { withSnackbar } from 'notistack'
+
+class _StayBookModal extends Component {
 
     state = {
         startDate: '',
         endDate: '',
         filterBy: {
             guest: 1
-        }
+        },
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log('handleSubmit')
+        this.props.enqueueSnackbar('Your order received.', {
+            variant: 'success',
+        })
+        setTimeout(() => this.props.closeSnackbar(), 3000)
         window.location.hash = '/'
     }
 
@@ -53,3 +58,5 @@ export class StayBookModal extends Component {
         )
     }
 }
+
+export const StayBookModal = withSnackbar(_StayBookModal);

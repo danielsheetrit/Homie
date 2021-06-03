@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 
-export function CityCard({ title, imgUrl }) {
+export function CityCard({ title, imgUrl, onSelectCity }) {
+
     return (
-        <Link to="/stay">
+        <Link to="/stay" onClick={() => { onSelectCity() }}>
             <div className={` ${title}-card card`}>
 
                 <div className="img-container">

@@ -3,7 +3,11 @@ const initialState = {
     currentPage: '',
     isSearchMode: true,
     filterBy: {
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> cbd63a25fa281fa3fe87d14f6f32bb3bfaabd152
     }
 }
 
@@ -22,7 +26,7 @@ export function stayReducer(state = initialState, action) {
         case 'SET_ISSEARCHMODE':
             return { ...state, isSearchMode: action.isSearchMode }
         case 'SET_FILTER':
-            return { ...state, filterBy: { ...state.filterBy, ...action.filterBy } }
+            return { ...state, filterBy: { ...action.filterBy } }
         default:
             return state
     }

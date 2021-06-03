@@ -55,7 +55,7 @@ class _StaySearch extends Component {
 
     render() {
 
-        console.log(this.props.node);
+        // console.log(this.props.node);
 
         return (
             <section className="stay-search flex align-center">

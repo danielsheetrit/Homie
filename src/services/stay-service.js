@@ -10,6 +10,7 @@ export const stayService = {
 }
 
 // const KEY = 'stay'
+<<<<<<< HEAD
 // const gStays = [
 //     {
 //         _id: "10006546",
@@ -790,6 +791,788 @@ export const stayService = {
 //             lng: 41.1413
 //         },
 //         reviews: [
+=======
+const gStays = [
+    {
+        _id: "10006546",
+        name: "Nemo Guests House",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606633001/houses/paris1_ikkczy.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606633001/houses/paris5_xdlchl.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606633002/houses/paris2_sejf2c.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606633000/houses/paris3_k3d2mo.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606633000/houses/paris4_qyxvjr.jpg"
+        ],
+        price: 48.00,
+        type: 'Apartment',
+        summary: "People from all backgrounds are welcome in my home. The double room is located on the 1st floor and situated in the middle of the private house with typical Dutch steep stairs, no elevator. The room has private bathroom ( shower & toilet ), small area to make tea/coffee or toast & small fridge. The house was build around XVIII Century and was reconstructed inside a few times.",
+        capacity: 4,
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': false,
+            'accessibility': true,
+            'airConditioner': true,
+            'secured': true,
+            "fastFood": false,
+            "parking": true,
+            "aidKit": true,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Ekaterina",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "Netherlands",
+            city: "Amsterdam",
+            countryCode: "NL",
+            address: "Amsterdam, Noord-Holland, Netherlands",
+            lat: -8.61308,
+            lng: 41.1413
+        },
+        reviews: [
+            {
+                id: "madeId101",
+                txt: "As televisões não funcionam... o sofá das fotos não está na casa, o que está na casa é pequeno. Não tem microondas, é um mini forno. O exaustor não existe. A casa está situada numa zona agradável e tranquila, sendo até uma casa bastante agradável e espaçosa. O grande problema está na limpeza, a casa apresenta sujidade acumulada.",
+                rate: 4,
+                by: {
+                    _id: "u101",
+                    fullname: "Vanessa",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/7/007108.jpg"
+                }
+            },
+            {
+                id: "madeId102",
+                txt: "Very clean",
+                rate: 5,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "/img/img2.jpg"
+                }
+            },
+            {
+                id: "madeId103",
+                txt: "O apartamento e excelente e super agradável ótimo local Acesso ótimo de estacionamento",
+                rate: 5,
+                by: {
+                    _id: "u103",
+                    fullname: "Carlos",
+                    imgUrl: "/img/img3.jpg"
+                }
+            }
+        ],
+        houseRules: {
+            isPets: true,
+            isSmoking: false
+        },
+        likedByUserIds: [
+            "u101",
+            "u102"
+        ],
+    },
+    {
+        _id: "10006547",
+        name: "Eco-friendly Double Room by Vondelpark",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606638010/houses/parisFive1_feabwr.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606638009/houses/parisFive2_u7yyny.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606638009/houses/parisFive2_u7yyny.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606638009/houses/parisFive4_tsjxrt.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606638010/houses/parisFive5_u96b18.jpg"
+        ],
+        price: 73.00,
+        type: 'Entire home',
+        summary: "The space At The Tire Station we think only about your well-being, and that of the planet. We have solar panels on our roof, we reuse and recycle, and we only serve organic food and drinks. We have the best beds so you’ll sleep well, and we like to smile a lot because that makes everyone feel good. We’re super close to the Vondelpark, so you can enjoy the green environment any time, even in this bustling city called Amsterdam.",
+        capacity: 2,
+        houseRules: {
+            isPets: true,
+            isSmoking: false
+        },
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': false,
+            'accessibility': false,
+            'airConditioner': true,
+            'secured': true,
+            "fastFood": false,
+            "parking": true,
+            "aidKit": true,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "BnBird Homes",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "Netherlands",
+            city: "Amsterdam",
+            countryCode: "NL",
+            address: "Amsterdam, Noord-Holland, Netherlands",
+            lat: -8.61307,
+            lng: 41.1412
+        },
+        reviews: [
+            {
+                id: "madeId101",
+                txt: "Very helpful hosts. Cooked traditional...",
+                rate: 4,
+                by: {
+                    _id: "u101",
+                    fullname: "Marcelo",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/1/001720.jpg"
+                }
+            },
+            {
+                id: "madeId102",
+                txt: "Very clean",
+                rate: 3,
+                by: {
+                    _id: "u102",
+                    fullname: "Bruno",
+                    imgUrl: "/img/img2.jpg"
+                }
+            },
+        ],
+    },
+    {
+        _id: "10006548",
+        name: "A'dam West - Villa",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584668/users/londoning2_fzcrtp.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584668/users/londoning3_p8fxak.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584668/users/londoning4_fktfrf.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584668/users/londoning1_fj7sai.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584668/users/londoning5_sgfmv5.jpg"
+        ],
+        price: 82.00,
+        type: 'Entire home',
+        summary: "Located in the middle of Haarlemmerbuurt, one of the main districts in Amsterdam. Just a 15 minutes short walk from the Central Station. This area is busy with cars, bicycles, pedestrians, but still maintains this charming Amsterdam feeling. You won't regret to take your loved one to admire a lovely sunset at the bridge of Eenhoornsluis (Unicorn Lock)! You have a lot off great specialty shops and lovely places to eat as well. If it's available, don't think twice, just book it!",
+        capacity: 5,
+        houseRules: {
+            isPets: false,
+            isSmoking: true
+        },
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': false,
+            'accessibility': true,
+            'airConditioner': true,
+            'secured': true,
+            "fastFood": false,
+            "parking": false,
+            "aidKit": false,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Jacquelina Pim",
+            imgUrl: "https://ozgrozer.github.io/100k-faces/0/6/006692.jpg"
+        },
+        loc: {
+            country: "Netherlands",
+            city: "Amsterdam",
+            countryCode: "NL",
+            address: "Amsterdam, Noord-Holland, Netherlands",
+            lat: -8.61309,
+            lng: 41.1412
+        },
+    },
+    {
+        _id: "10006549",
+        name: "Artist Studio with Amazing Water View + Parking",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606637481/houses/parisFour1_jxnu1d.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606637481/houses/parisFour2_xbfuyv.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606637481/houses/parisFour3_mla6tp.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606637481/houses/parisFour4_umhl7k.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606637481/houses/parisFour5_zvfav2.jpg"
+        ],
+        price: 92.00,
+        type: 'Studio',
+        summary: "Romantic private studio apartment at the waterfront in the Amsterdam Houthaven. Architectural designed industrial building with high ceilings, big windows and oak-wooden floors. At the top floor you wil find your private and romantic studio apartment. Enjoy the huge windows from floor to ceiling, the sunny terrace, the never boring water view and the location. Houthavens are just outside the historic city centre of Amsterdam. You will live in the sky! Really amazing how the colors change on the water and the boats. Perfect place for romantic people, artists or writers. Or for people who enjoy a different kind of living.",
+        capacity: 2,
+        houseRules: {
+            isPets: false,
+            isSmoking: false
+        },
+        amenities: {
+            'tv': false,
+            'wifi': true,
+            'kitchen': true,
+            'accessibility': true,
+            'airConditioner': true,
+            'secured': false,
+            "fastFood": false,
+            "parking": true,
+            "aidKit": true,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Marius",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "Netherlands",
+            city: "Amsterdam",
+            countryCode: "NL",
+            address: "Amsterdam, Noord-Holland, Netherlands",
+            lat: -8.61309,
+            lng: 40.1413
+        },
+        reviews: [
+            {
+                id: "madeId103",
+                txt: "Very clean",
+                rate: 4,
+                by: {
+                    _id: "u103",
+                    fullname: "user3",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/8/008731.jpg"
+                }
+            }
+        ]
+    },
+    {
+        _id: "10006556",
+        name: "Master Quadruple Bedroom Euston London",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606639735/houses/telavivFive1_wrwexe.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606639736/houses/telavivFive2_z6lu0e.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606639736/houses/telavivFive3_uyevel.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606639736/houses/telavivFive4_malpt6.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606639735/houses/telavivFive5_xqpimc.jpg"
+        ],
+        price: 85.00,
+        type: 'Apartment',
+        summary: "A spacious private bedroom with a shared fully fitted kitchen, wood flooring, double glazing. Situated in the ever popular Drummond Street & within walking distance to transport links of Euston & Warren St, all amenities of Tottenham Court Road & University College of London (UCL ). Euston is both a train station and a Tube station and just 4 minutes away from our apartment. Euston Square Underground Station is just 2 mins away. London Euston is directly connected to several major UK cities.",
+        capacity: 4,
+        amenities: {
+            'tv': false,
+            'wifi': false,
+            'kitchen': false,
+            'accessibility': true,
+            'airConditioner': true,
+            'secured': true,
+            "fastFood": false,
+            "parking": true,
+            "aidKit": true,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Davit Pok",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "UK",
+            city: "London",
+            countryCode: "UK",
+            address: "Greater London, England, United Kingdom",
+            lat: 8.61308,
+            lng: -41.1413
+        },
+        reviews: [
+            {
+                id: "madeId101",
+                txt: "Very helpful hosts. Cooked traditional...",
+                rate: 4,
+                by: {
+                    _id: "u101",
+                    fullname: "user1",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/8/008885.jpg"
+                }
+            },
+            {
+                id: "madeId102",
+                txt: "Very clean",
+                rate: 3,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/8/008031.jpg"
+                }
+            },
+            {
+                id: "madeId103",
+                txt: "Very clean",
+                rate: 4,
+                by: {
+                    _id: "u103",
+                    fullname: "user3",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/2/002732.jpg"
+                }
+            }
+        ],
+        houseRules: {
+            isPets: true,
+            isSmoking: true
+        },
+        likedByUserIds: [
+            "u101",
+            "u102",
+            "u103"
+        ]
+    },
+    {
+        _id: "10006555",
+        name: "New flat in Clapham, Central London, next station",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606641457/houses/newyorkThree1_b4y71o.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606641458/houses/newyorkThree2_eqlcsl.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606641458/houses/newyorkThree3_bfm921.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606641458/houses/newyorkThree4_iidnhl.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606641457/houses/newyorkThree5_wrapnp.jpg"
+        ],
+        price: 110.00,
+        type: 'Shared apartment',
+        summary: "Lovely, modern, bright stufio flat in trendy Battersea/Clapham Five-minute walk from Wansworth tube and approximately 15 minute walk to Clapham. Bus stop just outside the flat so would be super easy to commute and visit central London. Only 20 minutes commuting to Oxford Circus. A short stroll to Upper Street. Great central-London location",
+        capacity: 4,
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': true,
+            'accessibility': false,
+            'airConditioner': true,
+            'secured': true,
+            "fastFood": true,
+            "parking": true,
+            "aidKit": false,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Davit Pok",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "UK",
+            city: "Manchester",
+            countryCode: "UK",
+            address: "London, UK",
+            lat: 8.61308,
+            lng: -41.1413
+        },
+        reviews: [
+            {
+                id: "madeId101",
+                txt: "Very helpful hosts. Cooked traditional...",
+                rate: 4,
+                by: {
+                    _id: "u101",
+                    fullname: "user1",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/3/003068.jpg"
+                }
+            },
+            {
+                id: "madeId102",
+                txt: "Very clean",
+                rate: 3,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/9/009532.jpg"
+                }
+            },
+            {
+                id: "madeId103",
+                txt: "Very clean",
+                rate: 4,
+                by: {
+                    _id: "u103",
+                    fullname: "user3",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/6/006772.jpg"
+                }
+            },
+            {
+                id: "madeId104",
+                txt: "Very clean",
+                rate: 5,
+                by: {
+                    _id: "u104",
+                    fullname: "user4",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/9/009694.jpg"
+                }
+            }
+        ],
+        houseRules: {
+            isPets: true,
+            isSmoking: true
+        },
+        likedByUserIds: [
+            "u101",
+            "u102",
+            "u103"
+        ]
+    },
+    {
+        _id: "10004545",
+        name: "Lovely Double Room in One of London’s Safest Areas",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635076/houses/tokyo1_z0qs7g.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635076/houses/tokyo3_yzlnmk.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635076/houses/tokyo4_xvihea.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635076/houses/tokyo2_ohfxlg.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635076/houses/tokyo5_an6j0x.jpg"
+        ],
+        price: 158.00,
+        type: 'Shared apartment',
+        summary: "COVID-19 - Update: I have employed a cleaning company to disinfect the room and communal areas every day. The company uses a cleaning solution that kills 99.999% of harmful bacteria, germs and viruses. High end, newly refurbished, 5 Star double room with shared bathroom. Spacious and well designed living and sleeping space complimented by our fully equipped modern kitchen. Décor is exceptional throughout. 10 minutes walk to Swiss Cottage tube station. Swiss Cottage to Bond Street is only 9 minuets, Ideal for exploring all that Central London has to offer. Please note although this property is not currently well reviewed yet, I am a Superhost with over 500 reviews. You are in very safe hands.",
+        capacity: 2,
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': true,
+            'accessibility': true,
+            'airConditioner': false,
+            'secured': true,
+            "fastFood": true,
+            "parking": true,
+            "aidKit": false,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Davit Pok",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "UK",
+            city: "Bermingham",
+            countryCode: "UK",
+            address: "London, UK",
+            lat: 8.61308,
+            lng: -41.1413
+        },
+        reviews: [
+            {
+                id: "madeId101",
+                txt: "Very helpful hosts. Cooked traditional...",
+                rate: 4,
+                by: {
+                    _id: "u101",
+                    fullname: "user1",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/5/005168.jpg"
+                }
+            },
+            {
+                id: "madeId102",
+                txt: "Very clean",
+                rate: 3,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/7/007643.jpg"
+                }
+            },
+            {
+                id: "madeId103",
+                txt: "Very clean",
+                rate: 4,
+                by: {
+                    _id: "u103",
+                    fullname: "user3",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/8/008551.jpg"
+                }
+            },
+            {
+                id: "madeId104",
+                txt: "Very clean",
+                rate: 5,
+                by: {
+                    _id: "u104",
+                    fullname: "user4",
+                    imgUrl: "https://ozgrozer.github.io/100k-faces/0/5/005067.jpg"
+                }
+            }
+        ],
+        houseRules: {
+            isPets: true,
+            isSmoking: true
+        },
+        likedByUserIds: [
+            "u101",
+            "u103"
+        ]
+    },
+    {
+        _id: "10006559",
+        name: "Locke at Broken Wharf City Studio",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635732/users/new-newyork1_h8khpy.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635732/users/new-newyork2_oa49ku.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635732/users/new-newyork3_odi6cn.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635732/users/new-newyork4_zxtxbv.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606635732/users/new-newyork5_j8c4xy.jpg"
+        ],
+        price: 178.00,
+        type: 'Apartment',
+        summary: "To ensure the safety of all guests and our staff we request you practice social distancing during your stay. Our already rigorous health and safety measures now include: contactless check-in/check-out, a high-touch deep clean approach, no-contact cleans upon request, food delivery and a 24 hour window between guests in apartments. All our apartments are self-contained and fully equipped for in-room cooking. All restaurants and social spaces remain closed until further notice.",
+        capacity: 2,
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': true,
+            'accessibility': false,
+            'airConditioner': true,
+            'secured': false,
+            "fastFood": true,
+            "parking": true,
+            "aidKit": false,
+            "publicTransport": false
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Davit Pok",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "UK",
+            city: "Liverpool",
+            countryCode: "UK",
+            address: "London, UK",
+            lat: 8.61308,
+            lng: -41.1413
+        },
+        reviews: [
+            {
+                id: "madeId101",
+                txt: "Very helpful hosts. Cooked traditional...",
+                rate: 4,
+                by: {
+                    _id: "u101",
+                    fullname: "user1",
+                    imgUrl: "/img/img1.jpg"
+                }
+            },
+            {
+                id: "madeId102",
+                txt: "Very clean",
+                rate: 3,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "/img/img2.jpg"
+                }
+            },
+        ],
+        houseRules: {
+            isPets: false,
+            isSmoking: true
+        },
+        likedByUserIds: [
+            "u101",
+            "u102",
+            "u103"
+        ]
+    },
+    {
+        _id: "10006111",
+        name: "Monceau Studio with WIFI",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606476017/users/euro1_ywanhc.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606476017/users/euro2_oanwto.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606476018/users/euro3_rewr2w.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606476018/users/euro4_opatx4.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606476018/users/euro5_jglhve.jpg"
+        ],
+        price: 49.00,
+        type: 'Apartment',
+        summary: "New design apartment 50 meters from the Avenue des Champs Elysées in a private courtyard very quiet. Located in the heart of Paris it is ideal for exploring the city of light. The apartment will seduce you with its design and its modern and warm decoration. Apartment of 18m2 fully renovated for up to 2 people, particularly functional, it is equipped with an electronic lock that will facilitate your stay and ensure optimal security.",
+        capacity: 2,
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': false,
+            'accessibility': true,
+            'airConditioner': false,
+            'secured': true,
+            "fastFood": true,
+            "parking": false,
+            "aidKit": true,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Ann",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "France",
+            city: "Paris",
+            countryCode: "FR",
+            address: "Paris-17E-Arrondissement, Île-de-France, France",
+            lat: -8.61308,
+            lng: 41.1413
+        },
+        reviews: [
+            {
+                id: "madeId101",
+                txt: "Place just as expected from the pictures. The only but is the abscence of AC. Could be a problem in hot days.",
+                rate: 4,
+                by: {
+                    _id: "u101",
+                    fullname: "Vanessa",
+                    imgUrl: "/img/img1.jpg"
+                }
+            },
+            {
+                id: "madeId102",
+                txt: "Very clean",
+                rate: 5,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "/img/img2.jpg"
+                }
+            },
+            {
+                id: "madeId103",
+                txt: "O apartamento e excelente e super agradável ótimo local Acesso ótimo de estacionamento",
+                rate: 5,
+                by: {
+                    _id: "u103",
+                    fullname: "Carlos",
+                    imgUrl: "/img/img3.jpg"
+                }
+            }
+        ],
+        houseRules: {
+            isPets: true,
+            isSmoking: false
+        },
+        likedByUserIds: [
+            "u101",
+            "u102"
+        ],
+    },
+    {
+        _id: "10006112",
+        name: "Appartement Marais",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584683/users/londonary3_mu2ogh.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584670/users/londonary2_c8ofko.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584670/users/londonary1_hiu4ok.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606584668/users/londonary4_jv7wsq.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606634767/users/londonary5_vkllex.jpg"
+        ],
+        price: 82.00,
+        type: 'Apartment',
+        summary: "Petit appartement lumineux dans un bâtiment haussmannien situé au cœur du marais en face du BHV et du Metro Hôtel de Ville. Avec ascenseur, canapé lit, cuisine équipée, lave linge, grande douche Italienne. numéro d'enregistrement: 75104016272001",
+        capacity: 2,
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': false,
+            'accessibility': true,
+            'airConditioner': false,
+            'secured': true,
+            "fastFood": false,
+            "parking": true,
+            "aidKit": false,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Ann",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "France",
+            city: "Paris",
+            countryCode: "FR",
+            address: "Paris, Île-de-France, France",
+            lat: -8.61308,
+            lng: 41.1413
+        },
+        reviews: [
+            {
+                id: "madeId101",
+                txt: "As televisões não funcionam... o sofá das fotos não está na casa, o que está na casa é pequeno. Não tem microondas, é um mini forno. O exaustor não existe. A casa está situada numa zona agradável e tranquila, sendo até uma casa bastante agradável e espaçosa. O grande problema está na limpeza, a casa apresenta sujidade acumulada.",
+                rate: 4,
+                by: {
+                    _id: "u101",
+                    fullname: "Vanessa",
+                    imgUrl: "/img/img1.jpg"
+                }
+            },
+            {
+                id: "madeId102",
+                txt: "Very clean",
+                rate: 5,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "/img/img2.jpg"
+                }
+            },
+            {
+                id: "madeId103",
+                txt: "O apartamento e excelente e super agradável ótimo local Acesso ótimo de estacionamento",
+                rate: 5,
+                by: {
+                    _id: "u103",
+                    fullname: "Carlos",
+                    imgUrl: "/img/img3.jpg"
+                }
+            }
+        ],
+        houseRules: {
+            isPets: true,
+            isSmoking: false
+        },
+        likedByUserIds: [
+            "u101",
+            "u102"
+        ],
+    },
+    {
+        _id: "10006113",
+        name: "Cosy room in a great location",
+        imgUrls: [
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606640047/houses/telavivSix4_nsd8na.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606640047/houses/telavivSix1_crpefa.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606640048/houses/telavivSix2_diofws.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606640047/houses/telavivSix5_qs7zrr.jpg",
+            "https://res.cloudinary.com/ariecloud/image/upload/v1606640048/houses/telavivSix3_gdwuv0.jpg"
+        ],
+        price: 48.00,
+        type: 'Apartment',
+        summary: "Gare St Lazare, close to metro lines 13, 2, 12, 3, and 14, direct train to Versailles, 10-20mn to Galeries Lafayette(the famous department store), to Opera Garnier, to Montmartre, to Champs Elysées.. 5th floor in a Haussmann building, fully renovated, with a new comfortable bed.",
+        capacity: 2,
+        amenities: {
+            'tv': true,
+            'wifi': true,
+            'kitchen': false,
+            'accessibility': true,
+            'airConditioner': false,
+            'secured': true,
+            "fastFood": false,
+            "parking": true,
+            "aidKit": false,
+            "publicTransport": true
+        },
+        host: {
+            _id: "51399391",
+            fullname: "Ann",
+            imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        loc: {
+            country: "France",
+            city: "Paris",
+            countryCode: "FR",
+            address: "Paris, Île-de-France, France",
+            lat: -8.61308,
+            lng: 41.1413
+        },
+        reviews: [
+>>>>>>> cbd63a25fa281fa3fe87d14f6f32bb3bfaabd152
 
 //             {
 //                 id: "madeId102",
@@ -1581,7 +2364,11 @@ export const stayService = {
 // asyncStorage._save(KEY, gStays)
 
 async function query(filterBy) {
+<<<<<<< HEAD
     console.log('service', filterBy)
+=======
+    console.log('filterBy in stay-service', filterBy)
+>>>>>>> cbd63a25fa281fa3fe87d14f6f32bb3bfaabd152
     return await httpService.get('stay/', filterBy)
     // const res = await asyncStorage.query(KEY, filterBy)
     // return res

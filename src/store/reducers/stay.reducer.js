@@ -3,7 +3,7 @@ const initialState = {
     currentPage: '',
     isSearchMode: true,
     filterBy: {
-        x: 24
+        
     }
 }
 

@@ -37,6 +37,7 @@ export function onLogin(userCreds) {
 }
 
 export function onSignup(userCreds) {
+  console.log('ACTION', userCreds)
   return async dispatch => {
     try {
       const user = await userService.signup(userCreds)

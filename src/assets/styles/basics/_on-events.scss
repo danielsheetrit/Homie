@@ -3,7 +3,8 @@
         box-shadow: none;
         background-color: transparent;
         .nav-header {
-            h1, a {
+            h1,
+            a {
                 color: $clr1;
             }
         }
@@ -20,14 +21,21 @@
             transform: translate(-50%, -40%) scale(1);
         }
     }
+
+    .login-signup-btn {
+        color: $clr2;
+        background: $clr1;
+        border: 1px solid;
+        svg {
+            color: $clr2;
+        }
+    }
 }
 
 .header-onclick-mode {
-   
     .search-mini {
         opacity: 0;
         pointer-events: none;
-        
     }
 
     .nav-header {

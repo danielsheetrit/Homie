@@ -20,26 +20,13 @@ export class GradientBtn extends Component {
             `;
     };
 
-    // handleHoverOff = e => {
-    //     console.log('handleHoverOff');
-    //     this.setState({
-    //         x: 0,
-    //         y: 0
-    //     });
-    //     e.currentTarget.style.cssText = `
-    //         --mouse-x: 0; 
-    //         --mouse-y: 0;
-    //         `;
-    // }
-
     render() {
+        const { isReserveMode } = this.props;
+        const txt = isReserveMode ? 'Reserve' : 'Check availability'
         return (
 
-            <button className="gradientBtn" onMouseMove={this.handleMouseMove}
-
-            // onMouseLeave={this.handleHoverOff}
-            >
-                Check availability
+            <button className="gradientBtn" onMouseMove={this.handleMouseMove}>
+                {txt}
             </button>
         )
 

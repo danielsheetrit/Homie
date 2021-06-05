@@ -1,37 +1,33 @@
 .stay-book-modal {
     position: sticky;
-    top: 100px;
-    width: 350px;
-    height: 250px;
-    margin-bottom: rem(48px);
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
-    // align-items: center;
-    border: 1px solid #d3d3d3;
+    border: 1px solid #DDDDDD;
     border-radius: 12px;
-    box-shadow: 0 6px 16px $clr6;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
     padding: 24px;
+    padding-bottom: 0;
+    max-width: 370px;
+    top: 100px;
     .modal-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
         span.price {
-            font-family: 'Roboto-Bold';
-            // font-weight: 900;
+            font-family: Roboto-Medium;
             font-size: rem(22px);
-            // color:red
+            color: $clr3
         }
-
     }
     form {
         display: flex;
         flex-direction: column;
+        position: relative;
+        font-family: 'Roboto-Bold';
         .form-select {
-            border: 1px solid $clr2;
             border-radius: 12px;
-
+            border: 1px solid #DDDDDD;
         }
 
         input {
@@ -41,35 +37,111 @@
             text-align: center;
             width: 20px;
             padding: 5px 10px;
+            width: 50%
         }
         
         input:last-of-type {
-            width: 100%;
+            width: 90%;
+            text-align: left;
         }
         .DateInput_input  {
             padding: 5px;
-            margin-bottom: 10px;
         }
     }
 
     form > * {
         margin-bottom: 20px;
-        padding: 15px;
+        font-family: 'Roboto-Bold';
+    }
+
+    .date-container {
+        position: relative
+    }
+    .date-container > *:hover {
+        cursor: pointer;
     }
 
     .DateRangePicker {
         width: 100%;
-        border-bottom: 1px solid black;
-        margin-bottom: 10px;
-
-        .DateRangePickerInput {
-            display: flex;
-            justify-content: space-between;
-        }
+        border-bottom: 1px solid #DDDDDD;
 
         .DateRangePickerInput_arrow  {
             background-color: red;
         }
-        
+
+        .DateRangePickerInput  {
+            width: 100%;
+            display: flex;
+        }
+        .DateInput  {
+            width: 50%;
+            margin-left: 10px;
+            padding-top:20px;
+
+        }
+        .DateInput:first-of-type {
+            border-right: 1px solid #DDDDDD;
+        }
+    }
+
+    form .check, form .guests {
+        z-index: 1;
+        position: absolute;
+        font-size: rem(10px);
+        font-weight: bold;
+        top:10px;
+        color: $clr3;
+    }
+
+    form .check:first-of-type, form .guests {
+        position: absolute;
+        left: 16px
+    }
+
+    form .check, form .guests {
+        position: absolute;
+        right: 87px;
+    }
+
+    .guest-container span {
+        top:57px;
+    }
+
+    .guest-container .btn-guests {
+        padding: 20px 15px 10px;
+    }
+
+    .btn-guests {
+        width:100%;
+        text-align: left;
+        font-family: Roboto-Regular;
+    }
+
+    .reserve-mode {
+        margin-bottom: 0px;
+        p, div {
+            margin-bottom: 15px;
+        }
+        color: $clr2;
+        font-family: Roboto-Regular;
+        p:first-child {
+            text-align: center;
+            font-size: rem(14px);
+        }
+        div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        div:not(:last-of-type) span:first-child {
+            text-decoration: underline;
+        }
+        div:last-of-type {
+            border-top: 1px solid rgb(221, 221, 221);
+            padding-top: 15px;
+            padding-bottom: 5px;
+            font-family: Roboto-Bold;
+            color: $clr3
+        }
     }
 }

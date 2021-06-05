@@ -25,7 +25,7 @@ export class _App extends Component {
           {routes.map(route =>
             <Route
               key={route.path}
-              exact component={route.component}
+              component={route.component}
               path={route.path} />)}
         </Switch>
         <Footer />

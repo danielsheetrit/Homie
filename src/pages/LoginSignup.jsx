@@ -42,7 +42,7 @@ class _LoginSignup extends Component {
         const field = target.name
         const value = target.value
         const { isSignup, credentials, userInfo } = this.state
-        
+
         if (isSignup === 'login') {
             this.setState({ credentials: { ...credentials, [field]: value } })
         } else {
@@ -55,8 +55,8 @@ class _LoginSignup extends Component {
         const { isSignup, userInfo, credentials } = this.state
         const { onSignup, onLogin } = this.props
         console.log('INFO', userInfo)
-        // isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
-        // this.props.history.push('/')
+        isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
+        this.props.history.push('/')
     }
 
     onUpload = async ev => {
@@ -87,7 +87,7 @@ class _LoginSignup extends Component {
                                     </label>
                                     <input id="upload" type="file" onChange={this.onUpload} />
                                 </div>
-                                    <button className="btn">Submit</button>
+                                <button className="btn">Submit</button>
                             </div>
                         </form>
                     </section>

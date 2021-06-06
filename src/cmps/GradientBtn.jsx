@@ -1,6 +1,7 @@
 import { Component } from 'react'
 
 export class GradientBtn extends Component {
+
     state = {
         x: 0,
         y: 0
@@ -29,6 +30,5 @@ export class GradientBtn extends Component {
                 {txt}
             </button>
         )
-
     }
 }

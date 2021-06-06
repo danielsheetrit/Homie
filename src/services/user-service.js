@@ -1,4 +1,3 @@
-// import { storageService } from './asyncStorageService'
 import { httpService } from './http-service'
 
 export const userService = {

@@ -13,7 +13,6 @@ export function getStays(filterBy = { price: '', amenities: '' }) {
     }
 }
 
-
 export function onSaveStay(stay) {
     return async dispatch => {
         try {
@@ -37,25 +36,12 @@ export function onRemoveStay(stayId) {
     }
 }
 
-export function onSetCurrentPage(page) {
-    return dispach => {
-        dispach({ type: 'SET_CURRENTPAGE', page })
-    }
-}
-export function onSetIsSearchMode(isSearchMode) {
-    return dispach => {
-        dispach({ type: 'SET_ISSEARCHMODE', isSearchMode })
-    }
-}
-
-export function getFilter(filterBy) {
+export function setFilter(filterBy) {
     return async dispatch => {
         try {
             dispatch({ type: 'SET_FILTER', filterBy })
-            // console.log('actionnnnnnnnnn', filterBy)
         } catch (err) {
             console.log('StaysActions: err in getFilter', err)
         }
     }
 }
-

@@ -1,0 +1,111 @@
+.stay-filter {
+    .filter-header {
+        font-size: rem(32px);
+        font-family: Roboto-medium;
+        margin-bottom: rem(20px);
+        margin-top: rem(110px);
+        color: $clr3;
+    }
+
+    .btn-group {
+        position: relative;
+        margin-bottom: 1rem;
+
+        .btn-group-button {
+            padding: rem(8px) rem(16px);
+            font-size: rem(14px);
+            margin: rem(4px) rem(8px) rem(4px) 0;
+            border: 1px solid $clr6;
+            border-radius: rem(30px);
+            color: $clr3;
+
+            &:hover {
+                border-color: $clr2;
+            }
+        }
+    }
+}
+
+.popover-container-houserules {
+    position: relative;
+    .stay-filter-popover {
+        margin-top: rem(8px);
+        left: rem(-40px);
+        label {
+            width: rem(140px);
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.popover-container-staytype {
+    position: relative;
+    .stay-filter-popover {
+        margin-top: rem(8px);
+        left: rem(-73px);
+        h4 {
+            margin-bottom: 1rem;
+            font-family: Roboto-light;
+        }
+    }
+}
+
+.popover-container-amenities {
+    position: relative;
+    .stay-filter-popover {
+        width: rem(400px);
+        margin-top: rem(8px);
+        left: rem(-140px);
+    }
+}
+
+.popover-container-priceslider {
+    position: relative;
+    .stay-filter-popover {
+        margin-top: rem(8px);
+        width: rem(275px);
+        h4 {
+            margin-bottom: 3rem;
+            font-family: Roboto-light;
+        }
+    }
+}
+
+.stay-filter-popover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.301);
+    position: absolute;
+    background-color: $clr1;
+    z-index: 90;
+    border-radius: rem(8px);
+    padding: rem(16px);
+    font-size: rem(14px);
+    color: $clr3;
+
+    label {
+        margin-right: rem(20px);
+    }
+}
+
+.save-filter-btn {
+    max-width: rem(63px);
+    border-top: 1px solid $clr7;
+    background-color: $clr3;
+    padding: rem(8px);
+    color: $clr1;
+    border-radius: rem(8px);
+    margin-top: rem(8px);
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin-bottom: rem(4px);
+}
+
+.css-2b097c-container {
+    width: rem(275px);
+    z-index: 5;
+    font-size: rem(14px);
+    margin-bottom: rem(8px);
+}

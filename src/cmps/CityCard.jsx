@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom"
+export function CityCard({ title, imgUrl, onSelect }) {
 
-export function CityCard({ title, imgUrl, onSelectCity }) {
+    const url = `https://res.cloudinary.com/duhcvi6p4/image/upload/v1622304703/${imgUrl}.jpg`
 
     return (
-        <Link to="/stay" onClick={() => { onSelectCity() }}>
-            <div className={` ${title}-card card`}>
-
-                <div className="img-container">
-                    <img src={`https://res.cloudinary.com/duhcvi6p4/image/upload/v1622304703/${imgUrl}.jpg`} alt={title} />
-                </div>
-                <div className={`bg-filter ${title}`}>
-                    <h3>{title}</h3>
-                </div>
+        <div
+            onClick={() => onSelect(title)}
+            className={`${title}-card card`}
+        >
+            <div className="img-container">
+                <img src={url} />
             </div>
-        </Link>
+            <div className={`bg-filter ${title}`}>
+                <h3>{title}</h3>
+            </div>
+        </div>
     )
 }

@@ -16,7 +16,7 @@
         background-position: center;
         background-attachment: fixed;
         background-size: cover;
-        height: 85vh;
+        height: 87vh;
         flex-direction: column;
         color: $clr1;
 
@@ -26,8 +26,11 @@
         }
 
         h2 {
+            max-width: 1024px;
+            margin: 0px auto;
+            width: 100%;
+            transform: translate(0%, 60%);
             color: $clr1;
-            margin-inline-start: rem(50px);
             font-size: 4rem;
         }
     }

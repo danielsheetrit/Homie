@@ -8,6 +8,7 @@
     text-transform: capitalize;
     font-size: rem(18px);
     margin-block-end: rem(100px);
+
     a {
         color: $clr1;
         &:visited {
@@ -18,7 +19,7 @@
     .card {
         position: relative;
         height: 100%;
-        font-family: "Roboto-Regular";
+        font-family: Roboto-Regular;
         .img-container {
             height: 100%;
             position: relative;
@@ -31,7 +32,7 @@
                 transition: transform ease 0.4s;
             }
             &:hover img {
-                transform: scale(1.1);
+                transform: scale(1.05);
                 transition: transform ease 0.4s;
             }
             &::after {

@@ -44,13 +44,15 @@
             }
             .btn-container{
                 justify-content: space-between;
-                align-items: flex-start;
+                align-items: baseline;
+                margin-inline-end: 6px;
                 
                 button, label[name="img-upload"]{
                     font-size: rem(16px);
                     font-family: Roboto-regular;
                     border: 1px solid $clr5;
-                    // margin-block-start: rem(10px);
+                    cursor: pointer;
+                    padding:rem(4px) rem(9px);
                     transition: ease-in-out 0.2s;
                     &:hover {
                         background-color: $clr4;

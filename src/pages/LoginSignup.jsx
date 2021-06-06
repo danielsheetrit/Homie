@@ -38,7 +38,8 @@ class _LoginSignup extends Component {
         this.setState({ isOpen: !this.state.isOpen })
     }
 
-    handleChange = ({ target }) => {
+    handleChange = async (ev) => {
+        const {target} = ev
         const field = target.name
         const value = target.value
         const { isSignup, credentials, userInfo } = this.state
@@ -47,26 +48,32 @@ class _LoginSignup extends Component {
             this.setState({ credentials: { ...credentials, [field]: value } })
         } else {
             this.setState({ userInfo: { ...userInfo, [field]: value } })
+            if(target.type === 'file'){
+                const pic = await cloudinaryService.uploadImg(ev)
+                console.log('PIC',pic)
+                this.setState({userInfo:{...userInfo, imgUrl: pic.url }})
+            }
         }
     }
 
-    onSubmitUser = ev => {
+    onSubmitUser = async ev => {
         ev.preventDefault()
         const { isSignup, userInfo, credentials } = this.state
         const { onSignup, onLogin } = this.props
-        console.log('INFO', userInfo)
-        // isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
-        // this.props.history.push('/')
+        console.log('AAA', userInfo)
+        isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
+        this.props.history.push('/')
     }
-
-    onUpload = async ev => {
-        const pic = await cloudinaryService.uploadImg(ev)
-        this.setState({ imgUrl: pic.url })
-    }
+    
+    // onUpload = async ev => {
+    //     const {userInfo}=this.state
+    //     
+    // }
 
     render() {
         const { isSignup } = this.state
-
+        
+        console.log('DDD',this.state)
         return (
             <div className="log-page-container flex align-center justify-center full">
                 <div className="form-filter"></div>
@@ -85,7 +92,7 @@ class _LoginSignup extends Component {
                                     <label name="img-upload" htmlFor="upload">
                                         upload your image
                                     </label>
-                                    <input id="upload" type="file" onChange={this.onUpload} />
+                                    <input id="upload" type="file" onChange={this.handleChange} />
                                 </div>
                                     <button className="btn">Submit</button>
                             </div>

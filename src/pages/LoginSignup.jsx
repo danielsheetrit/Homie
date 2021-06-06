@@ -43,7 +43,7 @@ class _LoginSignup extends Component {
         const field = target.name
         const value = target.value
         const { isSignup, credentials, userInfo } = this.state
-        
+
         if (isSignup === 'login') {
             this.setState({ credentials: { ...credentials, [field]: value } })
         } else {
@@ -60,9 +60,20 @@ class _LoginSignup extends Component {
         ev.preventDefault()
         const { isSignup, userInfo, credentials } = this.state
         const { onSignup, onLogin } = this.props
+<<<<<<< HEAD
         console.log('AAA', userInfo)
         isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
         this.props.history.push('/')
+=======
+        console.log('INFO', userInfo)
+        isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
+        this.props.history.push('/')
+    }
+
+    onUpload = async ev => {
+        const pic = await cloudinaryService.uploadImg(ev)
+        this.setState({ imgUrl: pic.url })
+>>>>>>> 47d9ac018f7595838f103b8bfada98fe332d9ed9
     }
     
     // onUpload = async ev => {
@@ -94,7 +105,7 @@ class _LoginSignup extends Component {
                                     </label>
                                     <input id="upload" type="file" onChange={this.handleChange} />
                                 </div>
-                                    <button className="btn">Submit</button>
+                                <button className="btn">Submit</button>
                             </div>
                         </form>
                     </section>

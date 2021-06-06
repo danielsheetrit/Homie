@@ -1,9 +1,11 @@
 import { Component } from 'react'
+import { connect } from 'react-redux'
 import { StayRate } from './StayRate.jsx'
 import { GradientBtn } from './GradientBtn.jsx'
 import { StayGuestModal } from './StayGuestModal.jsx'
 import { DateRangePicker } from 'react-dates'
 import { withSnackbar } from 'notistack'
+import { addOrder } from '../store/actions/order.actions'
 import moment from 'moment'
 
 class _StayBookModal extends Component {
@@ -19,12 +21,15 @@ class _StayBookModal extends Component {
             guest: 1
         },
         isModalOpen: false,
-        isReserveMode: false
+        isReserveMode: false,
     }
 
     handleSubmit = (ev) => {
         ev.preventDefault()
         const { startDate, endDate } = this.state.trip
+        const { loggedInUser, stay } = this.props
+        // TODO: validate user is logged in
+        // if (loggedInUser) console.log('loggedInUser', loggedInUser)
         if (startDate && startDate !== '' && endDate && !this.state.isReserveMode) {
             this.setState({ ...this.state, isReserveMode: true })
             return
@@ -34,6 +39,8 @@ class _StayBookModal extends Component {
             })
             setTimeout(() => this.props.closeSnackbar(), 3000)
             this.setState({ ...this.state, isReserveMode: false })
+            const trip = { ...this.state.trip }
+            this.props.addOrder(trip, stay, loggedInUser);
             window.location.hash = '/'
         } else {
             this.props.enqueueSnackbar('Please enter all fields.', {
@@ -121,4 +128,14 @@ class _StayBookModal extends Component {
     }
 }
 
-export const StayBookModal = withSnackbar(_StayBookModal);
+function mapStateToProps(state) {
+    return {
+        loggedInUser: state.userModule.loggedInUser
+    }
+}
+
+const mapDispatchToProps = {
+    addOrder
+}
+
+export const StayBookModal = connect(mapStateToProps, mapDispatchToProps)(withSnackbar(_StayBookModal));

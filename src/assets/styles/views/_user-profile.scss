@@ -1,0 +1,21 @@
+.user-profile{
+    margin-block-start: 150px;
+    display: flex;
+    min-height: 500px;
+
+    aside {
+        display: flex;
+        flex-direction: column;
+        // width: 150px;
+        flex: 1;
+        padding: 10px;
+        a {
+            margin-bottom: 15px;
+        }
+        border-right: 1px solid $clr6;
+    }
+    main {
+        flex: 5;
+        padding: 10px;
+    }
+}

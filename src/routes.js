@@ -2,6 +2,7 @@ import { Home } from './pages/Home.jsx'
 import { LoginSignup } from './pages/LoginSignup.jsx'
 import { StayApp } from './pages/StayApp.jsx'
 import { StayDetails } from './pages/StayDetails.jsx'
+import { UserProfile } from './pages/UserProfile.jsx'
 
 export const routes = [
     {
@@ -19,6 +20,10 @@ export const routes = [
     {
         path: '/signup',
         component: LoginSignup,
+    },
+    {
+        path: '/userprofile',
+        component: UserProfile,
     },
     {
         path: '/',

@@ -8,6 +8,7 @@
 @import "./views/home-page";
 @import "./views/stay_details";
 @import "./views/login-signup";
+@import "./views/user-profile";
 
 // Basics
 @import "./basics/helpers";
@@ -35,3 +36,4 @@
 @import "./components/stay-list-filter";
 @import "./components/reviews-modal";
 @import "./components/google-map";
+@import "./components/stay-guest-modal";

@@ -22,15 +22,13 @@ export class GradientBtn extends Component {
     };
 
     render() {
-
-        const txt = this.props.txt
+        const { isReserveMode } = this.props;
+        const txt = isReserveMode ? 'Reserve' : 'Check availability'
         return (
-            <button className="gradientBtn"
-                onMouseMove={this.handleMouseMove}
-            >
-                {txt ? txt : 'Check availability'}
+
+            <button className="gradientBtn" onMouseMove={this.handleMouseMove}>
+                {txt}
             </button>
         )
-
     }
 }

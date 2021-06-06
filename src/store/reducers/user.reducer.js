@@ -1,6 +1,6 @@
 let localLoggedinUser = null
 if (sessionStorage.loggedinUser) localLoggedinUser = JSON.parse(sessionStorage.loggedinUser)
-
+ 
 const initialState = {
     loggedInUser: localLoggedinUser,
     users: []

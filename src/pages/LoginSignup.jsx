@@ -69,16 +69,9 @@ class _LoginSignup extends Component {
         const pic = await cloudinaryService.uploadImg(ev)
         this.setState({ imgUrl: pic.url })
     }
-    
-    // onUpload = async ev => {
-    //     const {userInfo}=this.state
-    //     
-    // }
 
     render() {
         const { isSignup } = this.state
-        
-        console.log('DDD',this.state)
         return (
             <div className="log-page-container flex align-center justify-center full">
                 <div className="form-filter"></div>

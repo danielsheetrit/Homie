@@ -8,21 +8,37 @@ export const stayService = {
 }
 
 async function query(filterBy) {
-    return await httpService.get('stay/', filterBy)
+    try {
+        return await httpService.get('stay/', filterBy)
+    } catch (err) {
+        console.log('cant get stays', err)
+    }
 }
 
 async function getById(id) {
-    return await httpService.get(`stay/${id}`)
+    try {
+        return await httpService.get(`stay/${id}`)
+    } catch (err) {
+        console.log('cant get stay', err)
+    }
 }
 
 async function save(stay) {
-    if (stay._id) {
-        return await httpService.put(`stay/${stay._id}`, stay)
-    } else {
-        return await httpService.post('stay/', stay)
+    try {
+        if (stay._id) {
+            return await httpService.put(`stay/${stay._id}`, stay)
+        } else {
+            return await httpService.post('stay/', stay)
+        }
+    } catch (err) {
+        console.log('cant save stay', err)
     }
 }
 
 async function remove(id) {
-    return await httpService.delete(`stay/${id}`)
+    try {
+        return await httpService.delete(`stay/${id}`)
+    } catch (err) {
+        console.log('not authorized!', err)
+    }
 }

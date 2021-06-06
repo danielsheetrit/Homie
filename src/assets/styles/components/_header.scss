@@ -31,7 +31,7 @@ header {
         .nav-link {
             .login-signup-btn {
                 cursor: pointer;
-                border: 1px solid $clr3;
+                border: 1px solid #ddd;
                 color: $clr3;
                 padding: rem(4px) rem(8.5px);
                 border-radius: rem(20px);
@@ -76,6 +76,18 @@ header {
                     }
                 }
             }
+        }
+    }
+    .avatar-container{
+        max-width: 36px;
+        .MuiAvatar-root {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            border-radius: 50%;
+            justify-content: flex-start;
         }
     }
 }

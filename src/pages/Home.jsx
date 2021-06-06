@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { getStays, setFilter } from '../store/actions/stay.actions'
 
 import { CityCard } from '../cmps/CityCard.jsx'

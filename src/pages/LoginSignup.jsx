@@ -60,11 +60,6 @@ class _LoginSignup extends Component {
         ev.preventDefault()
         const { isSignup, userInfo, credentials } = this.state
         const { onSignup, onLogin } = this.props
-<<<<<<< HEAD
-        console.log('AAA', userInfo)
-        isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
-        this.props.history.push('/')
-=======
         console.log('INFO', userInfo)
         isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
         this.props.history.push('/')
@@ -73,7 +68,6 @@ class _LoginSignup extends Component {
     onUpload = async ev => {
         const pic = await cloudinaryService.uploadImg(ev)
         this.setState({ imgUrl: pic.url })
->>>>>>> 47d9ac018f7595838f103b8bfada98fe332d9ed9
     }
     
     // onUpload = async ev => {

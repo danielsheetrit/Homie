@@ -1,0 +1,39 @@
+.stay-orders {
+color: $clr3;
+
+
+ table {
+    text-align: center;
+    width:100%;
+    font-family: Roboto-Regular;
+     color: $clr3;
+     font-size: 12px;
+     border-collapse: collapse;
+     margin-left: 30px;
+     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    tr a {
+        color: $clr3;
+    }
+    td, th {
+        border-collapse: collapse;
+    }
+    th, td {
+      padding: 20px;
+    }
+    td.approved {
+        color:rgb(65, 202, 65);
+        font-weight: bold;
+    }
+    td.pending {
+        color:rgb(240, 176, 57);
+        font-weight: bold;
+    }
+    td.rejected {
+        color:rgb(241, 74, 74);
+        font-weight: bold;
+    }
+    .order-details {
+        text-decoration: underline;
+    }
+ }
+}

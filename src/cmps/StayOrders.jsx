@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import { LongTxt } from './LongTxt.jsx'
-export function StayOrders({ orders }) {
+
+export function StayOrders({ orders, getStatusClassName }) {
     console.log('StayOrders orders', orders)
     return (
-        <section>
-            <h1>My Orders</h1>
+        <section className="stay-orders">
             <table>
                 <thead>
                     <tr>
@@ -14,13 +14,12 @@ export function StayOrders({ orders }) {
                         <th>City</th>
                         <th>Total Price</th>
                         <th>Details</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {orders.map(order => {
-                             return <OrderPreview key={order._id}/>
-                        })} */}
                     {orders.map(order => {
+                        const statusColor = getStatusClassName(order.status)
                         return (
                             <tr key={order._id}>
                                 <td><LongTxt txt={order.stay.name} numOfChars={20} /></td>
@@ -28,7 +27,8 @@ export function StayOrders({ orders }) {
                                 <td>{order.endDate}</td>
                                 <td>{order.city}</td>
                                 <td>{order.totalPrice}</td>
-                                <td><Link to={`/stay/${order.stay._id}`}>Details</Link></td>
+                                <td className="order-details"><Link to={`/stay/${order.stay._id}`}>Details</Link></td>
+                                <td className={statusColor}>{order.status}</td>
                             </tr>
                         )
                     })}

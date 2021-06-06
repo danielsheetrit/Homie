@@ -8,6 +8,7 @@ export const orderService = {
     remove,
     add,
     update,
+    calcDays
 }
 
 async function query(user = { _id: null }) {
@@ -16,6 +17,8 @@ async function query(user = { _id: null }) {
 }
 
 async function add(trip, stay, loggedInUser) {
+    const days = calcDays(trip.startDate, trip.endDate)
+    const totalPrice = stay.price * days + 10
     const order = {
         // _id: utilService.makeId(),
         createdAt: Date.now(),
@@ -23,7 +26,7 @@ async function add(trip, stay, loggedInUser) {
             _id: loggedInUser._id,
             fullName: loggedInUser.fullname
         },
-        totalPrice: trip.totalPrice,
+        totalPrice,
         city: stay.loc.city,
         startDate: trip.startDate.format('YYYY-MM-DD'),
         endDate: trip.endDate.format('YYYY-MM-DD'),
@@ -39,10 +42,6 @@ async function add(trip, stay, loggedInUser) {
         host: stay.host,
         status: 'pending',
     }
-
-    console.log('stay', stay)
-    console.log('trip', trip)
-    console.log('orderrrrrrrrrrr', order)
     return await httpService.post(`order`, order)
 }
 
@@ -53,4 +52,11 @@ function remove(orderId) {
 async function update(order) {
     return await httpService.put(`order/${order._id}`, order)
 
+}
+
+function calcDays(startDate, endDate) {
+    const firstDay = moment(startDate.format('YYYY-MM-DD'))
+    const lastDay = moment(endDate.format('YYYY-MM-DD'))
+    const days = lastDay.diff(firstDay, 'days') + 1
+    return days;
 }

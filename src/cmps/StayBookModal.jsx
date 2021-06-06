@@ -6,6 +6,7 @@ import { StayGuestModal } from './StayGuestModal.jsx'
 import { DateRangePicker } from 'react-dates'
 import { withSnackbar } from 'notistack'
 import { addOrder } from '../store/actions/order.actions'
+import { orderService } from '../services/order-service'
 import moment from 'moment'
 
 class _StayBookModal extends Component {
@@ -16,7 +17,7 @@ class _StayBookModal extends Component {
             // days: 0,
             adults: 1,
             children: 0,
-            totalPrice: 0
+            // totalPrice: 0
         },
         filterBy: {
             guest: 1
@@ -35,13 +36,11 @@ class _StayBookModal extends Component {
             this.setState({ ...this.state, isReserveMode: true })
             return
         } else if (startDate && startDate && this.state.isReserveMode) {
-            const days = this.calcDays();
-            this.setState({ ...this.state, trip: { ...this.state.trip, totalPrice: stay.price * days + 10 } })
+
             this.props.enqueueSnackbar('Your order received.', {
                 variant: 'success',
             })
             setTimeout(() => this.props.closeSnackbar(), 3000)
-            this.setState({ ...this.state, isReserveMode: false })
             const trip = { ...this.state.trip }
             this.props.addOrder(trip, stay, loggedInUser);
             window.location.hash = '/'
@@ -53,14 +52,14 @@ class _StayBookModal extends Component {
         }
     }
 
-    calcDays = () => {
-        const startDate = this.state.trip.startDate.format('YYYY-MM-DD')
-        const endDate = this.state.trip.endDate.format('YYYY-MM-DD')
-        const firstDay = moment(startDate)
-        const lastDay = moment(endDate)
-        const days = lastDay.diff(firstDay, 'days') + 1
-        return days;
-    }
+    // calcDays = () => {
+    //     const startDate = this.state.trip.startDate.format('YYYY-MM-DD')
+    //     const endDate = this.state.trip.endDate.format('YYYY-MM-DD')
+    //     const firstDay = moment(startDate)
+    //     const lastDay = moment(endDate)
+    //     const days = lastDay.diff(firstDay, 'days') + 1
+    //     return days;
+    // }
 
     toggleModal = (ev) => {
         ev.preventDefault()
@@ -79,7 +78,7 @@ class _StayBookModal extends Component {
         const { adults, children, startDate, endDate } = this.state.trip;
         if (!stay) return <p>Loading</p>
         let days = 1;
-        if (startDate && endDate) days = this.calcDays()
+        if (startDate && endDate) days = orderService.calcDays(startDate, endDate)
 
         return (
             <section className="stay-book-modal">

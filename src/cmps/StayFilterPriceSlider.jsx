@@ -21,7 +21,7 @@ export class StayFilterPriceSlider extends Component {
 
         const { minPrice, maxPrice, handleChange } = this.props
         const value = [minPrice, maxPrice]
-        const max = 2500
+        const max = 1500
 
         return (
             <div className="popover-container-priceslider">

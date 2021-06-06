@@ -3,14 +3,19 @@ import { NavLink, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
 import { getUsers } from '../store/actions/user.actions'
+import { getOrders } from '../store/actions/order.actions'
 import { AddStay } from '../cmps/AddStay.jsx'
 import { UserStays } from '../cmps/UserStays.jsx'
 import { StayOrders } from '../cmps/StayOrders.jsx'
 import { Wishlist } from '../cmps/Wishlist.jsx'
 
 class _UserProfile extends Component {
+    componentDidMount() {
+        const { _id } = this.props.loggedInUser
+        this.props.getOrders(_id)
+    }
     render() {
-        const { loggedInUser } = this.props
+        const { loggedInUser, orders } = this.props
         return (
 
             <section className="user-profile">
@@ -25,7 +30,9 @@ class _UserProfile extends Component {
                     <Switch>
                         <Route path="/userprofile/add" component={AddStay} />
                         <Route path="/userprofile/mystays" component={UserStays} />
-                        <Route path="/userprofile/orders" component={StayOrders} />
+                        {/* <Route path="/userprofile/orders" component={StayOrders} /> */}
+                        <Route path="/userprofile/orders" render={(props) => <StayOrders {...props} loggedInUser={loggedInUser} orders={orders} />} />
+
                         <Route path="/userprofile/wishlist" component={Wishlist} />
                     </Switch>
                 </main>
@@ -37,14 +44,15 @@ class _UserProfile extends Component {
 
 function mapStateToProps(state) {
     return {
-        loggedInUser: state.userModule.loggedInUser
+        loggedInUser: state.userModule.loggedInUser,
+        orders: state.orderModule.orders
     }
 }
 
 const mapDispatchToProps = {
     getStays,
-    getUsers
-
+    getUsers,
+    getOrders
 }
 
 export const UserProfile = connect(mapStateToProps, mapDispatchToProps)(_UserProfile)

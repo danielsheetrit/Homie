@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-
+import { Component } from 'react'
 import { connect } from 'react-redux'
+
 import { getStays } from '../store/actions/stay.actions'
-import { GradientBtn } from './GradientBtn.jsx'
 
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
@@ -58,6 +57,7 @@ class _StaySearch extends Component {
 
         return (
             <section className="stay-search flex align-center">
+
                 <div className="search-mini"
                     onClick={this.handleSearchMini}
                 >
@@ -91,8 +91,8 @@ class _StaySearch extends Component {
                         <DateRangePicker
                             startDateId="your_unique_start_date_id"
                             startDate={this.state.startDate}
-                            endDate={this.state.endDate}
                             endDateId="your_unique_end_date_id"
+                            endDate={this.state.endDate}
                             onDatesChange={
                                 ({ startDate, endDate }) => this.setState({ startDate, endDate })}
                             focusedInput={this.state.focusedInput}

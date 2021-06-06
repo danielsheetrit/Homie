@@ -1,13 +1,15 @@
-import { Component } from 'react'
 import React from 'react'
+import { Component } from 'react'
 import { connect } from 'react-redux'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+
 import { cloudinaryService } from '../services/cloudinary-service'
 import { getUsers, onLogout, onSignup, onLogin } from '../store/actions/user.actions'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 class _LoginSignup extends Component {
+
     state = {
         isSignup: '',
         isOpen: false,
@@ -39,7 +41,8 @@ class _LoginSignup extends Component {
     }
 
     handleChange = async (ev) => {
-        const {target} = ev
+        
+        const { target } = ev
         const field = target.name
         const value = target.value
         const { isSignup, credentials, userInfo } = this.state
@@ -47,20 +50,27 @@ class _LoginSignup extends Component {
         if (isSignup === 'login') {
             this.setState({ credentials: { ...credentials, [field]: value } })
         } else {
+
             this.setState({ userInfo: { ...userInfo, [field]: value } })
-            if(target.type === 'file'){
+
+            if (target.type === 'file') {
                 const pic = await cloudinaryService.uploadImg(ev)
-                console.log('PIC',pic)
-                this.setState({userInfo:{...userInfo, imgUrl: pic.url }})
+                this.setState({ userInfo: { ...userInfo, imgUrl: pic.url } })
             }
         }
     }
 
     onSubmitUser = async ev => {
         ev.preventDefault()
-        const { isSignup, userInfo, credentials } = this.state
+
+        const {
+            isSignup,
+            userInfo,
+            credentials
+        } = this.state
+
         const { onSignup, onLogin } = this.props
-        console.log('INFO', userInfo)
+
         isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
         this.props.history.push('/')
     }
@@ -71,40 +81,82 @@ class _LoginSignup extends Component {
     }
 
     render() {
+
         const { isSignup } = this.state
+
         return (
             <div className="log-page-container flex align-center justify-center full">
                 <div className="form-filter"></div>
                 { isSignup === 'signup' &&
                     <section className="sign-up flex">
                         <FontAwesomeIcon icon={faUserCircle} size="3x" />
-                        <form className="flex" onSubmit={this.onSubmitUser}>
+                        <form
+                            className="flex"
+                            onSubmit={this.onSubmitUser}
+                        >
                             <label htmlFor="fullname">Fullname</label>
-                            <input onChange={this.handleChange} type="text" name="fullname" id="fullname" />
+                            <input
+                                onChange={this.handleChange}
+                                type="text"
+                                name="fullname"
+                                id="fullname"
+                            />
+
                             <label htmlFor="username">Username</label>
-                            <input onChange={this.handleChange} type="text" name="username" id="username" />
+                            <input
+                                onChange={this.handleChange}
+                                type="text"
+                                name="username"
+                                id="username"
+                            />
+
                             <label htmlFor="password">Password</label>
-                            <input onChange={this.handleChange} type="password" name="password" id="password" />
+                            <input
+                                onChange={this.handleChange}
+                                type="password"
+                                name="password"
+                                id="password"
+                            />
+
                             <div className="btn-container flex ">
                                 <div className="btn-upload">
                                     <label name="img-upload" htmlFor="upload">
                                         upload your image
                                     </label>
-                                    <input id="upload" type="file" onChange={this.handleChange} />
+                                    <input
+                                        id="upload"
+                                        type="file"
+                                        onChange={this.handleChange}
+                                    />
                                 </div>
                                 <button className="btn">Submit</button>
                             </div>
                         </form>
-                    </section>
-                }
+                    </section>}
+
                 { isSignup === 'login' &&
                     <section className="log-in flex">
                         <FontAwesomeIcon icon={faUserCircle} size="3x" />
-                        <form onSubmit={this.onSubmitUser} className="flex">
+                        <form
+                            onSubmit={this.onSubmitUser}
+                            className="flex"
+                        >
                             <label htmlFor="username">Username</label>
-                            <input onChange={this.handleChange} type="text" name="username" id="username" />
+                            <input
+                                onChange={this.handleChange}
+                                type="text"
+                                name="username"
+                                id="username"
+                            />
+
                             <label htmlFor="password">Password</label>
-                            <input onChange={this.handleChange} type="password" name="password" id="password" />
+                            <input
+                                onChange={this.handleChange}
+                                type="password"
+                                name="password"
+                                id="password"
+                            />
+
                             <button className="btn">Submit</button>
                         </form>
                     </section>
@@ -115,9 +167,8 @@ class _LoginSignup extends Component {
 }
 
 function mapStateToProps(state) {
-    const { users } = state.userModule
     return {
-        users
+        users: state.userModule.users
     }
 }
 

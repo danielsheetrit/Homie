@@ -11,6 +11,7 @@ import { StayOrders } from '../cmps/StayOrders.jsx'
 import { Wishlist } from '../cmps/Wishlist.jsx'
 
 class _UserProfile extends Component {
+    
     componentDidMount() {
         const { _id } = this.props.loggedInUser
         this.props.getOrders(_id)
@@ -18,6 +19,7 @@ class _UserProfile extends Component {
 
     getStatusClassName = (status) => {
         let classColor;
+
         if (status === 'approved') {
             classColor = 'approved'
         } else if (status === 'pending') {
@@ -25,7 +27,7 @@ class _UserProfile extends Component {
         } else {
             classColor = 'rejected'
         }
-        console.log('classColor', classColor)
+
         return classColor
     }
 
@@ -34,7 +36,7 @@ class _UserProfile extends Component {
         return (
 
             <section className="user-profile">
-                {/* <h2>{`hello ${loggedInUser.username}`}</h2> */}
+
                 <aside>
                     <NavLink to="/userprofile/orders">Orders</NavLink>
                     <NavLink to="/userprofile/myhomes">My Homes</NavLink>
@@ -44,12 +46,17 @@ class _UserProfile extends Component {
                 </aside>
                 <main>
                     <Switch>
-                        <Route path="/userprofile/orders" render={(props) => <StayOrders {...props} loggedInUser={loggedInUser} orders={orders} getStatusClassName={this.getStatusClassName} />} />
+                        <Route
+                            path="/userprofile/orders"
+                            render={(props) => <StayOrders
+                                {...props}
+                                loggedInUser={loggedInUser}
+                                orders={orders}
+                                getStatusClassName={this.getStatusClassName} />}
+                        />
                         <Route path="/userprofile/add" component={AddStay} />
                         <Route path="/userprofile/myhomes" component={HostHomes} />
                         <Route path="/userprofile/mystays" component={UserStays} />
-                        {/* <Route path="/userprofile/orders" component={StayOrders} /> */}
-
                         <Route path="/userprofile/wishlist" component={Wishlist} />
                     </Switch>
                 </main>

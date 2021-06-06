@@ -1,9 +1,8 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { getStays, setFilter } from '../store/actions/stay.actions'
-import bg from '../assets/img/bg.jpg'
+
 import img1 from '../assets/img/img1.jpg'
-import img2 from '../assets/img/img2.jpg'
 
 import { CityCard } from '../cmps/CityCard.jsx'
 import { StayList } from '../cmps/StayList.jsx'
@@ -77,6 +76,7 @@ export class _Home extends Component {
                 <div className="city-card-container">
                     {cities.map((city, idx) => {
                         return <CityCard
+                            key={idx}
                             onSelect={this.onSelect}
                             title={city}
                             imgUrl={citiesUrl[idx]}
@@ -95,13 +95,14 @@ export class _Home extends Component {
                     <div className="host-container flex">
                         <div className="content-container flex">
                             <h2>Become a host</h2>
-                            <p>Earn extra income with Homie,<br /> join us and milion other hosts to unlock new opportunities, by sharing your space.<br />
-                            hosting can help you turn your extra space into extra income and pursue more of what you love.</p>
+                            <p>Earn extra income with Homie,
+                                <br /> join us and milion other hosts to unlock new opportunities, by sharing your space.<br />
+                                hosting can help you turn your extra space into extra income and pursue more of what you love.</p>
                             <button>join us now!</button>
                         </div>
 
                         <div className="img-container flex">
-                            <img src={img1} alt="" />
+                            <img src={img1} />
                         </div>
                     </div>
                 </section>

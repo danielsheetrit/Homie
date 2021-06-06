@@ -20,34 +20,6 @@ async function query(user = { _id: null }) {
 }
 
 async function add(trip, stay, loggedInUser) {
-<<<<<<< HEAD
-    try {
-        const order = {
-            // _id: utilService.makeId(),
-            createdAt: Date.now(),
-            buyer: {
-                _id: loggedInUser._id,
-                fullName: loggedInUser.fullname
-            },
-            totalPrice: 555555,
-            startDate: trip.startDate.format('YYYY-MM-DD'),
-            endDate: trip.endDate.format('YYYY-MM-DD'),
-            guests: {
-                adults: trip.adults,
-                children: trip.children,
-            },
-            stay: {
-                _id: stay._id,
-                name: stay.name,
-                price: stay.price
-            },
-            host: stay.host,
-            status: 'pending',
-        }
-        return await httpService.post(`order`, order)
-    } catch (err) {
-        console.log('cant add new order', err)
-=======
     const days = calcDays(trip.startDate, trip.endDate)
     const totalPrice = stay.price * days + 10
     const order = {
@@ -72,7 +44,6 @@ async function add(trip, stay, loggedInUser) {
         },
         host: stay.host,
         status: 'pending',
->>>>>>> 4c08d29072170058f5637a99f20a8f663a56df54
     }
 }
 
@@ -85,14 +56,6 @@ function remove(orderId) {
 }
 
 async function update(order) {
-<<<<<<< HEAD
-    try {
-        return await httpService.put(`order/${order._id}`, order)
-    } catch (err) {
-        console.log('cant update order', err)
-    }
-}
-=======
     return await httpService.put(`order/${order._id}`, order)
 
 }
@@ -103,4 +66,3 @@ function calcDays(startDate, endDate) {
     const days = lastDay.diff(firstDay, 'days') + 1
     return days;
 }
->>>>>>> 4c08d29072170058f5637a99f20a8f663a56df54

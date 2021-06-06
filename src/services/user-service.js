@@ -12,38 +12,74 @@ export const userService = {
 }
 
 async function getUsers() {
-    return await httpService.get(`user`)
+    try {
+        return await httpService.get(`user`)
+    } catch (err) {
+        console.log('cant get users', err)
+    }
 }
 
 async function getById(userId) {
-    return await httpService.get(`user/${userId}`)
+    try {
+        return await httpService.get(`user/${userId}`)
+    } catch (err) {
+        console.log('cant get user', err)
+    }
 }
 
 async function remove(userId) {
-    return await httpService.delete(`user/${userId}`)
+    try {
+        return await httpService.delete(`user/${userId}`)
+    } catch (err) {
+        console.log('not authorized!', err)
+    }
 }
 
 async function update(user) {
-    user = await httpService.put(`user/${user._id}`, user)
-    // Handle case in which admin updates other user's details
-    if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
+    try {
+        const user = await httpService.put(`user/${user._id}`, user)
+        // Handle case in which admin updates other user's details
+        if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
+    } catch (err) {
+        console.log('cant update', err)
+    }
 }
 
 async function login(userCred) {
-    const user = await httpService.post('auth/login', userCred)
-    if (user) return _saveLocalUser(user)
+    try {
+        const user = await httpService.post('auth/login', userCred)
+        if (user) return _saveLocalUser(user)
+    } catch (err) {
+        console.log('user not found', err)
+    }
 }
 
 async function signup(userCred) {
-    console.log('USER', userCred)
-    const user = await httpService.post('auth/signup', userCred)
-    return _saveLocalUser(user)
+    try {
+        const newUser = {
+            ...userCred,
+            isHost: false
+        }
+
+        const user = await httpService.post('auth/signup', newUser)
+        return _saveLocalUser(user)
+    } catch (err) {
+        console.log('cant add new user', err)
+    }
 }
 
 async function logout() {
-    sessionStorage.clear()
-    return await httpService.post('auth/logout')
+    try {
+        sessionStorage.clear()
+        return await httpService.post('auth/logout')
+    } catch (err) {
+        console.log('no loged user', err)
+    }
 }
+
+// async function onBecomeHost(user) {
+
+// }
 
 function _saveLocalUser(user) {
     sessionStorage.setItem('loggedinUser', JSON.stringify(user))

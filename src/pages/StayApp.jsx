@@ -8,6 +8,7 @@ export class _StayApp extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0)
+        this.props.getStays(this.props.filterBy)
     }
 
     componentWillUnmount() {
@@ -34,7 +35,8 @@ export class _StayApp extends Component {
 
 function mapStateToProps(state) {
     return {
-        stays: state.stayModule.stays
+        stays: state.stayModule.stays,
+        filterBy: state.stayModule.filterBy
     }
 }
 

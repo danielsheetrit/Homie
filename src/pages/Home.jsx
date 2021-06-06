@@ -58,7 +58,7 @@ export class _Home extends Component {
             'tokyo_cl5jez',
             'london_ddezqi',
             'barcelona_aq6xpb'
-        ]
+        ] 
 
         return (
 

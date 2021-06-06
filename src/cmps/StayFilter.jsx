@@ -12,7 +12,7 @@ class _StayFilter extends Component {
     state = {
         filterBy: {
             type: '',
-            minPrice: 500,
+            minPrice: 0,
             maxPrice: 1500,
             isPets: false,
             isSmoking: false,

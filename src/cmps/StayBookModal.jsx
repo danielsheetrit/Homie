@@ -15,7 +15,8 @@ class _StayBookModal extends Component {
             endDate: '',
             // days: 0,
             adults: 1,
-            children: 0
+            children: 0,
+            totalPrice: 0
         },
         filterBy: {
             guest: 1
@@ -34,6 +35,8 @@ class _StayBookModal extends Component {
             this.setState({ ...this.state, isReserveMode: true })
             return
         } else if (startDate && startDate && this.state.isReserveMode) {
+            const days = this.calcDays();
+            this.setState({ ...this.state, trip: { ...this.state.trip, totalPrice: stay.price * days + 10 } })
             this.props.enqueueSnackbar('Your order received.', {
                 variant: 'success',
             })
@@ -118,7 +121,7 @@ class _StayBookModal extends Component {
                         <div className="reserve-mode">
                             <p>You won't be charged yet</p>
                             <div><span>${stay.price} x {days} nights</span> <span>${stay.price * days}</span></div>
-                            <div><span>Service fee</span> <span>$0</span></div>
+                            <div><span>Service fee</span> <span>$</span></div>
                             <div><span>Occupancy taxes and fees</span> <span>$10</span></div>
                             <div><span>Total</span> <span>${stay.price * days + 10}</span></div>
                         </div>}

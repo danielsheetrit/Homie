@@ -23,7 +23,8 @@ async function add(trip, stay, loggedInUser) {
             _id: loggedInUser._id,
             fullName: loggedInUser.fullname
         },
-        totalPrice: 555555,
+        totalPrice: trip.totalPrice,
+        city: stay.loc.city,
         startDate: trip.startDate.format('YYYY-MM-DD'),
         endDate: trip.endDate.format('YYYY-MM-DD'),
         guests: {
@@ -38,6 +39,10 @@ async function add(trip, stay, loggedInUser) {
         host: stay.host,
         status: 'pending',
     }
+
+    console.log('stay', stay)
+    console.log('trip', trip)
+    console.log('orderrrrrrrrrrr', order)
     return await httpService.post(`order`, order)
 }
 

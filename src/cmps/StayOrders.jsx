@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { LongTxt } from './LongTxt.jsx'
 export function StayOrders({ orders }) {
     console.log('StayOrders orders', orders)
     return (
@@ -22,12 +23,12 @@ export function StayOrders({ orders }) {
                     {orders.map(order => {
                         return (
                             <tr key={order._id}>
-                                <td>{order.stay.name}</td>
+                                <td><LongTxt txt={order.stay.name} numOfChars={20} /></td>
                                 <td>{order.startDate}</td>
                                 <td>{order.endDate}</td>
-                                <td>City</td>
+                                <td>{order.city}</td>
                                 <td>{order.totalPrice}</td>
-                                <td><Link to={`stay/${order.stay._id}`}>Details</Link></td>
+                                <td><Link to={`/stay/${order.stay._id}`}>Details</Link></td>
                             </tr>
                         )
                     })}

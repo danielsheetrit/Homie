@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
+import { GradientBtn } from './GradientBtn.jsx'
 
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
@@ -118,7 +119,6 @@ class _StaySearch extends Component {
                                 placeholder="1 guest" />
                         </div>
                     </div>
-
                     <button>
                         <FontAwesomeIcon icon={faSearch} size="2x" />
                     </button>

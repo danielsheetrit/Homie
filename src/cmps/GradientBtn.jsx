@@ -1,6 +1,7 @@
 import { Component } from 'react'
 
 export class GradientBtn extends Component {
+
     state = {
         x: 0,
         y: 0
@@ -20,26 +21,14 @@ export class GradientBtn extends Component {
             `;
     };
 
-    // handleHoverOff = e => {
-    //     console.log('handleHoverOff');
-    //     this.setState({
-    //         x: 0,
-    //         y: 0
-    //     });
-    //     e.currentTarget.style.cssText = `
-    //         --mouse-x: 0; 
-    //         --mouse-y: 0;
-    //         `;
-    // }
-
     render() {
+
+        const txt = this.props.txt
         return (
-
-            <button className="gradientBtn" onMouseMove={this.handleMouseMove}
-
-            // onMouseLeave={this.handleHoverOff}
+            <button className="gradientBtn"
+                onMouseMove={this.handleMouseMove}
             >
-                Check availability
+                {txt ? txt : 'Check availability'}
             </button>
         )
 

@@ -1,4 +1,3 @@
-import { utilService } from '../services/util-service'
 import { httpService } from './http-service'
 import moment from 'moment'
 
@@ -9,7 +8,6 @@ export const orderService = {
     add,
     update,
     calcDays
-    
 }
 
 async function query(user = { _id: null, type: 'user' }) {

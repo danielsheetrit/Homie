@@ -26,7 +26,8 @@ async function add(trip, stay, loggedInUser) {
         createdAt: Date.now(),
         buyer: {
             _id: loggedInUser._id,
-            fullName: loggedInUser.fullname
+            fullName: loggedInUser.fullname,
+            imgUrl: loggedInUser.imgUrl
         },
         totalPrice,
         city: stay.loc.city,
@@ -57,7 +58,6 @@ function remove(orderId) {
 
 async function update(order) {
     return await httpService.put(`order/${order._id}`, order)
-
 }
 
 function calcDays(startDate, endDate) {

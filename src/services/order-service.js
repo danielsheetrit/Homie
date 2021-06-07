@@ -11,7 +11,7 @@ export const orderService = {
     calcDays
 }
 
-async function query(user = { _id: null }) {
+async function query(user = { _id: null, type: 'user' }) {
     try {
         return await httpService.get(`order`, user)
     } catch (err) {
@@ -45,6 +45,7 @@ async function add(trip, stay, loggedInUser) {
         host: stay.host,
         status: 'pending',
     }
+    return await httpService.post(`order`, order)
 }
 
 function remove(orderId) {

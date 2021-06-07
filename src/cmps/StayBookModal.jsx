@@ -52,15 +52,6 @@ class _StayBookModal extends Component {
         }
     }
 
-    // calcDays = () => {
-    //     const startDate = this.state.trip.startDate.format('YYYY-MM-DD')
-    //     const endDate = this.state.trip.endDate.format('YYYY-MM-DD')
-    //     const firstDay = moment(startDate)
-    //     const lastDay = moment(endDate)
-    //     const days = lastDay.diff(firstDay, 'days') + 1
-    //     return days;
-    // }
-
     toggleModal = (ev) => {
         ev.preventDefault()
         this.setState({ isModalOpen: !this.state.isModalOpen })

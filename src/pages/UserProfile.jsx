@@ -9,12 +9,14 @@ import { UserStays } from '../cmps/UserStays.jsx'
 import { HostHomes } from '../cmps/HostHomes.jsx'
 import { StayOrders } from '../cmps/StayOrders.jsx'
 import { Wishlist } from '../cmps/Wishlist.jsx'
+import { HostOrdersPreview } from '../cmps/HostOrdersPreview.jsx'
 
 class _UserProfile extends Component {
-    
+
     componentDidMount() {
         const { _id } = this.props.loggedInUser
-        this.props.getOrders(_id)
+        // console.log('this.props.loggedInUser', this.props.loggedInUser)
+        this.props.getOrders(_id, 'user')
     }
 
     getStatusClassName = (status) => {
@@ -33,14 +35,21 @@ class _UserProfile extends Component {
 
     render() {
         const { loggedInUser, orders } = this.props
+        const { isHost } = loggedInUser
+        const hostOrders = orders.filter(order => {
+            return order.host._id === loggedInUser._id
+        })
+
+        console.log('loggedInUser._id', loggedInUser._id)
+        console.log('order.host._id', orders[0])
         return (
 
             <section className="user-profile">
 
                 <aside>
                     <NavLink to="/userprofile/orders">Orders</NavLink>
-                    <NavLink to="/userprofile/myhomes">My Homes</NavLink>
-                    <NavLink to="/userprofile/add">Add stay</NavLink>
+                    {isHost && <NavLink to="/userprofile/myhomes">My Homes</NavLink>}
+                    {isHost && <NavLink to="/userprofile/add">Add stay</NavLink>}
                     <NavLink to="/userprofile/mystays">My Stays</NavLink>
                     <NavLink to="/userprofile/wishlist">Wishlist</NavLink>
                 </aside>
@@ -59,6 +68,9 @@ class _UserProfile extends Component {
                         <Route path="/userprofile/mystays" component={UserStays} />
                         <Route path="/userprofile/wishlist" component={Wishlist} />
                     </Switch>
+                    {isHost && hostOrders && hostOrders.map(order => {
+                        return <HostOrdersPreview order={order} key={order._id} />
+                    })}
                 </main>
             </section>
 

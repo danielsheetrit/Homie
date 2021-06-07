@@ -2,10 +2,11 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { getStays, setFilter } from '../store/actions/stay.actions'
 
-import img1 from '../assets/img/img1.jpg'
+import img1 from '../assets/img/img-1.jpg'
 
 import { CityCard } from '../cmps/CityCard.jsx'
 import { StayList } from '../cmps/StayList.jsx'
+import { Loader } from '../cmps/Loader.jsx'
 
 export class _Home extends Component {
 
@@ -41,8 +42,7 @@ export class _Home extends Component {
 
     render() {
 
-        console.log(this.state.city);
-        const filterStays = this.props.stays.slice(0, 4)
+        const filterStays = this.props.stays.slice(0, 5)
 
         const cities = [
             'amsterdam',
@@ -61,6 +61,8 @@ export class _Home extends Component {
             'london_ddezqi',
             'barcelona_aq6xpb'
         ]
+
+        if (!this.props.stays) return <Loader />
 
         return (
 
@@ -98,9 +100,8 @@ export class _Home extends Component {
                             <p>Earn extra income with Homie,
                                 <br /> join us and milion other hosts to unlock new opportunities, by sharing your space.<br />
                                 hosting can help you turn your extra space into extra income and pursue more of what you love.</p>
-                            <button>join us now!</button>
+                            <button>Join us now!</button>
                         </div>
-
                         <div className="img-container flex">
                             <img src={img1} />
                         </div>

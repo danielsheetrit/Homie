@@ -83,7 +83,7 @@ class _StaySearch extends Component {
                                 placeholder="Where are you going?" />
                         </div>
                     </div>
-
+                    <div className="separator-vertical"></div>
                     <div className="search-input date-input flex column justify-center">
                         <div className="dates-label">
                             <label>Dates</label>
@@ -104,7 +104,7 @@ class _StaySearch extends Component {
                             small
                         />
                     </div>
-
+                    <div className="separator-vertical"></div>
                     <div className="search-input guest-input flex column justify-center">
                         <div className="guests-label">
                             <label htmlFor="guest">Guests</label>

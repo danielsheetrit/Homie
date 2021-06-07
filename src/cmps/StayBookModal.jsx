@@ -14,10 +14,8 @@ class _StayBookModal extends Component {
         trip: {
             startDate: '',
             endDate: '',
-            // days: 0,
             adults: 1,
             children: 0,
-            // totalPrice: 0
         },
         filterBy: {
             guest: 1
@@ -51,15 +49,6 @@ class _StayBookModal extends Component {
             setTimeout(() => this.props.closeSnackbar(), 3000)
         }
     }
-
-    // calcDays = () => {
-    //     const startDate = this.state.trip.startDate.format('YYYY-MM-DD')
-    //     const endDate = this.state.trip.endDate.format('YYYY-MM-DD')
-    //     const firstDay = moment(startDate)
-    //     const lastDay = moment(endDate)
-    //     const days = lastDay.diff(firstDay, 'days') + 1
-    //     return days;
-    // }
 
     toggleModal = (ev) => {
         ev.preventDefault()
@@ -129,11 +118,13 @@ class _StayBookModal extends Component {
                             >
                                 {this.state.trip.adults + this.state.trip.children}
                             </button>
+
                             {isModalOpen && <StayGuestModal
                                 handleChange={this.handleChange}
                                 adults={adults}
                                 children={children}
                             />}
+
                         </div>
                     </div>
 

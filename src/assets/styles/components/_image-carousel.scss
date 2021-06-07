@@ -1,34 +1,35 @@
-
 .image-carousel {
-   .slick-dots {
-       li {
-           margin: 0
-       }
-       
-       bottom: 5px;
-       button {
-           margin-right: 0px;
-       }
-    
-    button {
-        opacity: 1;
+    .slick-dots {
+        li {
+            margin: 0;
+        }
+
+        bottom: 5px;
+        button {
+            margin-right: 0px;
+        }
+
+        button {
+            opacity: 1;
+        }
+        button::before {
+            opacity: 0.5;
+            color: black;
+        }
+
+        .slick-active {
+            color: black;
+        }
+
+        .slick-dots li.slick-active button:before {
+            color: white !important;
+        }
+
+        .slick-dots li.slick-active button button:before {
+            color: white !important;
+        }
+        .slick-dots li button:before {
+            color: #fff;
+        }
     }
-       button::before {
-        opacity: 0.5;
-        color: black
-       }
-
-       .slick-active {
-           color: black;
-       }
-    
-    .slick-dots li.slick-active button:before { 
-        color: white !important;
-
-    }
-
-    .slick-dots li.slick-active button button:before {
-           color: white !important;
-       }
-   }
 }

@@ -29,7 +29,6 @@
     }
 
     form {
-        width: 39.84rem;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -67,7 +66,7 @@
             margin: 0.2rem;
             background-color: $clr4;
             right: rem(4px);
-            top: rem(5.5px);
+            top: rem(4.5px);
 
             svg {
                 color: $clr1;
@@ -77,13 +76,25 @@
 
         .search-input {
             border-radius: rem(999px);
-            padding: 0.7rem 1.5rem;
-
+            padding: 0.7rem 1.2rem 0.7rem 2.2rem;
             &:hover {
                 background-color: darken($clr1, 10%);
             }
         }
+
+        .separator-vertical {
+            width: 1px;
+            background-color: $clr7;
+            margin: 15px 0;
+        }
+        
     }
+}
+
+form > div.search-input.date-input.flex.column.justify-center > 
+div.DateRangePicker.DateRangePicker_1 > div > div {
+    display: flex;
+    width: 9.2rem;
 }
 
 .DayPickerKeyboardShortcuts_show {

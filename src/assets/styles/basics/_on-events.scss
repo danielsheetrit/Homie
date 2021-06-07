@@ -18,12 +18,11 @@
         form {
             opacity: 1;
             pointer-events: visible;
-            transform: translate(-50%, -40%) scale(1);
+            transform: translate(-50%, -20%) scale(1);
         }
     }
-
     .login-signup-btn {
-        color: $clr2;
+        color: $clr3;
         background: $clr1;
         border: 1px solid;
         svg {
@@ -39,14 +38,14 @@
     }
 
     .nav-header {
-        padding: 1.3rem 1.3rem 100px;
+        padding: 1.3rem 0rem 110px;
     }
 
     .stay-search {
         form {
             opacity: 1;
             pointer-events: visible;
-            transform: translate(-50%, -120%) scale(1);
+            transform: translate(-50%, -110%) scale(1);
         }
     }
 }

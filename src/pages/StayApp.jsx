@@ -4,6 +4,8 @@ import { StayList } from '../cmps/StayList.jsx'
 import { StayFilter } from '../cmps/StayFilter.jsx'
 import { getStays } from '../store/actions/stay.actions'
 
+import { Loader } from '../cmps/Loader.jsx'
+
 export class _StayApp extends Component {
 
     componentDidMount() {
@@ -22,7 +24,7 @@ export class _StayApp extends Component {
 
     render() {
         const { stays } = this.props
-        if (!stays) return <h1>reloading</h1>
+        if (!stays) return <Loader />
 
         return (
             <section className="stay-app">

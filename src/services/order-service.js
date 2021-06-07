@@ -1,4 +1,3 @@
-import { utilService } from '../services/util-service'
 import { httpService } from './http-service'
 import moment from 'moment'
 
@@ -11,7 +10,7 @@ export const orderService = {
     calcDays
 }
 
-async function query(user = { _id: null }) {
+async function query(user = { _id: null, type: 'user' }) {
     try {
         return await httpService.get(`order`, user)
     } catch (err) {
@@ -27,7 +26,8 @@ async function add(trip, stay, loggedInUser) {
         createdAt: Date.now(),
         buyer: {
             _id: loggedInUser._id,
-            fullName: loggedInUser.fullname
+            fullName: loggedInUser.fullname,
+            imgUrl: loggedInUser.imgUrl
         },
         totalPrice,
         city: stay.loc.city,
@@ -45,6 +45,7 @@ async function add(trip, stay, loggedInUser) {
         host: stay.host,
         status: 'pending',
     }
+    return await httpService.post(`order`, order)
 }
 
 function remove(orderId) {
@@ -57,7 +58,6 @@ function remove(orderId) {
 
 async function update(order) {
     return await httpService.put(`order/${order._id}`, order)
-
 }
 
 function calcDays(startDate, endDate) {

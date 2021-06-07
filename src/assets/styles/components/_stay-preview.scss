@@ -2,10 +2,6 @@
     width: 244px;
     margin-bottom: 6px;
 
-    a > * {
-        margin-bottom: 5px;
-    }
-
     .stay-image-container {
         margin-bottom: 8px;
 
@@ -19,6 +15,7 @@
     p:first-of-type {
         font-size: rem(14px);
         font-family: Roboto-medium;
+        padding-top: rem(8px);
     }
 
     p.long-txt {

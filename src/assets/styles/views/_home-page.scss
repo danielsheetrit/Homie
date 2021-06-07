@@ -1,5 +1,4 @@
 .stay-home {
-    
     > h2 {
         margin-block-start: rem(75px);
     }
@@ -11,7 +10,6 @@
     }
 
     .home-hero {
-
         position: relative;
         background: url(../../img/sunset.jpg) no-repeat;
         background-position: center;
@@ -26,20 +24,42 @@
             margin-inline-start: rem(50px);
         }
 
-        h2 {
+        .hero-txt-container {
             max-width: 1280px;
             margin: 0px auto;
             width: 100%;
-            transform: translate(0%, 60%);
             color: $clr1;
-            font-size: rem(48px);
+
+            h2 {
+                font-size: rem(48px);
+                color: $clr1;
+            }
+
+            button {
+                font-family: Roboto-medium;
+                font-size: 1rem;
+                border: 1px solid $clr1;
+                padding: rem(8px) rem(16px);
+                border-radius: rem(8px);
+                color: $clr3;
+                background-color: $clr1;
+            }
         }
     }
 
     .best-loc {
-
         flex-direction: column;
         margin-block-end: rem(75px);
+
+        .best-loc-header {
+            a {
+                text-decoration: underline;
+                font-size: rem(14px);
+                font-family: Roboto-medium;
+                padding-top: rem(8px);
+            }
+        }
+
         .stay-list {
             width: 100%;
         }
@@ -50,62 +70,59 @@
     }
 
     .become-host {
+        background-image: url(../../img/img-1.jpg);
+        background-position: center left;
+        background-size: cover;
+        background-repeat: no-repeat;
 
-        padding: rem(10px);
-        background-color: $clr3;
+        border-radius: rem(8px);
+        width: 100%;
+        max-width: 1280px;
+        height: 400px;
+        margin: 0 auto;
         margin-block-end: rem(48px);
 
         .host-container {
-            
-            max-width: 1024px;
-            margin: 0 auto;
-
-            .img-container {
-
-                img {
-                    border-radius: rem(8px);
-                    max-width: rem(550px);
-                }
-            }
+            height: 100%;
+            border-radius: rem(8px);
+            padding-left: rem(48px);
+            background: linear-gradient(
+                90deg,
+                rgba(34, 34, 34, 1) 0%,
+                rgba(34, 34, 34, 1) 50%,
+                rgba(255, 255, 255, 0) 50%
+            );
 
             h2 {
-                font-size: rem(46px);
+                font-size: rem(48px);
                 color: $clr1;
             }
 
             p {
                 font-family: Roboto-light;
-                width: 90%;
+                width: 45%;
                 font-size: rem(18px);
                 color: darken($clr1, 30%);
-                flex: 1;
+                padding-bottom: 1.5rem;
             }
 
             .content-container {
-
                 flex: 1;
                 flex-direction: column;
                 margin-inline-end: rem(15px);
-                justify-content: space-between;
+                justify-content: center;
                 align-items: flex-start;
 
                 button {
-
-                    color: $clr1;
+                    background-color: $clr1;
+                    color: $clr3;
                     font-size: rem(16px);
                     font-family: Roboto-medium;
                     border: 1px solid $clr1;
                     border-radius: rem(8px);
                     cursor: pointer;
-                    padding: rem(16px) rem(30px);
+                    padding: rem(8px) rem(16px);
                     transition: ease-in-out 0.3s;
-                    margin-bottom: rem(75px);
-
-                    &:hover {
-                        background-color: $clr1;
-                        border: 1px solid $clr1;
-                        color: $clr3;
-                    }
                 }
             }
         }

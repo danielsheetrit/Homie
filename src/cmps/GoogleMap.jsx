@@ -5,8 +5,8 @@ class _GoogleMap extends Component {
 
     state = {
         style: {
-            maxWidth: "1024px",
-            height: "480px",
+            maxWidth: "1280px",
+            height: "500px",
             overflowX: "hidden",
             overflowY: "hidden"
         },

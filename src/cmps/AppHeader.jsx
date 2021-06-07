@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { StaySearch } from './StaySearch'
 import { connect } from 'react-redux'
-import { onLogout } from '../store/actions/user.actions' 
+import { onLogout } from '../store/actions/user.actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCampground } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { AvatarSymbol } from './AvatarSymbol'
- 
+
 class _AppHeader extends Component {
 
     state = {
@@ -40,16 +40,17 @@ class _AppHeader extends Component {
                     </NavLink>
                     <StaySearch node={this.state.node} />
                     <ul className="nav-link clean-list flex align-center">
-                        <li ><NavLink to="/">Become a host</NavLink></li>
-                        <li ><NavLink to="/stay">Explore</NavLink></li>
+                        <li><NavLink to="/">Become a host</NavLink></li>
+                        <li><NavLink to="/stay">Explore</NavLink></li>
                         <li className="flex align-center">
-                            <div className="login-signup-btn flex align-center" onClick={this.onToggleModal}>
+                            <div className="login-signup-btn flex align-center"
+                                onClick={this.onToggleModal}
+                            >
                                 <FontAwesomeIcon icon={faBars} size="2x" />
                                 {!loggedInUser && <FontAwesomeIcon icon={faUserCircle} size="2x" />}
                                 {loggedInUser && <div className="avatar-container">
                                     <AvatarSymbol url={loggedInUser.imgUrl} />
-                                    </div>
-                                    }
+                                </div>}
                             </div>
                         </li>
                     </ul>

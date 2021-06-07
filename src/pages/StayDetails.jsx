@@ -82,7 +82,10 @@ export class StayDetails extends Component {
 
                 {imgUrls && <div className="details-gallery-container">{
                     imgUrls.map((imgUrl, idx) => {
-                        return <div key={idx} className={`details-img-container img-${idx + 1}`}>
+                        return <div
+                            key={idx}
+                            className={`details-img-container img-${idx + 1}`}
+                        >
                             <img src={imgUrl} />
                         </div>
                     })
@@ -138,6 +141,7 @@ export class StayDetails extends Component {
                     <span>{loc.address}</span>
                     <GoogleMap loc={loc} />
                 </section>}
+                
             </section>
         )
     }

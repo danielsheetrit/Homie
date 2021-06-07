@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { LongTxt } from './LongTxt.jsx'
 
 export function StayOrders({ orders, getStatusClassName }) {
-    console.log('StayOrders orders', orders)
+    // console.log('StayOrders orders', orders)
     return (
         <section className="stay-orders">
             <table>

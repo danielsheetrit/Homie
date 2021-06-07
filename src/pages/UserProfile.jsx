@@ -48,12 +48,12 @@ class _UserProfile extends Component {
             <section className="user-profile">
                 {/* {console.log('orders', orders)} */}
                 <aside>
-                    <NavLink to="/userprofile/trips">Trips</NavLink>
-                    {isHost && <NavLink to="/userprofile/orders">Orders</NavLink>}
-                    {isHost && <NavLink to="/userprofile/myhomes">My Homes</NavLink>}
-                    {isHost && <NavLink to="/userprofile/add">Add stay</NavLink>}
-                    <NavLink to="/userprofile/mystays">My Stays</NavLink>
-                    <NavLink to="/userprofile/wishlist">Wishlist</NavLink>
+                    <NavLink activeClassName="user-aside-active" to="/userprofile/trips">Trips</NavLink>
+                    {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/orders">Orders</NavLink>}
+                    {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/myhomes">My Homes</NavLink>}
+                    {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/add">Add stay</NavLink>}
+                    <NavLink activeClassName="user-aside-active" to="/userprofile/mystays">My Stays</NavLink>
+                    <NavLink activeClassName="user-aside-active" to="/userprofile/wishlist">Wishlist</NavLink>
                 </aside>
                 <main>
                     <h1>Welcome, {loggedInUser.username}</h1>

@@ -36,7 +36,17 @@
             font-size: rem(12px);
             color: $clr6
         }
-        
+    }
+    p.accepted, p.rejected, button.rejected, button.accepted {
+        font-weight: bold;
+        user-select: none;
+    }
+
+    p.rejected, button.rejected{
+        color: rgb(253, 86, 86);
+    }
+    p.accepted, button.accepted{
+        color: rgb(70, 185, 70);
     }
 }
 

@@ -1,0 +1,43 @@
+.host-order-preview {
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    padding: 15px;
+    max-width: 70%;
+// box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    margin-bottom: 30px;
+
+    .img-container {
+        width: 48px;
+        height: 48px;
+        // align-self: flex-start;
+        
+        img {
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+    .order-content {
+        flex: 2;
+        & > * {
+            margin-inline-start: 10px;
+            margin-bottom: 5px;
+            
+        }
+        h3 {
+            font-size: rem(16px);
+            color: $clr4;
+        }
+        p:first-of-type {
+            font-size: rem(14px);
+        }
+        p:last-child {
+            font-size: rem(12px);
+            color: $clr6
+        }
+        
+    }
+}
+
+

@@ -3,7 +3,7 @@ import { NavLink, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
 import { getUsers } from '../store/actions/user.actions'
-import { getOrders } from '../store/actions/order.actions'
+import { getOrders, updateOrder } from '../store/actions/order.actions'
 import { AddStay } from '../cmps/AddStay.jsx'
 import { UserStays } from '../cmps/UserStays.jsx'
 import { HostHomes } from '../cmps/HostHomes.jsx'
@@ -34,18 +34,16 @@ class _UserProfile extends Component {
     }
 
     render() {
-        const { loggedInUser, orders } = this.props
+        const { loggedInUser, orders, updateOrder } = this.props
         const { isHost } = loggedInUser
         const hostOrders = orders.filter(order => {
             return order.host._id === loggedInUser._id
         })
 
-        console.log('loggedInUser._id', loggedInUser._id)
-        console.log('order.host._id', orders[0])
         return (
 
             <section className="user-profile">
-
+                {console.log('orders', orders)}
                 <aside>
                     <NavLink to="/userprofile/orders">Orders</NavLink>
                     {isHost && <NavLink to="/userprofile/myhomes">My Homes</NavLink>}
@@ -69,7 +67,7 @@ class _UserProfile extends Component {
                         <Route path="/userprofile/wishlist" component={Wishlist} />
                     </Switch>
                     {isHost && hostOrders && hostOrders.map(order => {
-                        return <HostOrdersPreview order={order} key={order._id} />
+                        return <HostOrdersPreview order={order} key={order._id} updateOrder={updateOrder} />
                     })}
                 </main>
             </section>
@@ -88,7 +86,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
     getStays,
     getUsers,
-    getOrders
+    getOrders,
+    updateOrder
 }
 
 export const UserProfile = connect(mapStateToProps, mapDispatchToProps)(_UserProfile)

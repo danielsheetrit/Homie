@@ -8,6 +8,7 @@ export const orderService = {
     remove,
     add,
     update,
+    calcDays
     
 }
 

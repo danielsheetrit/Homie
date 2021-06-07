@@ -11,7 +11,7 @@ export function HostOrdersPreview({ order, updateOrder }) {
     }
 
     return (
-        <div className=" flex host-order-preview">
+        <div className="host-order-preview flex">
             <div className="img-container">
                 <img src={defaultImgUrl} alt="user" />
             </div>

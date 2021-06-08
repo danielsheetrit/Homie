@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { StayRate } from './StayRate.jsx'
-import { GradientBtn } from './GradientBtn.jsx'
-import { StayGuestModal } from './StayGuestModal.jsx'
+import { StayRate } from './StayRate'
+import { GradientBtn } from './GradientBtn'
+import { StayGuestModal } from './StayGuestModal'
 import { DateRangePicker } from 'react-dates'
 import { withSnackbar } from 'notistack'
 import { addOrder } from '../store/actions/order.actions'
@@ -42,8 +42,9 @@ class _StayBookModal extends Component {
             setTimeout(() => this.props.closeSnackbar(), 3000)
             const trip = { ...this.state.trip }
             this.props.addOrder(trip, stay, loggedInUser);
+
             const hostId = stay.host._id
-            socketService.emit('ORDER_OUT', {hostId, stay})
+            socketService.emit('ORDER_OUT', { hostId, stay })
             window.location.hash = '/'
         } else {
             this.props.enqueueSnackbar('Please enter all fields.', {
@@ -103,8 +104,6 @@ class _StayBookModal extends Component {
 
                                 focusedInput={this.state.focusedInput}
                                 onFocusChange={focusedInput => this.setState({ focusedInput })}
-                                // startDatePlaceholderText="check in"
-                                // endDatePlaceholderText="check out"
                                 startDatePlaceholderText="Add date"
                                 endDatePlaceholderText="Add date"
                                 noBorder

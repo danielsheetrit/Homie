@@ -9,6 +9,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { AvatarSymbol } from './AvatarSymbol'
 import Badge from '@material-ui/core/Badge'
+import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 
 class _AppHeader extends Component {
 
@@ -17,9 +18,14 @@ class _AppHeader extends Component {
         isOpen: false,
     }
 
-    onToggleModal = () => {
-        this.setState({ isOpen: !this.state.isOpen })
+    onShowUserMenu = () => {
+        this.setState({ isOpen: true })
     }
+    
+    onCloseUserMenu = () =>{
+        this.setState({ isOpen: false })
+    }
+
 
     render() {
         const { loggedInUser, onLogout } = this.props
@@ -36,21 +42,23 @@ class _AppHeader extends Component {
                     <ul className="nav-link clean-list flex align-center">
                         <li><NavLink to="/">Become a host</NavLink></li>
                         <li><NavLink to="/stay">Explore</NavLink></li>
-                        <li className="flex align-center">
-                            <div className="login-signup-btn flex align-center"
-                                onClick={this.onToggleModal}
-                            >
-                                <FontAwesomeIcon icon={faBars} size="2x" />
-                                {!loggedInUser && <FontAwesomeIcon icon={faUserCircle} size="2x" />}
-                                {loggedInUser &&
-                                    <div className="avatar-container">
-                                        <Badge badgeContent={4} color="secondary">
-                                            <AvatarSymbol url={loggedInUser.imgUrl} />
-                                        </Badge>
-                                    </div>
-                                }
-                            </div>
-                        </li>
+                        <ClickAwayListener onClickAway={this.onCloseUserMenu}>
+                            <li className="flex align-center">
+                                <div className="login-signup-btn flex align-center"
+                                    onClick={this.onShowUserMenu}
+                                >
+                                    <FontAwesomeIcon icon={faBars} size="2x" />
+                                    {!loggedInUser && <FontAwesomeIcon icon={faUserCircle} size="2x" />}
+                                    {loggedInUser &&
+                                        <div className="avatar-container">
+                                            <Badge badgeContent={4} color="secondary">
+                                                <AvatarSymbol url={loggedInUser.imgUrl} />
+                                            </Badge>
+                                        </div>
+                                    }
+                                </div>
+                            </li>
+                        </ClickAwayListener>
                     </ul>
                     {this.state.isOpen &&
                         <div className="user-modal flex">

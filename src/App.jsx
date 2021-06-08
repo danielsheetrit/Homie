@@ -6,6 +6,7 @@ import { routes } from './routes'
 
 import { AppHeader } from './cmps/AppHeader.jsx'
 import { Footer } from './cmps/Footer.jsx'
+import { Loader } from './cmps/Loader.jsx'
 
 import { connect } from 'react-redux'
 import { getStays } from './store/actions/stay.actions.js'
@@ -17,6 +18,8 @@ export class _App extends Component {
   }
 
   render() {
+
+    if (!this.props.stays) return <Loader />
 
     return (
       <div className="app main-container" >
@@ -36,13 +39,13 @@ export class _App extends Component {
 
 function mapStateToProps(state) {
   return {
+    stays: state.stayModule.stays,
     filterBy: state.stayModule.filterBy
   }
 }
 
 const mapDispatchToProps = {
   getStays,
-
 }
 
 export const App = connect(mapStateToProps, mapDispatchToProps)(_App)

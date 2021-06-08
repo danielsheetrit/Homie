@@ -38,14 +38,16 @@ header {
 
         .nav-link {
             .login-signup-btn {
+                
+                display: flex;
                 cursor: pointer;
                 border: 1px solid $clr7;
                 color: rgba(0, 0, 0, 0.720);
                 padding: rem(4px) rem(8px);
                 border-radius: rem(20px);
+
                 & :first-child {
                     margin-inline-end: rem(10px);
-                    margin-inline-start: rem(6px);
                 }
                 svg:first-child {
                     max-width: 14px;

@@ -41,7 +41,10 @@ export class _Home extends Component {
 
     render() {
 
+        // let filterStays; 
+
         const filterStays = this.props.stays.slice(0, 5)
+
 
         const cities = [
             'amsterdam',
@@ -61,7 +64,7 @@ export class _Home extends Component {
             'barcelona_aq6xpb'
         ]
 
-        if (!this.props.stays) return <Loader />
+        if (!filterStays) return <Loader />
 
         return (
 

@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: rem(18px);
+    gap: rem(16px);
 
     text-transform: capitalize;
     font-size: rem(18px);
@@ -29,11 +29,11 @@
             img {
                 border-radius: 0.5rem;
                 transform: scale(1);
-                transition: transform ease 0.4s;
+                transition: transform ease 0.3s;
             }
             &:hover img {
                 transform: scale(1.05);
-                transition: transform ease 0.4s;
+                transition: transform ease 0.3s;
             }
             &::after {
                 content: "";
@@ -42,15 +42,30 @@
                 height: 100%;
                 top: 0;
                 left: 0;
-                background: linear-gradient(0deg, #0000008c 0%, rgba(0, 0, 0, 0) 100%);
+                background: linear-gradient(0deg, #00000070 0%, rgba(0, 0, 0, 0) 100%);
             }
         }
     }
     .bg-filter {
-        margin-inline-start: 0.3rem;
         position: absolute;
+        margin-inline-start: 0.3rem;
         bottom: 3px;
         padding: .5rem .8rem;
         color: $clr1;
+
+        @media (max-width: $narrow-breakpoint) {
+            padding: .4rem .6rem;
+            h3 {
+                font-size: rem(18px);
+            }
+        }
+
+        @media (max-width: $mobile-breakpoint) {
+            padding: .2rem .4rem;
+            h3 {
+                font-size: rem(14px);
+            }
+        }
+
     }
 }

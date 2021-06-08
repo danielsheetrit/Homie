@@ -48,4 +48,16 @@
             transform: translate(-50%, -110%) scale(1);
         }
     }
+
+    @media (max-width: $narrow-breakpoint) {
+        .nav-header {
+            padding: 1.3rem 0rem 260px;
+        }
+        .stay-search {
+            form {
+                transform: translate(-50%, -81%) scale(1);
+            }
+        }
+    }
+
 }

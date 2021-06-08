@@ -25,7 +25,7 @@
         }
 
         .hero-txt-container {
-            max-width: 1280px;
+            max-width: $normal-breakpoint;
             margin: 0px auto;
             width: 100%;
             color: $clr1;
@@ -45,10 +45,31 @@
                 background-color: $clr1;
             }
         }
+
+        @media (max-width: $normal-breakpoint) {
+            .hero-txt-container {
+                max-width: $narrow-breakpoint;
+                // padding: 0 2rem;
+                h2 {
+                    font-size: rem(34px);
+                }
+                button {
+                    font-size: rem(14px);
+                }
+            }
+        }
+        @media (max-width: $narrow-breakpoint) {
+            .hero-txt-container {
+                width: rem(300px);
+                padding: 0;
+                position: absolute;
+                bottom: 2rem;
+                left: 2rem;
+            }
+        }
     }
 
     .best-loc {
-        flex-direction: column;
         margin-block-end: rem(75px);
 
         .best-loc-header {
@@ -62,11 +83,8 @@
 
         .stay-list {
             width: 100%;
+            margin-bottom: 0;
         }
-    }
-
-    .stay-list {
-        margin-bottom: 0;
     }
 
     .become-host {
@@ -77,7 +95,8 @@
 
         border-radius: rem(8px);
         width: 100%;
-        max-width: 1280px;
+        max-width: $normal-breakpoint;
+        min-width: rem(300px);
         height: 400px;
         margin: 0 auto;
         margin-block-end: rem(48px);
@@ -93,9 +112,25 @@
                 rgba(255, 255, 255, 0) 50%
             );
 
+            @media (max-width: $normal-breakpoint) {
+                padding-left: rem(36px);
+            }
+            @media (max-width: $mobile-breakpoint) {
+                padding-left: 1rem;
+            }
+
             h2 {
                 font-size: rem(48px);
                 color: $clr1;
+
+                @media (max-width: $normal-breakpoint) {
+                    font-size: rem(36px);
+                }
+                @media (max-width: $mobile-breakpoint) {
+                    align-self: center;
+                    font-size: rem(28px);
+                    padding-bottom: 1rem;
+                }
             }
 
             p {
@@ -104,6 +139,12 @@
                 font-size: rem(18px);
                 color: darken($clr1, 30%);
                 padding-bottom: 1.5rem;
+                @media (max-width: 1280px) {
+                    font-size: rem(16px);
+                }
+                @media (max-width: 740px) {
+                    font-size: rem(15px);
+                }
             }
 
             .content-container {

@@ -24,6 +24,11 @@
                 border-color: $clr2;
             }
         }
+
+        @media (max-width: $mobile-breakpoint) {
+            display: block;
+        }
+
     }
 }
 

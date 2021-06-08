@@ -3,7 +3,7 @@ import { StayPreview } from './StayPreview.jsx'
 export function StayList({ stays }) {
     if (!stays) return <h1>reloading</h1>
     return (
-        <section className="stay-list flex">
+        <section className="stay-list">
             {stays.map(stay => {
                 return <StayPreview
                     stay={stay}

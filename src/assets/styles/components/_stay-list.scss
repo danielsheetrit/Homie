@@ -1,5 +1,6 @@
 .stay-list {
+    display: grid;
     grid-gap: rem(15px);
-    flex-wrap: wrap;
-    margin-bottom: rem(48px);
+    grid-template-columns: repeat(auto-fill, minmax(244px, 1fr));
+    margin-bottom:rem(48px);
 }

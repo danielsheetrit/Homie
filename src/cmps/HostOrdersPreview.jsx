@@ -1,4 +1,4 @@
-import moment from 'moment'
+import { socketService } from '../services/socket-service'
 
 export function HostOrdersPreview({ order, updateOrder }) {
     const guests = order.guests.adults + order.guests.children
@@ -7,7 +7,8 @@ export function HostOrdersPreview({ order, updateOrder }) {
     function onSetStatus(ev) {
         const updatedOrder = { ...order }
         updatedOrder.status = ev.target.name
-        updateOrder(updatedOrder);
+        updateOrder(updatedOrder)
+        socketService.emit('ORDER_STATUS', updatedOrder)
     }
 
     return (
@@ -22,7 +23,6 @@ export function HostOrdersPreview({ order, updateOrder }) {
                 <span> {order.stay.name}</span>
                 </p>
             </div>
-            {/* <p>{order.status}</p> */}
             {order.status === 'pending' && <p><button className="accepted" name="accepted" onClick={onSetStatus}>Accept</button> / <button className="rejected" name="rejected" onClick={onSetStatus}>Reject</button></p>}
             {order.status !== 'pending' && <p className={order.status}>{order.status}</p>}
         </div>

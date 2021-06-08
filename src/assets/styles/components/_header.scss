@@ -1,5 +1,4 @@
 header {
-
     width: 100%;
     position: fixed;
     background-color: $clr1;
@@ -8,13 +7,12 @@ header {
     box-shadow: 0px 0px 5px #22222227;
 
     .nav-header {
-
         display: flex;
         align-items: center;
         justify-content: space-between;
         position: relative;
         width: 100%;
-        max-width: 1280px;
+        max-width: $normal-breakpoint;
         margin: 0 auto;
         padding: 1.3rem 0;
         transition: all 0.15s ease-out;
@@ -38,11 +36,10 @@ header {
 
         .nav-link {
             .login-signup-btn {
-                
                 display: flex;
                 cursor: pointer;
                 border: 1px solid $clr7;
-                color: rgba(0, 0, 0, 0.720);
+                color: rgba(0, 0, 0, 0.72);
                 padding: rem(4px) rem(8px);
                 border-radius: rem(20px);
 
@@ -52,6 +49,7 @@ header {
                 svg:first-child {
                     max-width: 14px;
                     max-height: 14px;
+                    margin-left: 6px;
                 }
                 svg:last-child {
                     max-width: 28px;
@@ -91,9 +89,24 @@ header {
                 }
             }
         }
+
+        @media (max-width: $normal-breakpoint) {
+            max-width: $narrow-breakpoint;
+        }
+        @media (max-width: $narrow-breakpoint) {
+            h1 {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .nav-link {
+                opacity: 0;
+                pointer-events: none;
+            }
+            max-width: $mobile-breakpoint;
+        }
     }
-    
-    .avatar-container{
+
+    .avatar-container {
         max-width: 36px;
         .MuiAvatar-root {
             width: 30px;
@@ -103,7 +116,7 @@ header {
             align-items: center;
             border-radius: 50%;
             justify-content: flex-start;
-            .MuiBadge-anchorOriginTopRightRectangle{
+            .MuiBadge-anchorOriginTopRightRectangle {
                 top: 2px;
                 right: 6px;
             }

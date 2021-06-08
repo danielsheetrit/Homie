@@ -101,6 +101,10 @@ header {
             align-items: center;
             border-radius: 50%;
             justify-content: flex-start;
+            .MuiBadge-anchorOriginTopRightRectangle{
+                top: 2px;
+                right: 6px;
+            }
         }
     }
 }

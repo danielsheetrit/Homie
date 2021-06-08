@@ -9,12 +9,23 @@ import { Footer } from './cmps/Footer.jsx'
 
 import { connect } from 'react-redux'
 import { getStays } from './store/actions/stay.actions.js'
+import { socketService } from './services/socket-service'
 
 export class _App extends Component {
 
-  componentDidMount() {
+  async componentDidMount() {
     this.props.getStays(this.props.filterBy)
+    await socketService.setup()
+    socketService.on('ORDER_IN', (stayName) => {
+
+      console.log('got new order!', stayName)
+    })
   }
+
+  componentWillUnmount() {
+    socketService.terminate()
+  }
+
 
   render() {
 

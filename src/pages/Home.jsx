@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { getStays, setFilter } from '../store/actions/stay.actions'
 
+
 import img1 from '../assets/img/img-1.jpg'
 
 import { CityCard } from '../cmps/CityCard.jsx'
@@ -14,7 +15,7 @@ export class _Home extends Component {
         city: ''
     }
 
-    componentDidMount() {
+   componentDidMount() {
         window.scrollTo(0, 0)
         document.body.classList.add('header-home-mode-open')
 
@@ -26,12 +27,14 @@ export class _Home extends Component {
                 document.body.classList.remove('header-onclick-mode')
             }
         }
+      
     }
 
     componentWillUnmount() {
         window.onscroll = null;
         document.body.classList.remove('header-home-mode-open')
         document.body.classList.remove('header-onclick-mode')
+        
     }
 
     onSelect = async city => {
@@ -103,7 +106,7 @@ export class _Home extends Component {
                             <button>Join us now!</button>
                         </div>
                         <div className="img-container flex">
-                            <img src={img1} alt="family"/>
+                            <img src={img1} alt="family" />
                         </div>
                     </div>
                 </section>

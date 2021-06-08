@@ -3,12 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getStays, setFilter } from '../store/actions/stay.actions'
 
-<<<<<<< HEAD
-
-import img1 from '../assets/img/img-1.jpg'
-
-=======
->>>>>>> b5278888610016e290a03f25b2f01459db8d6a45
 import { CityCard } from '../cmps/CityCard.jsx'
 import { StayList } from '../cmps/StayList.jsx'
 import { Loader } from '../cmps/Loader.jsx'
@@ -117,16 +111,9 @@ export class _Home extends Component {
                                 <p>Earn extra income with Homie,
                                 <br /> join us and milion other hosts to unlock new opportunities, by sharing your space.<br />
                                 hosting can help you turn your extra space into extra income and pursue more of what you love.</p>
-<<<<<<< HEAD
-                            <button>Join us now!</button>
-                        </div>
-                        <div className="img-container flex">
-                            <img src={img1} alt="family" />
-=======
                                 <button>Join us now!</button>
                             </div>
                             <div className="img-container flex"></div>
->>>>>>> b5278888610016e290a03f25b2f01459db8d6a45
                         </div>
                     </div>
                 </section>

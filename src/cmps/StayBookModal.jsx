@@ -7,13 +7,10 @@ import { DateRangePicker } from 'react-dates'
 import { withSnackbar } from 'notistack'
 import { addOrder } from '../store/actions/order.actions'
 import { orderService } from '../services/order-service'
-<<<<<<< HEAD
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 
-=======
 import { socketService } from '../services/socket-service'
 // import moment from 'moment'
->>>>>>> 9745939c63aa88f689fb7a47a9341ec54c8c9cd6
 
 class _StayBookModal extends Component {
     state = {
@@ -47,7 +44,7 @@ class _StayBookModal extends Component {
             const trip = { ...this.state.trip }
             this.props.addOrder(trip, stay, loggedInUser);
             const hostId = stay.host._id
-            socketService.emit('ORDER_OUT', {hostId, stay})
+            socketService.emit('ORDER_OUT', { hostId, stay })
             window.location.hash = '/'
         } else {
             this.props.enqueueSnackbar('Please enter all fields.', {

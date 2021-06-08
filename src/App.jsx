@@ -12,6 +12,7 @@ import { withSnackbar } from 'notistack'
 import { connect } from 'react-redux'
 import { getStays } from './store/actions/stay.actions.js'
 import { socketService } from './services/socket-service'
+import { queryAllByAltText } from '@testing-library/dom'
 
 export class _App extends Component {
 
@@ -24,11 +25,10 @@ export class _App extends Component {
       })
     })
     socketService.on('STATUS_FROM_HOST', status => {
-      console.log('STATUS', status)
       let orderStatus = status === 'accepted' ? 'success': 'eror'
-      this.props.enqueueSnackbar(`your order has been ${status}.`, {
-        variant: orderStatus,
-      })
+      this.props.enqueueSnackbar(`your order has been ${status}.` ,{
+        variant: orderStatus, 
+        })
     })
   }
 

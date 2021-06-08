@@ -1,6 +1,13 @@
-let localLoggedinUser = null
+let localLoggedinUser = {
+    _id: "60bf2d7dc508494d34eaae90",
+    username: "Alex",
+    fullname: "Alex",
+    imgUrl: "https://ozgrozer.github.io/100k-faces/0/7/007489.jpg",
+    isHost: true
+}
+
 if (sessionStorage.loggedinUser) localLoggedinUser = JSON.parse(sessionStorage.loggedinUser)
- 
+
 const initialState = {
     loggedInUser: localLoggedinUser,
     users: []

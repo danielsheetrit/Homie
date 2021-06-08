@@ -86,7 +86,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     onLogout,
-
 }
 
 export const AppHeader = connect(mapStateToProps, mapDispatchToProps)(_AppHeader)

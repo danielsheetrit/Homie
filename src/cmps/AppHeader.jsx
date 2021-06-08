@@ -8,7 +8,10 @@ import { faCampground } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { AvatarSymbol } from './AvatarSymbol'
+<<<<<<< HEAD
 import Badge from '@material-ui/core/Badge'
+=======
+>>>>>>> b5278888610016e290a03f25b2f01459db8d6a45
 
 class _AppHeader extends Component {
 
@@ -34,12 +37,15 @@ class _AppHeader extends Component {
                     </NavLink>
                     <StaySearch node={this.state.node} />
                     <ul className="nav-link clean-list flex align-center">
-                        <li ><NavLink to="/">Become a host</NavLink></li>
-                        <li ><NavLink to="/stay">Explore</NavLink></li>
+                        <li><NavLink to="/">Become a host</NavLink></li>
+                        <li><NavLink to="/stay">Explore</NavLink></li>
                         <li className="flex align-center">
-                            <div className="login-signup-btn flex align-center" onClick={this.onToggleModal}>
+                            <div className="login-signup-btn flex align-center"
+                                onClick={this.onToggleModal}
+                            >
                                 <FontAwesomeIcon icon={faBars} size="2x" />
                                 {!loggedInUser && <FontAwesomeIcon icon={faUserCircle} size="2x" />}
+<<<<<<< HEAD
                                 {loggedInUser &&
                                     <div className="avatar-container">
                                         <Badge badgeContent={4} color="secondary">
@@ -47,19 +53,32 @@ class _AppHeader extends Component {
                                         </Badge>
                                     </div>
                                 }
+=======
+                                {loggedInUser && <div className="avatar-container">
+                                    <AvatarSymbol url={loggedInUser.imgUrl} />
+                                </div>}
+>>>>>>> b5278888610016e290a03f25b2f01459db8d6a45
                             </div>
                         </li>
                     </ul>
                     {this.state.isOpen &&
                         <div className="user-modal flex">
                             <ul className="clean-list">
+                                {!loggedInUser && <li><NavLink to="/login">Login</NavLink></li>}
+                                {loggedInUser && loggedInUser.isHost && <li><NavLink to="/userprofile/orders">Profile</NavLink></li>}
+                                {loggedInUser && <li><NavLink to="/trips">Trips</NavLink></li>}
                                 <li>
+<<<<<<< HEAD
                                     {loggedInUser && <NavLink onClick={this.onToggleModal} to="/userprofile">profile</NavLink>}
                                     {!loggedInUser && <NavLink onClick={this.onToggleModal} to="/login">login</NavLink>}
                                 </li>
                                 <li>
                                     {loggedInUser && <NavLink onClick={onLogout} to="/">logout</NavLink>}
                                     {!loggedInUser && <NavLink to="/signup" onClick={this.onToggleModal}>signup</NavLink>}
+=======
+                                    {loggedInUser && <NavLink onClick={onLogout} to="/">Logout</NavLink>}
+                                    {!loggedInUser && <NavLink to="/signup">Signup</NavLink>}
+>>>>>>> b5278888610016e290a03f25b2f01459db8d6a45
                                 </li>
                             </ul>
                         </div>}

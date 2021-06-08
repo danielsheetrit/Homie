@@ -1,10 +1,14 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getStays, setFilter } from '../store/actions/stay.actions'
 
+<<<<<<< HEAD
 
 import img1 from '../assets/img/img-1.jpg'
 
+=======
+>>>>>>> b5278888610016e290a03f25b2f01459db8d6a45
 import { CityCard } from '../cmps/CityCard.jsx'
 import { StayList } from '../cmps/StayList.jsx'
 import { Loader } from '../cmps/Loader.jsx'
@@ -71,10 +75,15 @@ export class _Home extends Component {
 
             <section className="stay-home main-container full">
                 <div className="home-hero flex justify-center full">
-                    <h2>
-                        The best journey <br />
+                    <div className="hero-txt-container">
+                        <h2>
+                            The best journey <br />
                     takes you home.
                     </h2>
+                        <Link to="/stay">
+                            <button>Explore now!</button>
+                        </Link>
+                    </div>
                 </div>
                 <h2>Popular locations</h2>
 
@@ -90,23 +99,34 @@ export class _Home extends Component {
                 </div>
 
                 <div className="best-loc justify-center flex">
-                    <h2>Top rated homes</h2>
+                    <div className="best-loc-header flex justify-space-between">
+                        <h2>Top rated homes</h2>
+                        <Link to="/stay">Show more</Link>
+                    </div>
                     <div className="top-rated-container">
                         <StayList stays={filterStays} />
                     </div>
                 </div>
 
-                <section className="become-host full">
-                    <div className="host-container flex">
-                        <div className="content-container flex">
-                            <h2>Become a host</h2>
-                            <p>Earn extra income with Homie,
+                <section>
+                    <h2>Homie's family</h2>
+                    <div className="become-host full">
+                        <div className="host-container flex">
+                            <div className="content-container flex">
+                                <h2>Become a host</h2>
+                                <p>Earn extra income with Homie,
                                 <br /> join us and milion other hosts to unlock new opportunities, by sharing your space.<br />
                                 hosting can help you turn your extra space into extra income and pursue more of what you love.</p>
+<<<<<<< HEAD
                             <button>Join us now!</button>
                         </div>
                         <div className="img-container flex">
                             <img src={img1} alt="family" />
+=======
+                                <button>Join us now!</button>
+                            </div>
+                            <div className="img-container flex"></div>
+>>>>>>> b5278888610016e290a03f25b2f01459db8d6a45
                         </div>
                     </div>
                 </section>

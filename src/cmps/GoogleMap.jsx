@@ -26,10 +26,9 @@ class _GoogleMap extends Component {
         return (
 
             <div className="map-container flex">
-
                 <Map
                     google={this.props.google}
-                    zoom={12}
+                    zoom={13}
                     initialCenter={{ lat: 13.736717, lng: 100.523186 }}
                     center={this.state.pos}
                     style={this.state.style}

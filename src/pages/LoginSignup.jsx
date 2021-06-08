@@ -109,6 +109,7 @@ class _LoginSignup extends Component {
                             <input
                                 onChange={this.handleChange}
                                 type="password"
+                                autoComplete="none"
                                 name="password"
                                 id="password"
                             />
@@ -140,6 +141,7 @@ class _LoginSignup extends Component {
                             <input
                                 onChange={this.handleChange}
                                 type="text"
+                                autoComplete="none"
                                 name="username"
                                 id="username"
                             />
@@ -147,6 +149,7 @@ class _LoginSignup extends Component {
                             <label htmlFor="password">Password</label>
                             <input
                                 onChange={this.handleChange}
+                                autoComplete="none"
                                 type="password"
                                 name="password"
                                 id="password"

@@ -20,7 +20,7 @@ async function query(user = { _id: null, type: 'user' }) {
 
 async function add(trip, stay, loggedInUser) {
     const days = calcDays(trip.startDate, trip.endDate)
-    const totalPrice = stay.price * days + 10
+    const totalPrice = stay.price * days + 5 + 10
     const order = {
         // _id: utilService.makeId(),
         createdAt: Date.now(),

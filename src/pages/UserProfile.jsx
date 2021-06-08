@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
 import { getUsers } from '../store/actions/user.actions'
 import { getOrders, updateOrder } from '../store/actions/order.actions'
-import { AddStay } from '../cmps/AddStay.jsx'
-import { UserStays } from '../cmps/UserStays.jsx'
-import { HostHomes } from '../cmps/HostHomes.jsx'
-import { Wishlist } from '../cmps/Wishlist.jsx'
-import { HostOrders } from '../cmps/HostOrders.jsx'
-import { DashboardHeader } from '../cmps/DashboardHeader.jsx'
+import { AddStay } from '../cmps/AddStay'
+import { UserStays } from '../cmps/UserStays'
+import { HostHomes } from '../cmps/HostHomes'
+import { Wishlist } from '../cmps/Wishlist'
+import { HostOrders } from '../cmps/HostOrders'
+import { DashboardHeader } from '../cmps/DashboardHeader'
+
 
 class _UserProfile extends Component {
 
@@ -41,10 +42,9 @@ class _UserProfile extends Component {
                     {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/myhomes">My Homes</NavLink>}
                     {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/add">Add stay</NavLink>}
                     <NavLink activeClassName="user-aside-active" to="/userprofile/mystays">My Stays</NavLink>
-                    <NavLink activeClassName="user-aside-active" to="/userprofile/wishlist">Wishlist</NavLink>
+                    {/* <NavLink activeClassName="user-aside-active" to="/userprofile/wishlist">Wishlist</NavLink> */}
                 </aside>
                 <main>
-                    {/* <h1>Welcome, {loggedInUser.username}</h1> */}
                     <DashboardHeader stays={HostStays} orders={hostOrders} />
                     <Switch>
                         <Route exact path="/userprofile/add" component={AddStay} />

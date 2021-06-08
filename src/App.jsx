@@ -8,18 +8,27 @@ import { AppHeader } from './cmps/AppHeader.jsx'
 import { Footer } from './cmps/Footer.jsx'
 import { Loader } from './cmps/Loader.jsx'
 
+import { withSnackbar } from 'notistack'
 import { connect } from 'react-redux'
 import { getStays } from './store/actions/stay.actions.js'
 import { socketService } from './services/socket-service'
+import { queryAllByAltText } from '@testing-library/dom'
 
 export class _App extends Component {
 
   async componentDidMount() {
     this.props.getStays(this.props.filterBy)
     await socketService.setup()
-    socketService.on('ORDER_IN', (stayName) => {
-
-      console.log('got new order!', stayName)
+    socketService.on('ORDER_IN', (hostName) => {
+      this.props.enqueueSnackbar(`${hostName}, you have a new order.`, {
+        variant: 'success',
+      })
+    })
+    socketService.on('STATUS_FROM_HOST', status => {
+      let orderStatus = status === 'accepted' ? 'success': 'eror'
+      this.props.enqueueSnackbar(`your order has been ${status}.` ,{
+        variant: orderStatus, 
+        })
     })
   }
 
@@ -59,4 +68,4 @@ const mapDispatchToProps = {
   getStays,
 }
 
-export const App = connect(mapStateToProps, mapDispatchToProps)(_App)
+export const App = connect(mapStateToProps, mapDispatchToProps)(withSnackbar(_App))

@@ -54,17 +54,16 @@ class _StaySearch extends Component {
     }
 
     render() {
-
+        const { city } = this.props.filterBy
         return (
             <section className="stay-search flex align-center">
-
                 <div className="search-mini"
                     onClick={this.handleSearchMini}
                 >
-                    Start your search
+                    {city || 'Start your search'}
                     <FontAwesomeIcon icon={faSearch} />
                 </div>
-
+                
                 <form
                     className={`flex`}
                     onSubmit={this.onSubmitStay}
@@ -80,7 +79,7 @@ class _StaySearch extends Component {
                                 type="text"
                                 name="city"
                                 id="location"
-                                placeholder="Where are you going?" />
+                                placeholder={city || "Where are you going?"} />
                         </div>
                     </div>
                     <div className="separator-vertical"></div>
@@ -128,8 +127,14 @@ class _StaySearch extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        filterBy: state.stayModule.filterBy
+    }
+}
+
 const mapDispatchToProps = {
     getStays,
 }
 
-export const StaySearch = connect(null, mapDispatchToProps)(_StaySearch)
+export const StaySearch = connect(mapStateToProps, mapDispatchToProps)(_StaySearch)

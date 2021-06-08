@@ -9,6 +9,7 @@
 @import "./views/stay_details";
 @import "./views/login-signup";
 @import "./views/user-profile";
+@import "./views/stay-trips";
 
 // Basics
 @import "./basics/helpers";
@@ -37,7 +38,10 @@
 @import "./components/reviews-modal";
 @import "./components/google-map";
 @import "./components/stay-guest-modal";
-@import './components/stay-orders';
 @import './components/host-orders-preview';
 @import './components/dashboard-header';
+<<<<<<< HEAD
+@import './components/user-order-preview';
+=======
 @import "./components/loader";
+>>>>>>> 9745939c63aa88f689fb7a47a9341ec54c8c9cd6

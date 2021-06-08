@@ -8,6 +8,7 @@ import { Amenities } from '../cmps/Amenities.jsx'
 import { LongTxt } from '../cmps/LongTxt.jsx'
 import { Reviews } from '../cmps/Reviews.jsx'
 import { GoogleMap } from '../cmps/GoogleMap.jsx'
+import { Loader } from '../cmps/Loader.jsx'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faChevronRight } from '@fortawesome/free-solid-svg-icons'
@@ -58,7 +59,7 @@ export class StayDetails extends Component {
             reviews
         } = stay
 
-        if (!stay) return <h1>reloading</h1>
+        if (!stay) return <Loader />
 
         return (
             <section className="stay-details-container">
@@ -86,7 +87,7 @@ export class StayDetails extends Component {
                             key={idx}
                             className={`details-img-container img-${idx + 1}`}
                         >
-                            <img src={imgUrl} />
+                            <img src={imgUrl} alt="details"/>
                         </div>
                     })
                 }</div>}
@@ -141,7 +142,7 @@ export class StayDetails extends Component {
                     <span>{loc.address}</span>
                     <GoogleMap loc={loc} />
                 </section>}
-                
+
             </section>
         )
     }

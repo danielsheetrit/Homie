@@ -1,9 +1,9 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { StayList } from '../cmps/StayList.jsx'
-import { StayFilter } from '../cmps/StayFilter.jsx'
 import { getStays } from '../store/actions/stay.actions'
 
+import { StayList } from '../cmps/StayList.jsx'
+import { StayFilter } from '../cmps/StayFilter.jsx'
 import { Loader } from '../cmps/Loader.jsx'
 
 export class _StayApp extends Component {

@@ -8,6 +8,7 @@ import { faCampground } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { AvatarSymbol } from './AvatarSymbol'
+import Badge from '@material-ui/core/Badge'
 
 class _AppHeader extends Component {
 
@@ -16,15 +17,8 @@ class _AppHeader extends Component {
         isOpen: false,
     }
 
-    componentDidMount() {
-        console.log(this.props)
-    }
-
     onToggleModal = () => {
         this.setState({ isOpen: !this.state.isOpen })
-        setTimeout(() => {
-            this.setState({ isOpen: false })
-        }, 5000)
     }
 
     render() {
@@ -48,9 +42,13 @@ class _AppHeader extends Component {
                             >
                                 <FontAwesomeIcon icon={faBars} size="2x" />
                                 {!loggedInUser && <FontAwesomeIcon icon={faUserCircle} size="2x" />}
-                                {loggedInUser && <div className="avatar-container">
-                                    <AvatarSymbol url={loggedInUser.imgUrl} />
-                                </div>}
+                                {loggedInUser &&
+                                    <div className="avatar-container">
+                                        <Badge badgeContent={4} color="secondary">
+                                            <AvatarSymbol url={loggedInUser.imgUrl} />
+                                        </Badge>
+                                    </div>
+                                }
                             </div>
                         </li>
                     </ul>

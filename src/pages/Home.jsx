@@ -103,7 +103,7 @@ export class _Home extends Component {
                             <button>Join us now!</button>
                         </div>
                         <div className="img-container flex">
-                            <img src={img1} />
+                            <img src={img1} alt="family"/>
                         </div>
                     </div>
                 </section>

@@ -41,7 +41,6 @@ class _LoginSignup extends Component {
     }
 
     handleChange = async (ev) => {
-        
         const { target } = ev
         const field = target.name
         const value = target.value
@@ -62,23 +61,21 @@ class _LoginSignup extends Component {
 
     onSubmitUser = async ev => {
         ev.preventDefault()
-
         const {
             isSignup,
             userInfo,
             credentials
         } = this.state
-
         const { onSignup, onLogin } = this.props
-
         isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
         this.props.history.push('/')
     }
 
-    onUpload = async ev => {
-        const pic = await cloudinaryService.uploadImg(ev)
-        this.setState({ imgUrl: pic.url })
-    }
+    // onUpload = async ev => {
+    //     const pic = await cloudinaryService.uploadImg(ev)
+        
+    //     this.setState({ imgUrl: pic.url })
+    // }
 
     render() {
 

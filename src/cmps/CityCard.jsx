@@ -8,7 +8,7 @@ export function CityCard({ title, imgUrl, onSelect }) {
             className={`${title}-card card`}
         >
             <div className="img-container">
-                <img src={url} />
+                <img src={url} alt="user"/>
             </div>
             <div className={`bg-filter ${title}`}>
                 <h3>{title}</h3>

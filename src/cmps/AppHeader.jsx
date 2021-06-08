@@ -16,15 +16,8 @@ class _AppHeader extends Component {
         isOpen: false,
     }
 
-    componentDidMount() {
-        console.log(this.props)
-    }
-
     onToggleModal = () => {
         this.setState({ isOpen: !this.state.isOpen })
-        setTimeout(() => {
-            this.setState({ isOpen: false })
-        }, 5000)
     }
 
     render() {
@@ -57,12 +50,12 @@ class _AppHeader extends Component {
                         <div className="user-modal flex">
                             <ul className="clean-list">
                                 <li>
-                                    {loggedInUser && <NavLink to="/userprofile">profile</NavLink>}
-                                    {!loggedInUser && <NavLink to="/login">login</NavLink>}
+                                    {loggedInUser && <NavLink onClick={this.onToggleModal} to="/userprofile">profile</NavLink>}
+                                    {!loggedInUser && <NavLink onClick={this.onToggleModal} to="/login">login</NavLink>}
                                 </li>
                                 <li>
                                     {loggedInUser && <NavLink onClick={onLogout} to="/">logout</NavLink>}
-                                    {!loggedInUser && <NavLink to="/signup">signup</NavLink>}
+                                    {!loggedInUser && <NavLink to="/signup" onClick={this.onToggleModal}>signup</NavLink>}
                                 </li>
                             </ul>
                         </div>}

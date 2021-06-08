@@ -7,34 +7,19 @@ import { getOrders, updateOrder } from '../store/actions/order.actions'
 import { AddStay } from '../cmps/AddStay.jsx'
 import { UserStays } from '../cmps/UserStays.jsx'
 import { HostHomes } from '../cmps/HostHomes.jsx'
-import { StayTrips } from '../cmps/StayTrips.jsx'
 import { Wishlist } from '../cmps/Wishlist.jsx'
 import { HostOrders } from '../cmps/HostOrders.jsx'
+import { DashboardHeader } from '../cmps/DashboardHeader.jsx'
 
 class _UserProfile extends Component {
 
     componentDidMount() {
         const { _id } = this.props.loggedInUser
-        // console.log('this.props.loggedInUser', this.props.loggedInUser)
         this.props.getOrders(_id, 'user')
     }
 
-    getStatusClassName = (status) => {
-        let classColor;
-
-        if (status === 'approved') {
-            classColor = 'approved'
-        } else if (status === 'pending') {
-            classColor = 'pending'
-        } else {
-            classColor = 'rejected'
-        }
-
-        return classColor
-    }
-
     render() {
-        const { loggedInUser, orders, updateOrder } = this.props
+        const { loggedInUser, orders, stays, updateOrder } = this.props
         const { isHost } = loggedInUser
         let hostOrders = orders.filter(order => {
             return order.host._id === loggedInUser._id
@@ -42,13 +27,16 @@ class _UserProfile extends Component {
         hostOrders = hostOrders.sort((order1, order2) => {
             return order2.createdAt - order1.createdAt
         })
+        let HostStays = stays.filter(stay => {
+            return stay.host._id === loggedInUser._id
+        })
+        HostStays = HostStays.sort((stay1, stay2) => {
+            return stay2.createdAt - stay1.createdAt
+        })
 
         return (
-
             <section className="user-profile">
-                {/* {console.log('orders', orders)} */}
                 <aside>
-                    <NavLink activeClassName="user-aside-active" to="/userprofile/trips">Trips</NavLink>
                     {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/orders">Orders</NavLink>}
                     {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/myhomes">My Homes</NavLink>}
                     {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/add">Add stay</NavLink>}
@@ -56,26 +44,17 @@ class _UserProfile extends Component {
                     <NavLink activeClassName="user-aside-active" to="/userprofile/wishlist">Wishlist</NavLink>
                 </aside>
                 <main>
-                    <h1>Welcome, {loggedInUser.username}</h1>
+                    {/* <h1>Welcome, {loggedInUser.username}</h1> */}
+                    <DashboardHeader stays={HostStays} orders={hostOrders} />
                     <Switch>
-                        <Route exact
-                            path="/userprofile/trips"
-                            render={(props) => <StayTrips
-                                {...props}
-                                loggedInUser={loggedInUser}
-                                orders={orders}
-                                getStatusClassName={this.getStatusClassName} />}
-                        />
                         <Route exact path="/userprofile/add" component={AddStay} />
                         <Route exact path="/userprofile/myhomes" component={HostHomes} />
                         <Route exact path="/userprofile/mystays" component={UserStays} />
                         <Route exact path="/userprofile/wishlist" component={Wishlist} />
                         <Route exact path="/userprofile/orders" render={(props) => <HostOrders  {...props} hostOrders={hostOrders} updateOrder={updateOrder} />} />
                     </Switch>
-
                 </main>
             </section>
-
         )
     }
 }
@@ -83,7 +62,8 @@ class _UserProfile extends Component {
 function mapStateToProps(state) {
     return {
         loggedInUser: state.userModule.loggedInUser,
-        orders: state.orderModule.orders
+        orders: state.orderModule.orders,
+        stays: state.stayModule.stays
     }
 }
 

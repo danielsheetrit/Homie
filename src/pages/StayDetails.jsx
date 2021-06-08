@@ -87,7 +87,7 @@ export class StayDetails extends Component {
                             key={idx}
                             className={`details-img-container img-${idx + 1}`}
                         >
-                            <img src={imgUrl} />
+                            <img src={imgUrl} alt="details"/>
                         </div>
                     })
                 }</div>}

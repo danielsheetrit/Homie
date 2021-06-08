@@ -35,9 +35,9 @@ async function remove(userId) {
     }
 }
 
-async function update(user) {
+async function update(userToUpdate) {
     try {
-        const user = await httpService.put(`user/${user._id}`, user)
+        const user = await httpService.put(`user/${userToUpdate._id}`, userToUpdate)
         // Handle case in which admin updates other user's details
         if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
     } catch (err) {

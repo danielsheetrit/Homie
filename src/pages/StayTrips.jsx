@@ -1,8 +1,22 @@
 import { Link } from 'react-router-dom'
-import { LongTxt } from './LongTxt.jsx'
+import { LongTxt } from '../cmps/LongTxt.jsx'
+import { connect } from 'react-redux'
 
-export function StayTrips({ orders, getStatusClassName }) {
+export function _StayTrips({ orders }) {
     // console.log('StayTrips orders', orders)
+
+    function getStatusClassName(status) {
+        let classColor;
+        if (status === 'approved') {
+            classColor = 'approved'
+        } else if (status === 'pending') {
+            classColor = 'pending'
+        } else {
+            classColor = 'rejected'
+        }
+        return classColor
+    }
+
     return (
         <section className="stay-orders">
             <table>
@@ -19,7 +33,7 @@ export function StayTrips({ orders, getStatusClassName }) {
                 </thead>
                 <tbody>
                     {orders.map(order => {
-                        const statusColor = getStatusClassName(order.status)
+                        // const statusColor = getStatusClassName(order.status)
                         return (
                             <tr key={order._id}>
                                 <td><LongTxt txt={order.stay.name} numOfChars={20} /></td>
@@ -28,7 +42,7 @@ export function StayTrips({ orders, getStatusClassName }) {
                                 <td>{order.city}</td>
                                 <td>{order.totalPrice}</td>
                                 <td className="order-details"><Link to={`/stay/${order.stay._id}`}>Details</Link></td>
-                                <td className={statusColor}>{order.status}</td>
+                                {/* <td className={statusColor}>{order.status}</td> */}
                             </tr>
                         )
                     })}
@@ -37,3 +51,12 @@ export function StayTrips({ orders, getStatusClassName }) {
         </section>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+        orders: state.orderModule.orders,
+        stays: state.stayModule.stays
+    }
+}
+
+export const StayTrips = connect(mapStateToProps)(_StayTrips)

@@ -3,10 +3,12 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { cloudinaryService } from '../services/cloudinary-service'
-import { getUsers, onLogout, onSignup, onLogin } from '../store/actions/user.actions'
+import { onLogout, onSignup, onLogin } from '../store/actions/user.actions'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+
+import { socketService } from '../services/socket-service'
 
 class _LoginSignup extends Component {
 
@@ -28,7 +30,6 @@ class _LoginSignup extends Component {
     componentDidMount() {
         const isSignup = this.props.match.path === '/login' ? 'login' : 'signup'
         this.setState({ isSignup })
-        this.props.getUsers()
     }
 
     componentWillUnmount() {
@@ -41,7 +42,6 @@ class _LoginSignup extends Component {
     }
 
     handleChange = async (ev) => {
-        
         const { target } = ev
         const field = target.name
         const value = target.value
@@ -62,22 +62,17 @@ class _LoginSignup extends Component {
 
     onSubmitUser = async ev => {
         ev.preventDefault()
-
         const {
             isSignup,
             userInfo,
             credentials
         } = this.state
-
         const { onSignup, onLogin } = this.props
 
-        isSignup === 'login' ? onLogin(credentials) : onSignup(userInfo)
+        isSignup === 'login' ? await onLogin(credentials) : await onSignup(userInfo)
+        
+        if (this.props.loggedInUser) socketService.emit('LOGIN', this.props.loggedInUser)
         this.props.history.push('/')
-    }
-
-    onUpload = async ev => {
-        const pic = await cloudinaryService.uploadImg(ev)
-        this.setState({ imgUrl: pic.url })
     }
 
     render() {
@@ -168,12 +163,11 @@ class _LoginSignup extends Component {
 
 function mapStateToProps(state) {
     return {
-        users: state.userModule.users
+        loggedInUser: state.userModule.loggedInUser
     }
 }
 
 const mapDispatchToProps = {
-    getUsers,
     onLogout,
     onSignup,
     onLogin

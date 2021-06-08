@@ -13,7 +13,7 @@ export class _Home extends Component {
         city: ''
     }
 
-    componentDidMount() {
+   componentDidMount() {
         window.scrollTo(0, 0)
         document.body.classList.add('header-home-mode-open')
 
@@ -25,12 +25,14 @@ export class _Home extends Component {
                 document.body.classList.remove('header-onclick-mode')
             }
         }
+      
     }
 
     componentWillUnmount() {
         window.onscroll = null;
         document.body.classList.remove('header-home-mode-open')
         document.body.classList.remove('header-onclick-mode')
+        
     }
 
     onSelect = async city => {

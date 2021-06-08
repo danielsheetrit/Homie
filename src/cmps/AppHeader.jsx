@@ -57,13 +57,9 @@ class _AppHeader extends Component {
                     {this.state.isOpen &&
                         <div className="user-modal flex">
                             <ul className="clean-list">
-                                <li>
-                                    {!loggedInUser && <NavLink to="/login">Login</NavLink>}
-                                    {loggedInUser.isHost && <NavLink to="/userprofile/orders">Profile</NavLink>}
-                                </li>
-                                <li>
-                                    {loggedInUser && <NavLink to="/trips">Trips</NavLink>}
-                                </li>
+                                {!loggedInUser && <li><NavLink to="/login">Login</NavLink></li>}
+                                {loggedInUser && loggedInUser.isHost && <li><NavLink to="/userprofile/orders">Profile</NavLink></li>}
+                                {loggedInUser && <li><NavLink to="/trips">Trips</NavLink></li>}
                                 <li>
                                     {loggedInUser && <NavLink onClick={onLogout} to="/">Logout</NavLink>}
                                     {!loggedInUser && <NavLink to="/signup">Signup</NavLink>}

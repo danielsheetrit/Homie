@@ -36,6 +36,10 @@
             font-size: rem(12px);
             color: $clr6
         }
+
+        @media (max-width: $mobile-breakpoint) {
+            text-align: center;
+        }
     }
     p.accepted, p.rejected, button.rejected, button.accepted {
         font-weight: bold;
@@ -48,6 +52,10 @@
     }
     p.accepted, button.accepted{
         color: rgb(70, 185, 70);
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        flex-direction: column;
     }
 }
 

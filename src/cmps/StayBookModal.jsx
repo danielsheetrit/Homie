@@ -7,7 +7,8 @@ import { DateRangePicker } from 'react-dates'
 import { withSnackbar } from 'notistack'
 import { addOrder } from '../store/actions/order.actions'
 import { orderService } from '../services/order-service'
-import moment from 'moment'
+import ClickAwayListener from '@material-ui/core/ClickAwayListener'
+
 
 class _StayBookModal extends Component {
     state = {
@@ -29,7 +30,6 @@ class _StayBookModal extends Component {
         const { startDate, endDate } = this.state.trip
         const { loggedInUser, stay } = this.props
         // TODO: validate user is logged in
-        // if (loggedInUser) console.log('loggedInUser', loggedInUser)
         if (startDate && startDate !== '' && endDate && !this.state.isReserveMode) {
             this.setState({ ...this.state, isReserveMode: true })
             return
@@ -50,9 +50,14 @@ class _StayBookModal extends Component {
         }
     }
 
-    toggleModal = (ev) => {
+    onOpenModal = (ev) => {
         ev.preventDefault()
-        this.setState({ isModalOpen: !this.state.isModalOpen })
+        this.setState({ isModalOpen: true })
+    }
+
+    onCloseModal = (ev) => {
+        ev.preventDefault()
+        this.setState({ isModalOpen: false })
     }
 
     handleChange = (ev) => {
@@ -109,23 +114,22 @@ class _StayBookModal extends Component {
                                 small
                             />
                         </div>
-
-                        <div className="guest-container">
-                            <span className="guests">GUESTS</span>
-                            <button
-                                className="btn-guests"
-                                onClick={this.toggleModal}
-                            >
-                                {this.state.trip.adults + this.state.trip.children}
-                            </button>
-
-                            {isModalOpen && <StayGuestModal
-                                handleChange={this.handleChange}
-                                adults={adults}
-                                children={children}
-                            />}
-
-                        </div>
+                        <ClickAwayListener onClickAway={this.onCloseModal}>
+                            <div className="guest-container">
+                                <span className="guests">GUESTS</span>
+                                <button
+                                    className="btn-guests"
+                                    onClick={this.onOpenModal}
+                                >
+                                    {this.state.trip.adults + this.state.trip.children}
+                                </button>
+                                {isModalOpen && <StayGuestModal
+                                    handleChange={this.handleChange}
+                                    adults={adults}
+                                    children={children}
+                                />}
+                            </div>
+                        </ClickAwayListener>
                     </div>
 
                     <GradientBtn isReserveMode={isReserveMode} />
@@ -139,7 +143,7 @@ class _StayBookModal extends Component {
                             </div>
                             <div>
                                 <span>Service fee</span>
-                                <span>$</span>
+                                <span>$5</span>
                             </div>
                             <div>
                                 <span>Occupancy taxes and fees</span>
@@ -147,7 +151,7 @@ class _StayBookModal extends Component {
                             </div>
                             <div>
                                 <span>Total</span>
-                                <span>${stay.price * days + 10}</span>
+                                <span>${stay.price * days + 5 + 10}</span>
                             </div>
                         </div>}
                 </form>

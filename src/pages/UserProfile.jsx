@@ -41,7 +41,7 @@ class _UserProfile extends Component {
                     {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/myhomes">My Homes</NavLink>}
                     {isHost && <NavLink activeClassName="user-aside-active" to="/userprofile/add">Add stay</NavLink>}
                     <NavLink activeClassName="user-aside-active" to="/userprofile/mystays">My Stays</NavLink>
-                    <NavLink activeClassName="user-aside-active" to="/userprofile/wishlist">Wishlist</NavLink>
+                    {/* <NavLink activeClassName="user-aside-active" to="/userprofile/wishlist">Wishlist</NavLink> */}
                 </aside>
                 <main>
                     {/* <h1>Welcome, {loggedInUser.username}</h1> */}

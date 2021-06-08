@@ -1,62 +1,57 @@
-import { Link } from 'react-router-dom'
-import { LongTxt } from '../cmps/LongTxt.jsx'
+import { Component } from 'react'
 import { connect } from 'react-redux'
+import { getOrders } from '../store/actions/order.actions'
+import { getStays } from '../store/actions/stay.actions'
+import { UserOrderPreview } from '../cmps/UserOrderPreview.jsx'
+import trip from '../assets/img/trip.png'
 
-export function _StayTrips({ orders }) {
-    // console.log('StayTrips orders', orders)
+export class _StayTrips extends Component {
 
-    function getStatusClassName(status) {
-        let classColor;
-        if (status === 'approved') {
-            classColor = 'approved'
-        } else if (status === 'pending') {
-            classColor = 'pending'
-        } else {
-            classColor = 'rejected'
-        }
-        return classColor
+    componentDidMount() {
+        const { _id } = this.props.loggedInUser
+        this.props.getOrders(_id, 'user')
+        this.props.getStays()
+    }
+    getUserOrders = () => {
+        const { orders } = this.props
+        const { loggedInUser } = this.props
+        const userOrders = orders.filter(order => {
+            return order.buyer._id === loggedInUser._id
+        }).sort((order1, order2) => {
+            return order2.createdAt - order1.createdAt
+        })
+        return userOrders
     }
 
-    return (
-        <section className="stay-orders">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Check In</th>
-                        <th>Check Out</th>
-                        <th>City</th>
-                        <th>Total Price</th>
-                        <th>Details</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {orders.map(order => {
-                        // const statusColor = getStatusClassName(order.status)
-                        return (
-                            <tr key={order._id}>
-                                <td><LongTxt txt={order.stay.name} numOfChars={20} /></td>
-                                <td>{order.startDate}</td>
-                                <td>{order.endDate}</td>
-                                <td>{order.city}</td>
-                                <td>{order.totalPrice}</td>
-                                <td className="order-details"><Link to={`/stay/${order.stay._id}`}>Details</Link></td>
-                                {/* <td className={statusColor}>{order.status}</td> */}
-                            </tr>
-                        )
+    render() {
+        const userOrders = this.getUserOrders()
+        // TODO: put loader
+        if (!userOrders) return <h1>Loading</h1>
+        return (
+            <section className="stay-trips">
+                <h1>Trips</h1>
+                <div className="preview-container">
+                    {userOrders.map(order => {
+                        return <UserOrderPreview order={order} key={order._id} />
                     })}
-                </tbody>
-            </table>
-        </section>
-    )
+                </div>
+                <div><img src={trip} alt="order" /></div>
+            </section>
+        )
+    }
 }
 
 function mapStateToProps(state) {
     return {
+        loggedInUser: state.userModule.loggedInUser,
         orders: state.orderModule.orders,
         stays: state.stayModule.stays
     }
 }
 
-export const StayTrips = connect(mapStateToProps)(_StayTrips)
+const mapDispatchToProps = {
+    getOrders,
+    getStays
+}
+
+export const StayTrips = connect(mapStateToProps, mapDispatchToProps)(_StayTrips)

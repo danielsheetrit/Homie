@@ -71,12 +71,6 @@ class _LoginSignup extends Component {
         this.props.history.push('/')
     }
 
-    // onUpload = async ev => {
-    //     const pic = await cloudinaryService.uploadImg(ev)
-        
-    //     this.setState({ imgUrl: pic.url })
-    // }
-
     render() {
 
         const { isSignup } = this.state

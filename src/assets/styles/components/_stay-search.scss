@@ -10,7 +10,7 @@
         font-family: Roboto-medium;
         background-color: $clr1;
         color: $clr3;
-        padding: rem(15px);
+        padding: rem(15px) rem(15px) rem(15px) rem(24px);
         border-radius: rem(999px);
         border: 1px solid rgba(128, 128, 128, 0.2);
         box-shadow: 0px 0px 5px #22222227;
@@ -27,9 +27,6 @@
             color: #fdfdfd;
         }
 
-        // @media (max-width: $normal-breakpoint) {
-        //     padding-left: rem(36px);
-        // }
         @media (max-width: $normal-breakpoint) {
             transform: translate(-69%, -24px);
         }
@@ -39,7 +36,6 @@
         }
         @media (max-width: $mobile-breakpoint) {
             width: 88%;
-            // transform: translate(-50%, -24px);
         }
     }
 

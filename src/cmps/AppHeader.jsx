@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { StaySearch } from './StaySearch'
 import { connect } from 'react-redux'
+
 import { onLogout } from '../store/actions/user.actions'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCampground } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -16,6 +18,7 @@ class _AppHeader extends Component {
     state = {
         node: React.createRef(),
         isOpen: false,
+        msgNum: 0
     }
 
     onShowUserMenu = () => {
@@ -29,6 +32,7 @@ class _AppHeader extends Component {
 
     render() {
         const { loggedInUser, onLogout } = this.props
+        const {msgNum} = this.state
         return (
             <header className="flex" ref={this.state.node}>
                 <nav className="nav-header flex align-center">
@@ -51,7 +55,7 @@ class _AppHeader extends Component {
                                     {!loggedInUser && <FontAwesomeIcon icon={faUserCircle} size="2x" />}
                                     {loggedInUser &&
                                         <div className="avatar-container">
-                                            <Badge badgeContent={4} color="secondary">
+                                            <Badge badgeContent={msgNum} color="secondary">
                                                 <AvatarSymbol url={loggedInUser.imgUrl} />
                                             </Badge>
                                         </div>

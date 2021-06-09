@@ -117,22 +117,25 @@ class _StayBookModal extends Component {
                                 small
                             />
                         </div>
-                        <ClickAwayListener onClickAway={this.onCloseModal}>
-                            <div className="guest-container">
-                                <span className="guests">GUESTS</span>
-                                <button
-                                    className="btn-guests"
-                                    onClick={this.onOpenModal}
-                                >
-                                    {this.state.trip.adults + this.state.trip.children}
-                                </button>
-                                {isModalOpen && <StayGuestModal
-                                    handleChange={this.handleChange}
-                                    adults={adults}
-                                    children={children}
-                                />}
-                            </div>
-                        </ClickAwayListener>
+                        <div className="guest-container">
+                            <span className="guests">GUESTS</span>
+                            <button
+                                className="btn-guests"
+                                onClick={this.onOpenModal}
+                            >
+                                {this.state.trip.adults + this.state.trip.children}
+                            </button>
+                            {isModalOpen &&
+                                <ClickAwayListener onClickAway={this.onCloseModal}>
+                                    <StayGuestModal
+                                        handleChange={this.handleChange}
+                                        adults={adults}
+                                        children={children}
+
+                                    />
+                                </ClickAwayListener>
+                            }
+                        </div>
                     </div>
 
                     <GradientBtn isReserveMode={isReserveMode} />

@@ -59,7 +59,7 @@ async function signup(userCred) {
         const newUser = {
             ...userCred,
             isHost: false,
-            imgUrl: 'https://ozgrozer.github.io/100k-faces/0/0/000924.jpg'
+            imgUrl: userCred?.imgUrl ||'https://ozgrozer.github.io/100k-faces/0/0/000924.jpg'
         }
 
         const user = await httpService.post('auth/signup', newUser)

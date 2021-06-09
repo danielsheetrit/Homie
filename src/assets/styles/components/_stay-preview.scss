@@ -1,13 +1,15 @@
 .stay-preview {
-    width: 244px;
-    margin-bottom: 6px;
+
+    margin-bottom: rem(6px);
 
     .stay-image-container {
-        margin-bottom: 8px;
+        margin-bottom: rem(8px);
 
         img {
+            position: relative;
             width: 100%;
-            border-radius: 8px;
+            height: 100%;
+            border-radius: rem(8px);
             object-fit: cover;
         }
     }

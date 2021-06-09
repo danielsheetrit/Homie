@@ -27,7 +27,7 @@ export class _StayApp extends Component {
         if (!stays) return <Loader />
 
         return (
-            <section className="stay-app">
+            <section className="stay-app ">
                 <StayFilter onSetFilter={this.onSetFilter} />
                 <StayList stays={stays} />
             </section>

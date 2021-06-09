@@ -87,7 +87,7 @@ export class StayDetails extends Component {
                             key={idx}
                             className={`details-img-container img-${idx + 1}`}
                         >
-                            <img src={imgUrl} alt="details"/>
+                            <img src={imgUrl} alt="details" />
                         </div>
                     })
                 }</div>}
@@ -100,7 +100,7 @@ export class StayDetails extends Component {
                                 <span className="host-header-capacity">Up to {capacity} guests</span>
                             </div>
                             <div>
-                                <AvatarSymbol />
+                                <AvatarSymbol url={host.imgUrl} />
                             </div>
                         </div>}
 

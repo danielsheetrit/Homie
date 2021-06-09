@@ -68,7 +68,6 @@ class _LoginSignup extends Component {
             credentials
         } = this.state
         const { onSignup, onLogin } = this.props
-
         isSignup === 'login' ? await onLogin(credentials) : await onSignup(userInfo)
         
         if (this.props.loggedInUser) socketService.emit('LOGIN', this.props.loggedInUser)
@@ -76,9 +75,7 @@ class _LoginSignup extends Component {
     }
 
     render() {
-
         const { isSignup } = this.state
-
         return (
             <div className="log-page-container flex align-center justify-center full">
                 <div className="form-filter"></div>

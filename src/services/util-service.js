@@ -1,7 +1,7 @@
 
 export const utilService = {
     makeId,
-    getRandomIntInclusive
+    getRandomIntInclusive,
 }
 
 function makeId(length = 6) {

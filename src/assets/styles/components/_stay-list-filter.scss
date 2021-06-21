@@ -28,7 +28,44 @@
         @media (max-width: $mobile-breakpoint) {
             display: block;
         }
+    }
 
+    @media (max-width: 630px) {
+        .popover-container-amenities {
+            .stay-filter-popover {
+                left: -14rem;
+            }
+        }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        .popover-container-amenities {
+            .stay-filter-popover {
+                left: 0;
+                width: 15rem;
+            }
+        }
+        .amenities-grid {
+            grid-template-columns: repeat(1, auto);
+        }
+        .popover-container-houserules {
+            .stay-filter-popover {
+                left: 0;
+                top: 2.4rem;
+            }
+        }
+        .popover-container-staytype {
+            .stay-filter-popover {
+                top: 2.4rem;
+                left: 0;
+            }
+        }
+        .popover-container-priceslider {
+            .stay-filter-popover {
+                top: 2.4rem;
+                left: 0;
+            }
+        }
     }
 }
 
@@ -69,8 +106,9 @@
 .popover-container-priceslider {
     position: relative;
     .stay-filter-popover {
+        width: rem(300px);
+        padding: 1.5rem;
         margin-top: rem(8px);
-        width: rem(275px);
         h4 {
             margin-bottom: 3rem;
             font-family: Roboto-light;

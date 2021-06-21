@@ -34,4 +34,15 @@
             font-family: Roboto-bold;
         }
     }
+
+    @media (max-width: $narrow-breakpoint) {
+        .hero-txt-container {
+            width: rem(300px);
+            padding: 0;
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+        }
+    }
+
 }

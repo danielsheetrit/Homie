@@ -1,9 +1,11 @@
 import { Component } from 'react'
 import { NavLink, Route, Switch } from 'react-router-dom'
+
 import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
 import { getUsers } from '../store/actions/user.actions'
 import { getOrders, updateOrder } from '../store/actions/order.actions'
+
 import { AddStay } from '../cmps/AddStay'
 import { UserStays } from '../cmps/UserStays'
 import { HostHomes } from '../cmps/HostHomes'

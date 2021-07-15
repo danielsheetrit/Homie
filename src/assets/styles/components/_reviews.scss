@@ -1,5 +1,4 @@
 .reviews-container {
-
     > div {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -57,7 +56,8 @@
         width: 90%;
     }
 
-    button {
+    button,
+    .link {
         font-family: Roboto-medium;
         font-size: 1rem;
         border: 1px solid $clr3;

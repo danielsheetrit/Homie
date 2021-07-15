@@ -1,5 +1,5 @@
 import { httpService } from './http-service'
-
+import { utilService } from './util-service'
 export const stayService = {
     query,
     getById,
@@ -23,9 +23,15 @@ async function getById(id) {
     }
 }
 
-async function save(stay) {
+async function save(stay, review) {
     try {
         if (stay._id) {
+            const reviewToAdd = {
+                id: utilService.makeId(),
+                ...review,
+            }
+
+            stay.reviews.unshift(reviewToAdd)
             return await httpService.put(`stay/${stay._id}`, stay)
         } else {
             return await httpService.post('stay/', stay)

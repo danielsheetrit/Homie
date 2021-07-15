@@ -15,8 +15,8 @@ import { socketService } from '../services/socket-service'
 class _StayBookModal extends Component {
     state = {
         trip: {
-            startDate: '',
-            endDate: '',
+            startDate: null,
+            endDate: null,
             adults: 1,
             children: 0,
         },
@@ -32,10 +32,10 @@ class _StayBookModal extends Component {
         const { startDate, endDate } = this.state.trip
         const { loggedInUser, stay } = this.props
         // TODO: validate user is logged in
-        if (startDate && startDate !== '' && endDate && !this.state.isReserveMode) {
+        if (startDate && endDate && !this.state.isReserveMode) {
             this.setState({ ...this.state, isReserveMode: true })
             return
-        } else if (startDate && startDate && this.state.isReserveMode) {
+        } else if (startDate && endDate && this.state.isReserveMode) {
 
             this.props.enqueueSnackbar('Your order received.', {
                 variant: 'success',
@@ -97,12 +97,13 @@ class _StayBookModal extends Component {
                         <div className="date-container">
 
                             <DateRangePicker
+                                numberOfMonths={1}
                                 readOnly
                                 displayFormat="MM-DD-YYYY"
-                                startDateId="your_unique_start_date_id"
+                                startDateId="start"
                                 startDate={this.state.trip.startDate}
                                 endDate={this.state.trip.endDate}
-                                endDateId="your_unique_end_date_id"
+                                endDateId="end"
 
                                 onDatesChange={({ startDate, endDate }) => this.setState({
                                     ...this.state, trip: { ...this.state.trip, startDate, endDate }

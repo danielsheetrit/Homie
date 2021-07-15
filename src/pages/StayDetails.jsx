@@ -1,5 +1,8 @@
 import { Component } from 'react'
+import { connect } from 'react-redux'
+
 import { stayService } from '../services/stay-service'
+
 import { AssetDetails } from '../cmps/AssetDetails.jsx'
 import { StayRate } from '../cmps/StayRate.jsx'
 import { AvatarSymbol } from '../cmps/AvatarSymbol.jsx'
@@ -13,7 +16,7 @@ import { Loader } from '../cmps/Loader.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-export class StayDetails extends Component {
+class _StayDetails extends Component {
 
     state = {
         stay: {},
@@ -44,7 +47,7 @@ export class StayDetails extends Component {
     }
 
     render() {
-
+        const { loggedInUser } = this.props
         const { stay } = this.state
         const {
             loc,
@@ -87,7 +90,7 @@ export class StayDetails extends Component {
                             key={idx}
                             className={`details-img-container img-${idx + 1}`}
                         >
-                            <img src={imgUrl} alt="details"/>
+                            <img src={imgUrl} alt="details" />
                         </div>
                     })
                 }</div>}
@@ -100,7 +103,7 @@ export class StayDetails extends Component {
                                 <span className="host-header-capacity">Up to {capacity} guests</span>
                             </div>
                             <div>
-                                <AvatarSymbol />
+                                <AvatarSymbol url={host.imgUrl} />
                             </div>
                         </div>}
 
@@ -134,7 +137,9 @@ export class StayDetails extends Component {
                 <section>
                     {reviews && <Reviews
                         stay={stay}
-                        reviews={reviews} />}
+                        reviews={reviews}
+                        loggedInUser={loggedInUser}
+                    />}
                 </section>
 
                 {loc && <section className="google-map-container">
@@ -147,3 +152,11 @@ export class StayDetails extends Component {
         )
     }
 }
+
+function mapStateToProps({ userModule: { loggedInUser } }) {
+    return {
+        loggedInUser
+    }
+}
+
+export const StayDetails = connect(mapStateToProps, null)(_StayDetails)

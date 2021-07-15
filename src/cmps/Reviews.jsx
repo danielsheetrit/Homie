@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import { AvatarSymbol } from './AvatarSymbol.jsx'
 import { StayRate } from './StayRate.jsx'
 
@@ -8,8 +10,10 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-
 import Modal from 'react-modal'
+
+import { stayService } from '../services/stay-service.js'
+
 Modal.setAppElement('#root')
 
 export class Reviews extends Component {
@@ -18,7 +22,7 @@ export class Reviews extends Component {
         modalIsOpen: false,
         review: {
             rate: null,
-            summary: ''
+            txt: ''
         }
     }
 
@@ -28,12 +32,18 @@ export class Reviews extends Component {
         this.setState({ review: { ...this.state.review, [field]: value } })
     }
 
-    onAddReview = ev => {
+    onAddReview = (ev) => {
         ev.preventDefault()
+        const { stay, loggedInUser } = this.props
+        const { review } = this.state
+        review.by = loggedInUser
+        stayService.save(stay, review)
+        // window.location.hash = `/stay/${stay._id}`
+        this.setState({ modalIsOpen: false })
     }
 
     closeModal = ev => {
-        if ( ev.x > 495 && ev.x < 1023) return
+        if (ev.x > 495 && ev.x < 1023) return
         this.setState({ modalIsOpen: false })
     }
 
@@ -43,8 +53,8 @@ export class Reviews extends Component {
 
     render() {
 
-        const { reviews, stay } = this.props
-        const shortReviews = reviews.slice(0, 4)
+        const { reviews, stay, loggedInUser } = this.props
+        // const shortReviews = reviews.slice(0, 4)
         return (
             <div className="reviews-container">
                 <StayRate
@@ -52,7 +62,7 @@ export class Reviews extends Component {
                     isShowReviews={true}
                 />
                 <div>
-                    {reviews && shortReviews.map((review, idx) => {
+                    {reviews && reviews.map((review, idx) => {
                         return <div key={idx} className="review-container flex column">
                             <div className="review-writer-container flex align-center">
                                 <div>
@@ -70,7 +80,13 @@ export class Reviews extends Component {
                     })}
                 </div>
 
-                <button onClick={this.openModal}>Add review</button>
+                {loggedInUser ?
+                    <button onClick={this.openModal}>
+                        Add review
+                    </button> :
+                    <Link className="link" to="/signup">
+                        sign up to live a comment
+                    </Link>}
 
                 <Modal
                     isOpen={this.state.modalIsOpen}
@@ -111,8 +127,8 @@ export class Reviews extends Component {
                                     id="review-textarea"
                                     onChange={this.handleChange}
                                     type="text"
-                                    name="summary"
-                                    value={this.state.review.summary}
+                                    name="txt"
+                                    value={this.state.review.txt}
                                     placeholder="Describe your expirience." />
                             </div>
                             <button

@@ -5,12 +5,7 @@ import { connect } from 'react-redux'
 import { getStays } from '../store/actions/stay.actions'
 import { getUsers } from '../store/actions/user.actions'
 import { getOrders, updateOrder } from '../store/actions/order.actions'
-<<<<<<< HEAD
-
-import { AddStay } from '../cmps/AddStay'
-=======
 import { SaveStay } from '../cmps/SaveStay'
->>>>>>> a6a82d38c53c84205b8ad7807d64fcad9e7efacb
 import { UserStays } from '../cmps/UserStays'
 import { HostHomes } from '../cmps/HostHomes'
 import { Wishlist } from '../cmps/Wishlist'

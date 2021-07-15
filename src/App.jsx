@@ -36,7 +36,6 @@ export class _App extends Component {
     socketService.terminate()
   }
 
-
   render() {
 
     if (!this.props.stays) return <Loader />
@@ -65,7 +64,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  getStays,
+  getStays
 }
 
 export const App = connect(mapStateToProps, mapDispatchToProps)(withSnackbar(_App))

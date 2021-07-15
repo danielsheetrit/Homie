@@ -36,11 +36,9 @@
         opacity: 0;
         pointer-events: none;
     }
-
     .nav-header {
         padding: 1.3rem 0rem 110px;
     }
-
     .stay-search {
         form {
             opacity: 1;
@@ -48,7 +46,6 @@
             transform: translate(-50%, -110%) scale(1);
         }
     }
-
     @media (max-width: $narrow-breakpoint) {
         .nav-header {
             padding: 1.3rem 0rem 260px;
@@ -59,5 +56,4 @@
             }
         }
     }
-
 }

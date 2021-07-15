@@ -16,7 +16,9 @@ class _StaySearch extends Component {
         filterBy: {
             city: '',
             guest: 0
-        }
+        },
+        startDate: null,
+        endDate: null
     }
 
     handleChange = ({ target }) => {
@@ -63,7 +65,7 @@ class _StaySearch extends Component {
                     {city || 'Start your search'}
                     <FontAwesomeIcon icon={faSearch} />
                 </div>
-                
+
                 <form
                     className={`flex`}
                     onSubmit={this.onSubmitStay}
@@ -88,9 +90,10 @@ class _StaySearch extends Component {
                             <label>Dates</label>
                         </div>
                         <DateRangePicker
-                            startDateId="your_unique_start_date_id"
+                            numberOfMonths={1}
+                            startDateId="start"
                             startDate={this.state.startDate}
-                            endDateId="your_unique_end_date_id"
+                            endDateId="end"
                             endDate={this.state.endDate}
                             onDatesChange={
                                 ({ startDate, endDate }) => this.setState({ startDate, endDate })}

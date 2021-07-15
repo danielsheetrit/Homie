@@ -39,6 +39,9 @@
             margin-bottom: 24px;
             color: $clr3;
         }
+        @media (max-width: $mobile-breakpoint) {
+            margin-left: 0;
+        }
     }
 
     @media (max-width: $narrow-breakpoint) {

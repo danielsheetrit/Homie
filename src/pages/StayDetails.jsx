@@ -103,7 +103,7 @@ class _StayDetails extends Component {
                                 <span className="host-header-capacity">Up to {capacity} guests</span>
                             </div>
                             <div>
-                                <AvatarSymbol />
+                                <AvatarSymbol url={host.imgUrl} />
                             </div>
                         </div>}
 

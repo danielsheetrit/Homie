@@ -24,15 +24,15 @@ class _AppHeader extends Component {
     onShowUserMenu = () => {
         this.setState({ isOpen: true })
     }
-    
-    onCloseUserMenu = () =>{
+
+    onCloseUserMenu = () => {
         this.setState({ isOpen: false })
     }
 
-
     render() {
         const { loggedInUser, onLogout } = this.props
-        const {msgNum} = this.state
+        const { msgNum } = this.state
+
         return (
             <header className="flex" ref={this.state.node}>
                 <nav className="nav-header flex align-center">
@@ -46,36 +46,53 @@ class _AppHeader extends Component {
                     <ul className="nav-link clean-list flex align-center">
                         <li><NavLink to="/">Become a host</NavLink></li>
                         <li><NavLink to="/stay">Explore</NavLink></li>
-                        <ClickAwayListener onClickAway={this.onCloseUserMenu}>
-                            <li className="flex align-center">
-                                <div className="login-signup-btn flex align-center"
-                                    onClick={this.onShowUserMenu}
-                                >
-                                    <FontAwesomeIcon icon={faBars} size="2x" />
-                                    {!loggedInUser && <FontAwesomeIcon icon={faUserCircle} size="2x" />}
-                                    {loggedInUser &&
-                                        <div className="avatar-container">
-                                            <Badge badgeContent={msgNum} color="secondary">
-                                                <AvatarSymbol url={loggedInUser.imgUrl} />
-                                            </Badge>
-                                        </div>
-                                    }
-                                </div>
-                            </li>
-                        </ClickAwayListener>
+
+                        <li className="flex align-center">
+                            <div className="login-signup-btn flex align-center"
+                                onClick={this.onShowUserMenu}
+                            >
+                                <FontAwesomeIcon icon={faBars} size="2x" />
+                                {!loggedInUser && <FontAwesomeIcon icon={faUserCircle} size="2x" />}
+                                {loggedInUser &&
+                                    <div className="avatar-container">
+                                        <Badge badgeContent={msgNum} color="secondary">
+                                            <AvatarSymbol url={loggedInUser.imgUrl} />
+                                        </Badge>
+                                    </div>
+                                }
+                            </div>
+                        </li>
                     </ul>
-                    {this.state.isOpen &&
+                    {this.state.isOpen && <ClickAwayListener onClickAway={this.onCloseUserMenu}>
                         <div className="user-modal flex">
                             <ul className="clean-list">
-                                {!loggedInUser && <li><NavLink to="/login">Login</NavLink></li>}
-                                {loggedInUser && loggedInUser.isHost && <li><NavLink to="/userprofile/orders">Profile</NavLink></li>}
-                                {loggedInUser && <li><NavLink to="/trips">Trips</NavLink></li>}
+                                {!loggedInUser &&
+                                    <NavLink
+                                        onClick={this.onCloseUserMenu}
+                                        to="/login"
+                                    >
+                                        <li>Login</li>
+                                    </NavLink>}
+                                {loggedInUser && loggedInUser.isHost &&
+                                    <NavLink
+                                        onClick={this.onCloseUserMenu}
+                                        to="/userprofile/orders"
+                                    >
+                                        <li>Profile</li>
+                                    </NavLink>}
+                                {loggedInUser && <NavLink
+                                    onClick={this.onCloseUserMenu}
+                                    to="/trips"
+                                >
+                                    <li>Trips</li>
+                                </NavLink>}
                                 <li>
                                     {loggedInUser && <NavLink onClick={onLogout} to="/">Logout</NavLink>}
                                     {!loggedInUser && <NavLink to="/signup">Signup</NavLink>}
                                 </li>
                             </ul>
-                        </div>}
+                        </div>
+                    </ClickAwayListener>}
                 </nav>
             </header>
         )

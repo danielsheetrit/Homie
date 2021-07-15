@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 export function DashboardHeader({ stays, orders }) {
-    console.log('stays', stays, 'orders', orders)
 
     function getMonthlyEarning() {
         let totalEarning = 0;
@@ -78,8 +77,8 @@ export function DashboardHeader({ stays, orders }) {
                     <div className="images-container flex">
                         {getActiveGuests().map(order => {
                             return (
-                                <div className="img-container">
-                                    <img src={order.buyer.imgUrl} alt="guest" key={order._id} />
+                                <div className="img-container" key={order._id}>
+                                    <img src={order.buyer.imgUrl} alt="guest" />
                                 </div>
                             )
                         })}

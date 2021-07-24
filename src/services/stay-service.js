@@ -34,6 +34,7 @@ async function save(stay, review) {
             stay.reviews.unshift(reviewToAdd)
             return await httpService.put(`stay/${stay._id}`, stay)
         } else {
+            console.log('stay from stay-service', stay)
             return await httpService.post('stay/', stay)
         }
     } catch (err) {

@@ -32,7 +32,11 @@ class _SaveStay extends Component {
             fullname: this.props.loggedInUser.fullname,
             imgUrl: this.props.loggedInUser.imgUrl,
         },
-        imgUrls: [],
+        imgUrls: ['https://res.cloudinary.com/ariecloud/image/upload/v1606479347/users/london-stun2_xggiul.jpg',
+            'https://res.cloudinary.com/ariecloud/image/upload/v1606479347/users/london-stun2_xggiul.jpg',
+            'https://res.cloudinary.com/ariecloud/image/upload/v1606479347/users/london-stun2_xggiul.jpg',
+            'https://res.cloudinary.com/ariecloud/image/upload/v1606479347/users/london-stun2_xggiul.jpg',
+            'https://res.cloudinary.com/ariecloud/image/upload/v1606479347/users/london-stun2_xggiul.jpg'],
         loc: {
             country: '',
             city: '',
@@ -42,37 +46,30 @@ class _SaveStay extends Component {
             lng: 0,
         },
         reviews: [],
+    }
+    // async componentDidMount() {
+    //     await this.loadStay()
+    // }
 
-    }
-    async componentDidMount() {
-        if (!this.props.match.params.id) {
-            const stay = this.props.stays[0]
-            this.setState({ ...stay })
-        } else {
-            await this.loadStay()
-        }
-    }
-
-    async loadStay() {
-        const { id } = this.props.match.params
-        console.log('iddddd', id)
-        const stay = await stayService.getById(id)
-        this.setState({ ...stay })
-    }
+    // async loadStay() {
+    //     const { id } = this.props.match.params
+    //     const stay = await stayService.getById(id)
+    //     this.setState({ ...stay })
+    // }
 
     onSaveStay = (ev) => {
         ev.preventDefault()
-        console.log('this.state', this.state)
+        const stay = { ...this.state }
+        stayService.save(stay)
         this.props.enqueueSnackbar('Home Saved.', {
             variant: 'success',
         })
         setTimeout(() => this.props.closeSnackbar(), 3000)
-        this.props.history.push('/userprofile/myhomes');
+        this.props.history.push('/userprofile/myhomes')
     }
 
     handleChange = ({ target }) => {
         let { name, value, id, checked } = target
-        console.log('name', name, 'value', value);
         value = name === 'price' || name === 'capacity' ? +value : value;
         if (name === 'city') {
             this.setState({ ...this.state, loc: { ...this.state.loc, [name]: value } }, () => {
@@ -81,15 +78,12 @@ class _SaveStay extends Component {
         } else if (name === 'address') {
             this.setState({ ...this.state, loc: { ...this.state.loc, [name]: value } })
         } else if (name === 'house-rules') {
-            console.log('f')
             this.setState({
-
                 ...this.state,
                 houseRules: {
                     ...this.state.houseRules,
                     [id]: checked
                 }
-
             })
         } else if (name === 'amenities') {
             this.setState({
@@ -106,7 +100,6 @@ class _SaveStay extends Component {
     }
 
     setLocation = (city) => {
-        console.log('city', city);
         let country, countryCode, lat, lng;
         switch (city) {
             case 'Amsterdam':
@@ -152,16 +145,10 @@ class _SaveStay extends Component {
                 lng = 0
         }
         this.setState({ ...this.state, loc: { ...this.state.loc, country, countryCode, lat, lng } })
-        console.log('country', country, 'countryCode', countryCode)
     }
 
     render() {
         const { name, price, type, capacity, summary, amenities, houseRules, imgUrls, loc, reviews } = this.state
-        console.log('this.state', this.state)
-        // const {name} =stay
-        // console.log('stay', stay)
-        // if (stay && stay.name) console.log('stay.name', stay.name)
-
 
         // if (!stay) return <h1>Loading</h1>
         return (

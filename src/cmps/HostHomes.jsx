@@ -1,6 +1,5 @@
 import { HostHomePreview } from './HostHomePreview.jsx'
 export function HostHomes({ hostHomes, hostOrders }) {
-    console.log('hostHomes', hostHomes)
     if (!hostHomes) return <h1>Loading</h1>
     return (
         <section className="host-homes">

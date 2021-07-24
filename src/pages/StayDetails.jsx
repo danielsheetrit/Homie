@@ -21,6 +21,7 @@ class _StayDetails extends Component {
     state = {
         stay: {},
         isShowMore: false,
+        isMobile: false
     }
 
     componentDidMount() {
@@ -28,6 +29,9 @@ class _StayDetails extends Component {
         window.scrollTo(0, 0)
         document.body.classList.add('mini-header')
         document.body.classList.remove('hide-mini-search')
+        window.onresize = () => {
+            this.setState({ isMobile: (window.innerWidth < 550) ? true : false })
+        }
     }
 
     componentWillUnmount() {
@@ -47,20 +51,23 @@ class _StayDetails extends Component {
     }
 
     render() {
+
         const { loggedInUser } = this.props
-        const { stay } = this.state
+        const { stay, isMobile } = this.state
         const {
             loc,
             name,
             type,
             host,
-            imgUrls,
             capacity,
             houseRules,
             amenities,
             summary,
             reviews
         } = stay
+
+        let { imgUrls } = stay
+        imgUrls = (isMobile) ? imgUrls.slice(4) : imgUrls;
 
         if (!stay) return <Loader />
 
@@ -84,16 +91,16 @@ class _StayDetails extends Component {
                     </div>
                 </div>
 
-                {imgUrls && <div className="details-gallery-container">{
-                    imgUrls.map((imgUrl, idx) => {
+                {imgUrls && <div className="details-gallery-container">
+                    {imgUrls.map((imgUrl, idx) => {
                         return <div
                             key={idx}
                             className={`details-img-container img-${idx + 1}`}
                         >
                             <img src={imgUrl} alt="details" />
                         </div>
-                    })
-                }</div>}
+                    })}
+                </div>}
 
                 <section className="host-main-container justify-space-between flex">
                     <div className="flex full column">

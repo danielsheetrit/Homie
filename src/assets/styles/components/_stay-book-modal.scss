@@ -1,5 +1,4 @@
 .stay-book-modal {
-
     position: sticky;
     top: rem(100px);
     display: flex;
@@ -148,5 +147,14 @@
             font-family: Roboto-Bold;
             color: $clr3;
         }
+    }
+
+    @media (max-width: 850px) {
+        position: static;
+        max-width: 75%;
+    }
+    @media (max-width: $narrow-breakpoint) {
+        position: static;
+        max-width: 100%;
     }
 }

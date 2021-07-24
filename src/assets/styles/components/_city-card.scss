@@ -50,22 +50,26 @@
         position: absolute;
         margin-inline-start: 0.3rem;
         bottom: 3px;
-        padding: .5rem .8rem;
+        padding: 0.5rem 0.8rem;
         color: $clr1;
+    }
 
-        @media (max-width: $narrow-breakpoint) {
-            padding: .4rem .6rem;
+    @media (max-width: $narrow-breakpoint) {
+        .bg-filter {
+            padding: 0.4rem 0.6rem;
             h3 {
                 font-size: rem(18px);
             }
         }
-
-        @media (max-width: $mobile-breakpoint) {
-            padding: .2rem .4rem;
+        gap: rem(12px);
+    }
+    @media (max-width: $mobile-breakpoint) {
+        .bg-filter {
+            padding: 0.2rem 0.4rem;
             h3 {
                 font-size: rem(14px);
             }
         }
-
+        gap: rem(8px);
     }
 }

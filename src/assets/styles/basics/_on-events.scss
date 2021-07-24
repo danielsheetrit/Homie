@@ -29,6 +29,15 @@
             color: $clr2;
         }
     }
+    @media (max-width: $narrow-breakpoint) {
+        header {
+            .nav-header {
+                a {
+                    color: $clr3;
+                }
+            }
+        }
+    }
 }
 
 .header-onclick-mode {

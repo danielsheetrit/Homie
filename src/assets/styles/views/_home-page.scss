@@ -57,6 +57,7 @@
                     font-size: rem(14px);
                 }
             }
+            background-attachment: scroll;
         }
         @media (max-width: $narrow-breakpoint) {
             .hero-txt-container {

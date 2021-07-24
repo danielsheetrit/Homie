@@ -32,7 +32,7 @@ class _AppHeader extends Component {
     render() {
         const { loggedInUser, onLogout } = this.props
         const { msgNum } = this.state
-
+    
         return (
             <header className="flex" ref={this.state.node}>
                 <nav className="nav-header flex align-center">

@@ -62,7 +62,7 @@ header {
         }
 
         .user-modal {
-            box-shadow: 0px 0px 5px #22222227;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
             border-radius: rem(5px);
             position: absolute;
             right: rem(20px);
@@ -99,8 +99,17 @@ header {
                 pointer-events: none;
             }
             .nav-link {
-                opacity: 0;
-                pointer-events: none;
+                position: fixed;
+                width: 100%;
+                bottom: -1px;
+                left: 0;
+                justify-content: space-around;
+                background-color: #fff;
+                padding: 1rem;
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            }
+            .user-modal {
+                top: rem(630px);
             }
             max-width: $mobile-breakpoint;
         }

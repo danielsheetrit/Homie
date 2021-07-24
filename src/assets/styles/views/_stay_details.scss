@@ -97,9 +97,17 @@
     }
 
     .staybook-modal-container {
-        min-width: rem(424px);
         & > * {
             margin-left: 75px;
+        }
+    }
+
+    @media (max-width: 850px) {
+        flex-direction: column;
+        .staybook-modal-container {
+            & > * {
+                margin-left: 0;
+            }
         }
     }
 }
@@ -146,6 +154,15 @@
         grid-area: img-5;
         img {
             border-bottom-right-radius: rem(8px);
+        }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        display: flex;
+        width: 100%;
+        img {
+
+            border-radius: rem(8px);
         }
     }
 }

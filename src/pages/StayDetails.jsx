@@ -29,9 +29,7 @@ class _StayDetails extends Component {
         window.scrollTo(0, 0)
         document.body.classList.add('mini-header')
         document.body.classList.remove('hide-mini-search')
-        window.onresize = () => {
-            this.setState({ isMobile: (window.innerWidth < 550) ? true : false })
-        }
+        if (window.innerWidth < 550) this.setState({ isMobile: true })
     }
 
     componentWillUnmount() {
@@ -67,7 +65,7 @@ class _StayDetails extends Component {
         } = stay
 
         let { imgUrls } = stay
-        imgUrls = (isMobile) ? imgUrls.slice(4) : imgUrls;
+        if (imgUrls) imgUrls = (isMobile) ? imgUrls.slice(4) : imgUrls;
 
         if (!stay) return <Loader />
 

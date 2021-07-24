@@ -19,7 +19,6 @@ export class ImageCarousel extends Component {
         return (
             <section className="image-carousel">
                 <Slider {...settings}>
-
                     {imgsSrc.map((imgSrc, idx) => {
                         return (
                             <div key={idx}>

@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { stayService } from '../services/stay-service'
+import { ImageCarousel } from '../cmps/ImageCarousel.jsx'
 
 import { AssetDetails } from '../cmps/AssetDetails.jsx'
 import { StayRate } from '../cmps/StayRate.jsx'
@@ -59,13 +60,11 @@ class _StayDetails extends Component {
             host,
             capacity,
             houseRules,
+            imgUrls,
             amenities,
             summary,
             reviews
         } = stay
-
-        let { imgUrls } = stay
-        if (imgUrls) imgUrls = (isMobile) ? imgUrls.slice(4) : imgUrls;
 
         if (!stay) return <Loader />
 
@@ -89,16 +88,18 @@ class _StayDetails extends Component {
                     </div>
                 </div>
 
-                {imgUrls && <div className="details-gallery-container">
-                    {imgUrls.map((imgUrl, idx) => {
-                        return <div
-                            key={idx}
-                            className={`details-img-container img-${idx + 1}`}
-                        >
-                            <img src={imgUrl} alt="details" />
-                        </div>
-                    })}
-                </div>}
+                {imgUrls &&
+                    <div className="details-gallery-container">
+                        {isMobile ? <ImageCarousel imgsSrc={imgUrls} />
+                            : imgUrls.map((imgUrl, idx) => {
+                                return <div
+                                    key={idx}
+                                    className={`details-img-container img-${idx + 1}`}
+                                >
+                                    <img src={imgUrl} alt="details" />
+                                </div>
+                            })}
+                    </div>}
 
                 <section className="host-main-container justify-space-between flex">
                     <div className="flex full column">

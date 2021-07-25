@@ -50,7 +50,6 @@ class _StayDetails extends Component {
     }
 
     render() {
-
         const { loggedInUser } = this.props
         const { stay, isMobile } = this.state
         const {
